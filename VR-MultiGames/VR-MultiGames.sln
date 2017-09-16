@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VR-MultiGames.CSharp", "VR-MultiGames.CSharp.csproj", "{4372EA1C-C9C5-137E-C9FC-E17C949E2CF4}"
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VR-MultiGames", "VR-MultiGames.csproj", "{F487C15F-7E8D-850E-F72F-F9302BDBA7FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4372EA1C-C9C5-137E-C9FC-E17C949E2CF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4372EA1C-C9C5-137E-C9FC-E17C949E2CF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4372EA1C-C9C5-137E-C9FC-E17C949E2CF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4372EA1C-C9C5-137E-C9FC-E17C949E2CF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F487C15F-7E8D-850E-F72F-F9302BDBA7FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F487C15F-7E8D-850E-F72F-F9302BDBA7FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F487C15F-7E8D-850E-F72F-F9302BDBA7FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F487C15F-7E8D-850E-F72F-F9302BDBA7FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
