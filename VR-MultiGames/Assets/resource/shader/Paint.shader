@@ -1,8 +1,9 @@
-﻿Shader "Unlit/Outline"
+﻿Shader "Custom/Paint"
 {
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
+		_DrawOnTex ("DrawTexture", 2D) = "White"{}
 	}
 	SubShader
 	{
@@ -34,7 +35,9 @@
 
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
-			
+			sampler2D _DrawOnTex;
+			float4 _DrawOnTex_ST;
+
 			v2f vert (appdata v)
 			{
 				v2f o;
@@ -47,9 +50,11 @@
 			fixed4 frag (v2f i) : SV_Target
 			{
 				// sample the texture
-				fixed4 col = tex2D(_MainTex, i.uv);
-				// apply fog
-				UNITY_APPLY_FOG(i.fogCoord, col);
+				fixed4 mainColor = tex2D(_MainTex, i.uv);
+				fixed4 drawColor = tex2D(_DrawOnTex, i.uv);
+				fixed4 col = lerp(mainColor,drawColor, drawColor.a);
+				col.a = mainColor.a + drawColor.a;
+				
 				return col;
 			}
 			ENDCG
