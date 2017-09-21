@@ -84,12 +84,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\script\GameDefinition.cs" />
     <Compile Include="Assets\script\NewBehaviourScript.cs" />
+    <Compile Include="Assets\script\Paintable.cs" />
+    <Compile Include="Assets\script\PaintableDefinition.cs" />
+    <Compile Include="Assets\script\RaycastClick.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\resource\fbx\readme.txt" />
     <None Include="Assets\resource\material\readme.txt" />
-    <None Include="Assets\resource\shader\Outline.shader" />
+    <None Include="Assets\resource\shader\Paint.shader" />
+    <None Include="Assets\resource\shader\PaintOn.shader" />
     <None Include="Assets\resource\texture\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
