@@ -32,6 +32,7 @@ GameObject:
   - component: {fileID: 11400000}
   - component: {fileID: 11400002}
   - component: {fileID: 11400004}
+  - component: {fileID: 114819822188293128}
   m_Layer: 0
   m_Name: First Person Controller
   m_TagString: Untagged
@@ -87,15 +88,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.764923, y: 3.2578626, z: -74.31389}
+  m_LocalRotation: {x: -0, y: 0.5382638, z: -0, w: -0.8427764}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
   - {fileID: 400004}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 294.869, z: 0}
 --- !u!1002 &400003
 EditorExtensionImpl:
   serializedVersion: 6
@@ -381,3 +382,15 @@ Prefab:
 --- !u!1002 &100100001
 EditorExtensionImpl:
   serializedVersion: 6
+--- !u!114 &114819822188293128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675ffe92aba1bad42893bdbad911c697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookatCamera: {fileID: 2000000}

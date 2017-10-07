@@ -5,23 +5,25 @@ class Paintable : MonoBehaviour
 {
     private Material mat;
     private Texture2D drawTexture;
-    private bool init = false;
+
+	bool init = false;
+
     void Start()
-    {
-        Init();
+	{       
+
     }
 
     public void Init()
     {
-        mat = GetPaintableMaterial(GetComponent<Renderer>().materials);
+		mat = GetPaintableMaterial(GetComponent<Renderer>().materials);
 
-        var mainTex = mat.GetTexture(PaintableDefinition.MainTexture);
+		var mainTex = mat.GetTexture(PaintableDefinition.MainTexture);
 
-        drawTexture = new Texture2D(mainTex.width, mainTex.height);
-        ResetTextureToColor(drawTexture, new Color(0, 0, 0, 0));
+		drawTexture = new Texture2D(640, 640);
+		ResetTextureToColor(drawTexture, new Color(0, 0, 0, 0));
 
-        mat.SetTexture(PaintableDefinition.DrawOnTextureName, drawTexture);
-        init = true;
+		mat.SetTexture(PaintableDefinition.DrawOnTextureName, drawTexture);
+		this.init = true;
     }
 
     private void ResetTextureToColor(Texture2D texture, Color color)
@@ -57,7 +59,7 @@ class Paintable : MonoBehaviour
     }
     public void PaintMapping(Vector2 textureCoord, Texture2D ink, Color randomColor)
     {
-        if (!init || ink.width > drawTexture.width || ink.height > drawTexture.height) return;
+		if (!init) return;
 
         int xOrigin = (int)(textureCoord.x * (drawTexture.width)) - ink.width/2;
         int yOrigin = (int)(textureCoord.y * (drawTexture.height)) - ink.height/2;

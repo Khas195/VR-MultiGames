@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameSettings : MonoBehaviour {
-    [SerializeField]
-    [Range(0, 100)]
-    private float _paintFilPercent = 50;
 
     [SerializeField]
     private int paintWidth;
@@ -13,11 +10,6 @@ public class GameSettings : MonoBehaviour {
     private int paintHeight;
 
     private static GameSettings instance;
-
-    public float PaintFilPercent
-    {
-        get { return _paintFilPercent; }
-    }
 
     public int PaintWidth
     {

@@ -5,8 +5,6 @@ using UnityEngine;
 public class DissolveEffect : MonoBehaviour
 {
     [SerializeField]
-    private Material paintableMaterial;
-    [SerializeField]
     private Material dissolveMat;
     [SerializeField]
     private float speed;
@@ -15,14 +13,9 @@ public class DissolveEffect : MonoBehaviour
 	[SerializeField]
     private float currentY = 0;
     private bool doOnce = false;
-
 	// Use this for initialization
 	void Start () {
-
-	    Debug.Log(dissolveMat.GetShaderPassEnabled("Test"));
-        dissolveMat.SetShaderPassEnabled("Test", false);
-
-	    Debug.Log(dissolveMat.GetShaderPassEnabled("Test"));
+		dissolveMat.SetInt ("_DoDissolve", 1);
     }
 	
 	// Update is called once per frame
@@ -36,11 +29,8 @@ public class DissolveEffect : MonoBehaviour
 	    {
 	        if (!doOnce)
 	        {
-	            Material[] mats = this.GetComponent<Renderer>().materials;
-	            mats[0] = paintableMaterial;
-	            this.GetComponent<Renderer>().materials = mats;
-	            this.GetComponent<Paintable>().Init();
-	            this.GetComponent<Paintable>().enabled = true;
+				dissolveMat.SetInt ("_DoDissolve", 0);
+				this.GetComponent<Paintable> ().Init ();
 	            doOnce = true;
 	        }
 	    }
