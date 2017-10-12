@@ -59,6 +59,7 @@
      <None Include="Assets\resource\shader\Silhouette.shader" />
      <None Include="Assets\resource\shader\Dissolve.shader" />
      <None Include="Assets\resource\shader\Bullet.shader" />
+     <None Include="Assets\HandPaintedWoodenCrate\readme.txt" />
      <None Include="Assets\resource\texture\readme.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/WorkingApps/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

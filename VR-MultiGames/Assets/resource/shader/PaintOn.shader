@@ -1,7 +1,7 @@
 ﻿Shader "Custom/PaintOn" {
 	Properties {
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
-		[HideInInspector]_DrawOnTex("DrawTexture", 2D) = "white"{}
+		_DrawOnTex("DrawTexture", 2D) = ""{}
 
 		_DoDissolve("Trigger Dissolve", int) = 1
 		_DissolveTexture("Dissolve Texture", 2D) = "white"{}
