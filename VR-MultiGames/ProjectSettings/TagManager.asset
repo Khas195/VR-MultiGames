@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Paintable
+  - ClickCamera
   layers:
   - Default
   - TransparentFX

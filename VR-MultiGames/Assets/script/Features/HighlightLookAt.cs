@@ -1,18 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public interface IHighlightable{
-	void TurnOn ();
-	void TurnOff();
-}
-
 public class HighlightLookAt : MonoBehaviour {
 	[SerializeField]
 	Camera lookatCamera;
 
-	IHighlightable curHighlight;
-
 	RaycastHit hit;
+	Glowable current;
 	// Use this for initialization
 	void Start () {
 		
@@ -20,32 +14,26 @@ public class HighlightLookAt : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!Physics.Raycast (lookatCamera.transform.position, lookatCamera.transform.forward, out hit)) {
-			return;
+		if (Ultil.GetObjectCameraIsLookingAt (lookatCamera, out hit)) {
+			var glowable = hit.collider.gameObject.GetComponent<Glowable> ();
+			if (glowable != current) {
+				TurnOffCurGlowable ();
+			}
+
+			if (glowable != null) {
+				glowable.Glow ();
+				current = glowable;
+			}
+		} else {
+			TurnOffCurGlowable ();
 		}
-		var targetHighlight = hit.collider.gameObject.GetComponent<IHighlightable> ();
-
-		if (curHighlight == targetHighlight) {
-			return;
-		}
-
-		if (targetHighlight != null) {
-			targetHighlight.TurnOn ();
-		}
-
-		TurnOffCurHighlight ();
-
-		curHighlight = targetHighlight;
-	}
-	void OnDisable(){
-		TurnOffCurHighlight ();
-		curHighlight = null;
 	}
 
-	void TurnOffCurHighlight ()
+	void TurnOffCurGlowable ()
 	{
-		if (curHighlight != null) {
-			curHighlight.TurnOff ();
+		if (current != null) {
+			current.StopGlow ();
+			current = null;
 		}
 	}
 }

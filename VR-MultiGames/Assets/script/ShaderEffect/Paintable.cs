@@ -5,29 +5,45 @@ using UnityEngine;
 class Paintable : MonoBehaviour
 {
 	[SerializeField]
-	int paintSizeMultiplier = 1;
+	float paintSizeMultiplier = 1;
     private Material mat;
     private Texture2D drawTexture;
 
 	bool init = false;
 
+	float curFill;
+
+	float totalFill;
+
+	public float GetFillPercentage ()
+	{
+		return curFill / totalFill;
+	}
+
     void Start()
 	{       
     }
 
+	public bool HasInit ()
+	{
+		return init;;
+	}
+
     public void Init()
     {
-		mat = GetPaintableMaterial(GetComponent<Renderer>().materials);
+		mat = Ultil.GetMaterialWithShader(GetComponent<Renderer>().materials, PaintableDefinition.PaintableShaderName, name);
 
 		var mainTex = mat.GetTexture(PaintableDefinition.MainTexture);
 		var scaleX = transform.localScale.x;
 		var scaleY = transform.localScale.y;
 		var ratio = scaleX / scaleY;
 
-		drawTexture = new Texture2D(Mathf.RoundToInt(GameSettings.GetInstance().InkSplatSize * ratio * 1/paintSizeMultiplier), GameSettings.GetInstance().InkSplatSize * 1/paintSizeMultiplier);
+		drawTexture = new Texture2D(Mathf.RoundToInt(GameSettings.GetInstance().InkSplatSize * ratio * paintSizeMultiplier)
+			, Mathf.RoundToInt(GameSettings.GetInstance().InkSplatSize * paintSizeMultiplier));
 		ResetTextureToColor(drawTexture, new Color(0, 0, 0, 0));
 
 		mat.SetTexture(PaintableDefinition.DrawOnTextureName, drawTexture);
+		totalFill = drawTexture.width * drawTexture.height;
 		this.init = true;
     }
 
@@ -41,18 +57,6 @@ class Paintable : MonoBehaviour
         texture.SetPixels(colors);
         texture.Apply();
     }
-    private Material GetPaintableMaterial(Material[] materials)
-    {
-        for (int i = 0; i < materials.Length; i++)
-        {
-            if (materials[i].shader.name.Equals(PaintableDefinition.PaintableShaderName))
-            {
-                return materials[i];
-            }
-        }
-        UnityEngine.Debug.LogError("Cannot find Material with Shader " + PaintableDefinition.PaintableShaderName + " for " + name);
-        return GameDefinition.DefaultMaterial;
-    }
 
     public void Update()
     {
@@ -62,19 +66,27 @@ class Paintable : MonoBehaviour
         return (x >= 0 && x < width) && (y >= 0 && y < height)
                && colorIndex < length;
     }
-    public void PaintMapping(Vector2 textureCoord, Texture2D ink, Color randomColor)
+    public bool PaintMapping(Vector2 textureCoord, Texture2D ink, Color randomColor)
     {
-		if (!init) return;
+		if (!init) return false;
 		int xOrigin = (int)(textureCoord.x * (drawTexture.width)) - (ink.width/2);
 		int yOrigin = (int)(textureCoord.y * (drawTexture.height)) - (ink.height/2);
-	
-		Color[] inkColor = ink.GetPixels();
-
-		xOrigin = xOrigin >= 0 ? xOrigin : 0;
-		yOrigin = yOrigin >= 0 ? yOrigin : 0;
 
 		int right = xOrigin + ink.width;
 		int bottom = yOrigin + ink.height;
+
+		var offsetLeft = 0;
+		var offsetBottom = 0;
+
+		if (xOrigin < 0) {
+			offsetLeft *= -1;
+			xOrigin = 0;
+		}
+		if (yOrigin < 0) {
+			offsetBottom *= -1;
+			yOrigin = 0;
+		}
+
 
 		right = right >= drawTexture.width ? drawTexture.width - 1 : right;
 		bottom = bottom >= drawTexture.height ? drawTexture.height - 1 : bottom;
@@ -83,18 +95,24 @@ class Paintable : MonoBehaviour
 		int blockHeight = bottom - yOrigin;
 
 		Color[] colors = drawTexture.GetPixels(xOrigin, yOrigin, blockWidth, blockHeight);
+		Color[] inkColors = ink.GetPixels (offsetLeft, offsetBottom, blockWidth , blockHeight);
 
 		for (int x = 0; x < blockWidth; x++)
 	    {
 			for (int y = 0; y < blockHeight; y++)
 	        {
-				var inkIndex = x  + y * blockWidth;
-				colors[inkIndex] = Color.Lerp(colors[inkIndex], randomColor, inkColor[inkIndex].a);
-				colors[inkIndex].a = inkColor[inkIndex].a + colors[inkIndex].a;
+				
+				var colorIndex = x  + y * blockWidth;
+				if (colors [colorIndex].a <= 0 && inkColors[colorIndex].a > 0) {
+					curFill++;
+				}
+				colors[colorIndex] = Color.Lerp(colors[colorIndex], randomColor, inkColors[colorIndex].a);
+				colors[colorIndex].a = inkColors[colorIndex].a +  colors[colorIndex].a;
 	        }
 	    }
 
 		drawTexture.SetPixels(xOrigin, yOrigin, blockWidth, blockHeight, colors);
         drawTexture.Apply();
+		return true;
     }
 }

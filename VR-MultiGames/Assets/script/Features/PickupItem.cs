@@ -32,18 +32,8 @@ public class PickupItem : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-
 		if (Input.GetKeyDown (trigger)) {
 			HandlePickup ();
-		}
-		if (Input.GetKeyDown(KeyCode.Q)) {
-			if (!Physics.Raycast (lookAtCamera.transform.position, lookAtCamera.transform.forward, out hit))
-				return;
-			var paintable = hit.collider.gameObject.GetComponent<Paintable> ();
-			if (paintable == null)
-				return;
-
-			paintable.PaintMapping (hit.textureCoord2, GameSettings.GetInstance ().GetRandomInk (), Color.red);
 		}
 		if (curPickup != null && Input.GetMouseButtonDown(0)) {
 			Throw ();
@@ -54,7 +44,7 @@ public class PickupItem : MonoBehaviour {
 	{
 		var target = curPickupObject;
 		DropItem ();
-		target.GetComponent<Rigidbody> ().AddForce (Camera.main.transform.forward * throwForce * 10, ForceMode.Impulse);
+		target.GetComponent<Rigidbody> ().AddForce (lookAtCamera.transform.forward * throwForce * 10, ForceMode.Impulse);
 	}
 
 	void HandlePickup ()

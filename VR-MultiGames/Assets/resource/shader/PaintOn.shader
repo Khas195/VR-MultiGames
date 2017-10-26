@@ -1,6 +1,7 @@
 ﻿Shader "Custom/PaintOn" {
 	Properties {
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
+		_NormalMap("Normal Map", 2D) = "" {}
 		_DrawOnTex("DrawTexture", 2D) = ""{}
 
 		_DoDissolve("Trigger Dissolve", int) = 1
@@ -10,7 +11,10 @@
 		_StartingY("Starting Point of the effect", float) = -10
 	}
 	SubShader {
-		Tags { "RenderType"="Opaque" }
+		Tags { 
+		"RenderType"="Opaque"
+		"Glowable" = "True"
+		  }
 		LOD 200
 		
 		CGPROGRAM
@@ -21,7 +25,7 @@
 		#pragma target 3.0
 
 		sampler2D _MainTex;
-
+		sampler2D _NormalMap;
 		sampler2D _DrawOnTex;
 
 		int _DoDissolve;
@@ -31,6 +35,7 @@
 		float _StartingY;
 		struct Input {
 			float2 uv_MainTex;
+			float2 uv_NormalMap;
 			float2 uv2_DrawOnTex;
 			float3 worldPos;
 		};
@@ -61,6 +66,7 @@
 				c.a = mainColor.a + drawColor.a;
 			}
 			o.Albedo = c.rgb;
+			o.Normal = UnpackNormal(tex2D(_NormalMap, IN.uv_NormalMap));
 			o.Alpha = c.a;
 		}
 		ENDCG

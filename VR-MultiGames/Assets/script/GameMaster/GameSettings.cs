@@ -11,6 +11,8 @@ public class GameSettings : MonoBehaviour {
 	[SerializeField]
 	List<Texture2D> inksType;
 	[SerializeField]
+	List<Color> colors;
+	[SerializeField]
 	private int inkSplatSize;
 
 	public int InkSplatSize 
@@ -34,6 +36,14 @@ public class GameSettings : MonoBehaviour {
     {
         return instance;
     }
+
+	public Color GetRandomColor ()
+	{
+		return colors[Random.Range (0, colors.Count)];
+	}
+	public Color GetColorAt(int index){
+		return colors [index];
+	}
 	public Texture2D GetRandomInk(){
 		return inksType[Random.Range (0, inksType.Count)];
 	}

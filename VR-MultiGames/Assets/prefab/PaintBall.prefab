@@ -179,7 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a3982e04e201464cba4c3944affd5a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightedBall: {fileID: 1339323742671728}
+  splashRange: 3
+  effectPrototype: {fileID: 1967062530238220, guid: e317f7ec1f58c944a9afe67756302e05,
+    type: 2}
 --- !u!135 &135401321530615386
 SphereCollider:
   m_ObjectHideFlags: 1
