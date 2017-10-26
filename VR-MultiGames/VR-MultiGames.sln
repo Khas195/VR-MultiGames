@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VR-MultiGames", "Assembly-C
 EndProject
 Project("{4AD06F89-5AF3-6197-CEED-C7D2F5A4243B}") = "VR-MultiGames", "Assembly-UnityScript.unityproj", "{749E16C0-45E6-B556-A3F4-C26C159374AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VR-MultiGames", "Assembly-CSharp-Editor.csproj", "{AA4CB0C4-CB05-6084-6DAA-2ADE781DB9F6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,10 +19,6 @@ Global
 		{749E16C0-45E6-B556-A3F4-C26C159374AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{749E16C0-45E6-B556-A3F4-C26C159374AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{749E16C0-45E6-B556-A3F4-C26C159374AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AA4CB0C4-CB05-6084-6DAA-2ADE781DB9F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AA4CB0C4-CB05-6084-6DAA-2ADE781DB9F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AA4CB0C4-CB05-6084-6DAA-2ADE781DB9F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AA4CB0C4-CB05-6084-6DAA-2ADE781DB9F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
