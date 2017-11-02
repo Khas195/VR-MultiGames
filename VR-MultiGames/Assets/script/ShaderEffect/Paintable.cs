@@ -5,6 +5,8 @@ using UnityEngine;
 class Paintable : MonoBehaviour
 {
 	[SerializeField]
+	bool InitOnStart;
+	[SerializeField]
 	float paintSizeMultiplier = 1;
     private Material mat;
     private Texture2D drawTexture;
@@ -22,6 +24,9 @@ class Paintable : MonoBehaviour
 
     void Start()
 	{       
+		if (InitOnStart) {
+			Init ();
+		}
     }
 
 	public bool HasInit ()
@@ -75,18 +80,17 @@ class Paintable : MonoBehaviour
 		int right = xOrigin + ink.width;
 		int bottom = yOrigin + ink.height;
 
-		var offsetLeft = 0;
-		var offsetBottom = 0;
+		var inkLeft = 0;
+		var inkBottom = 0;
 
 		if (xOrigin < 0) {
-			offsetLeft *= -1;
+			inkLeft = xOrigin * -1;
 			xOrigin = 0;
 		}
 		if (yOrigin < 0) {
-			offsetBottom *= -1;
+			inkBottom = yOrigin * -1;
 			yOrigin = 0;
 		}
-
 
 		right = right >= drawTexture.width ? drawTexture.width - 1 : right;
 		bottom = bottom >= drawTexture.height ? drawTexture.height - 1 : bottom;
@@ -95,7 +99,7 @@ class Paintable : MonoBehaviour
 		int blockHeight = bottom - yOrigin;
 
 		Color[] colors = drawTexture.GetPixels(xOrigin, yOrigin, blockWidth, blockHeight);
-		Color[] inkColors = ink.GetPixels (offsetLeft, offsetBottom, blockWidth , blockHeight);
+		Color[] inkColors = ink.GetPixels (inkLeft, inkBottom, blockWidth , blockHeight);
 
 		for (int x = 0; x < blockWidth; x++)
 	    {

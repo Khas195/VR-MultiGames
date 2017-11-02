@@ -59,11 +59,7 @@ Shader "Hidden/GlowComposite"
 			{
 				fixed4 col = tex2D(_MainTex, i.uv0);
 				fixed4 glow;
-				if (_FullBlur > 0){
-					glow = lerp(0, tex2D(_GlowBlurredTex, i.uv1), _FullBlur);
-				} else {
-					glow = max(0, tex2D(_GlowBlurredTex, i.uv1) - tex2D(_GlowPrePassTex, i.uv1));
-				}
+				glow = max(0, tex2D(_GlowBlurredTex, i.uv1) - tex2D(_GlowPrePassTex, i.uv1));
 				return col + glow * _Intensity;
 			}
 			ENDCG

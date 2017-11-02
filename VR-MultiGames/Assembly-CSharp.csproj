@@ -52,11 +52,14 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\script\Camera\CameraFollow.cs" />
+     <Compile Include="Assets\script\Features\ChangeBallColor.cs" />
      <Compile Include="Assets\script\Features\EffectControl.cs" />
      <Compile Include="Assets\script\Features\HighlightLookAt.cs" />
-     <Compile Include="Assets\script\Features\PaintShooter.cs" />
+     <Compile Include="Assets\script\Features\LaunchPad.cs" />
+     <Compile Include="Assets\script\Features\PaintBall.cs" />
+     <Compile Include="Assets\script\Features\PaintShooter\PaintBallShooter.cs" />
+     <Compile Include="Assets\script\Features\PaintShooter\PaintShooter.cs" />
      <Compile Include="Assets\script\Features\PickupItem.cs" />
-     <Compile Include="Assets\script\Features\ShootBalls.cs" />
      <Compile Include="Assets\script\GameMaster\AmunitionPool.cs" />
      <Compile Include="Assets\script\GameMaster\CustomHotkey.cs" />
      <Compile Include="Assets\script\GameMaster\EffectPool.cs" />
@@ -65,7 +68,6 @@
      <Compile Include="Assets\script\GameMaster\InputReceiver.cs" />
      <Compile Include="Assets\script\GameMaster\Ultility.cs" />
      <Compile Include="Assets\script\MouseLook.cs" />
-     <Compile Include="Assets\script\PaintBall.cs" />
      <Compile Include="Assets\script\RaycastClick.cs" />
      <Compile Include="Assets\script\ShaderEffect\DissolveEffect.cs" />
      <Compile Include="Assets\script\ShaderEffect\HighlightObject\Glowable.cs" />
@@ -85,13 +87,15 @@
      <Compile Include="Assets\script\Ultils\UltilityEvents.cs" />
      <None Include="Assets\resource\shader\PaintOn.shader" />
      <None Include="Assets\resource\shader\GlowReplace.shader" />
+     <None Include="Assets\resource\shader\RollingTransparent.shader" />
      <None Include="Assets\resource\fbx\readme.txt" />
      <None Include="Assets\resource\shader\GlowShader.shader" />
      <None Include="Assets\resource\material\readme.txt" />
      <None Include="Assets\resource\shader\Silhouette.shader" />
      <None Include="Assets\resource\shader\Dissolve.shader" />
      <None Include="Assets\resource\shader\Bullet.shader" />
-     <None Include="Assets\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
+     <None Include="Assets\resource\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
+     <None Include="Assets\resource\shader\Barrier.shader" />
      <None Include="Assets\resource\shader\Blur.shader" />
      <None Include="Assets\resource\shader\GlowComposite.shader" />
      <None Include="Assets\resource\texture\readme.txt" />

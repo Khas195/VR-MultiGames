@@ -55,13 +55,15 @@
      <Compile Include="Assets\script\Character\FPSInputController.js" />
      <None Include="Assets\resource\shader\PaintOn.shader" />
      <None Include="Assets\resource\shader\GlowReplace.shader" />
+     <None Include="Assets\resource\shader\RollingTransparent.shader" />
      <None Include="Assets\resource\fbx\readme.txt" />
      <None Include="Assets\resource\shader\GlowShader.shader" />
      <None Include="Assets\resource\material\readme.txt" />
      <None Include="Assets\resource\shader\Silhouette.shader" />
      <None Include="Assets\resource\shader\Dissolve.shader" />
      <None Include="Assets\resource\shader\Bullet.shader" />
-     <None Include="Assets\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
+     <None Include="Assets\resource\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
+     <None Include="Assets\resource\shader\Barrier.shader" />
      <None Include="Assets\resource\shader\Blur.shader" />
      <None Include="Assets\resource\shader\GlowComposite.shader" />
      <None Include="Assets\resource\texture\readme.txt" />

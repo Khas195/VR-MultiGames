@@ -10,7 +10,12 @@ public class GunColorDisplay : MonoBehaviour {
 	Image crossHair;
 	// Use this for initialization
 	void Start () {
-		
+
+		crossHair.color = Color.red;
+		var tempColor = crossHair.color;
+		tempColor.a = 1;
+		crossHair.color = tempColor;
+		gun.SetGunColor (Color.red);
 	}
 	
 	// Update is called once per frame
@@ -18,9 +23,5 @@ public class GunColorDisplay : MonoBehaviour {
 		
 	}
 	public void OnGunColorChanged(){
-		crossHair.color = gun.GetGunColor ();
-		var tempColor = crossHair.color;
-		tempColor.a = 1;
-		crossHair.color = tempColor;
 	}
 }
