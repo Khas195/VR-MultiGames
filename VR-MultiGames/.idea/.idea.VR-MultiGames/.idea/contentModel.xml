@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\kim_n\.Rider2017.2\system\resharper-host\local\Transient\ReSharperHost\v10\SolutionCaches\_VR-MultiGames.1749049895.00" t="ExcludeRecursive" />
+    <e p="Z:\UnityWorkSpace\VR-MultiGames\VR-MultiGames" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Plugins" t="Include">
+          <e p="Editor" t="Include">
+            <e p="JetBrains" t="Include">
+              <e p="Unity3DRider.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="resource" t="Include">
+          <e p="fbx" t="Include">
+            <e p="readme.txt" t="Include" />
+          </e>
+          <e p="material" t="Include">
+            <e p="readme.txt" t="Include" />
+          </e>
+          <e p="shader" t="Include">
+            <e p="Bullet.shader" t="Include" />
+            <e p="Dissolve.shader" t="Include" />
+            <e p="PaintOn.shader" t="Include" />
+            <e p="Silhouette.shader" t="Include" />
+          </e>
+          <e p="texture" t="Include">
+            <e p="readme.txt" t="Include" />
+          </e>
+        </e>
+        <e p="script" t="Include">
+          <e p="Boid Flocking" t="Include">
+            <e p="BoidController.cs" t="Include" />
+            <e p="BoidMovement.cs" t="Include" />
+          </e>
+          <e p="CameraScript" t="Include">
+            <e p="FirstPerson.cs" t="Include" />
+          </e>
+          <e p="ControllerScript" t="Include">
+            <e p="Controller.cs" t="Include" />
+            <e p="PlayerController.cs" t="Include" />
+          </e>
+          <e p="EditorScript" t="Include">
+            <e p="ReadOnlyAttribute.cs" t="Include" />
+          </e>
+          <e p="Features" t="Include">
+            <e p="HighlightLookAt.cs" t="Include" />
+            <e p="PickupItem.cs" t="Include" />
+          </e>
+          <e p="FSM" t="Include">
+            <e p="Action.cs" t="Include" />
+            <e p="ChaseAction.cs" t="Include" />
+            <e p="Decision.cs" t="Include" />
+            <e p="LookDecision.cs" t="Include" />
+            <e p="PatrolAction.cs" t="Include" />
+            <e p="State.cs" t="Include" />
+            <e p="StateController.cs" t="Include" />
+            <e p="Transition.cs" t="Include" />
+          </e>
+          <e p="GameMaster" t="Include">
+            <e p="GameDefinition.cs" t="Include" />
+            <e p="GameSettings.cs" t="Include" />
+            <e p="Ultility.cs" t="Include" />
+          </e>
+          <e p="MouseLook.cs" t="Include" />
+          <e p="MovementScript" t="Include">
+            <e p="MockMovement.cs" t="Include" />
+            <e p="Movement.cs" t="Include" />
+            <e p="SimpleMovement.cs" t="Include" />
+          </e>
+          <e p="PaintBall.cs" t="Include" />
+          <e p="RaycastClick.cs" t="Include" />
+          <e p="ShaderEffect" t="Include">
+            <e p="DissolveEffect.cs" t="Include" />
+            <e p="Paintable.cs" t="Include" />
+            <e p="PaintableDefinition.cs" t="Include" />
+          </e>
+          <e p="Ultils" t="Include">
+            <e p="StateMachine.cs" t="Include" />
+            <e p="UltilityEvents.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+      <e p="VR-MultiGames.sln" t="IncludeFlat" />
+    </e>
+  </component>
+  <component name="RiderRiderContentModelStore">
+    <excludedPaths>
+      <Path>Temp</Path>
+      <Path>Library</Path>
+    </excludedPaths>
+  </component>
+</project>
