@@ -39,4 +39,28 @@ public static class Ultil  {
 		UnityEngine.Debug.LogError("Cannot find Material with Shader " + shaderName + " for " + callerName);
 		return GameDefinition.DefaultMaterial;
 	}
+
+	///////////// QUADRATIC EASING: t^2 ///////////////////
+
+	/// <summary>
+	// quadratic easing in - accelerating from zero velocity
+	// t: current time, b: beginning value, c: change in value, d: duration
+	// t and d can be in frames or seconds/milliseconds
+	/// </summary>
+	public static float EaseInQuad (float t,float b,float c,float d) {
+		return c*(t/=d)*t + b;
+	}
+
+	// quadratic easing out - decelerating to zero velocity
+	public static float EaseOutQuad (float t,float b,float c,float d) {
+		return -c *(t/=d)*(t-2) + b;
+	}
+
+	// quadratic easing in/out - acceleration until halfway, then deceleration
+	public static float EaseInOutQuad (float t,float b,float c,float d) {
+		if ((t/=d/2) < 1) return c/2*t*t + b;
+		return -c/2 * ((--t)*(t-2) - 1) + b;
+	}
+
+
 }
