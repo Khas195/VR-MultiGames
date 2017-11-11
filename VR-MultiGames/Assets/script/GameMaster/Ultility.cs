@@ -36,8 +36,8 @@ public static class Ultil  {
 				return materials[i];
 			}
 		}
-		UnityEngine.Debug.LogError("Cannot find Material with Shader " + shaderName + " for " + callerName);
-		return GameDefinition.DefaultMaterial;
+		UnityEngine.Debug.Log("Cannot find Material with Shader " + shaderName + " for " + callerName);
+		return null;
 	}
 
 	///////////// QUADRATIC EASING: t^2 ///////////////////

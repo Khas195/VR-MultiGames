@@ -6,6 +6,10 @@ namespace Assets.script
 {
 	public class PaintableDefinition : MonoBehaviour
     {
+		public static string  DrawOnHeigtMap = "_ParallaxMap";
+
+		public static string DrawOnNormalMap = "_PaintNormal";
+
 		public static string ColorProperty = "_Color";
 
 		public static string BulletShader = "Custom/Bullet";

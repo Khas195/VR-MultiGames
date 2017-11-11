@@ -89,8 +89,8 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DissolveSize: 10
-    - _DissolveY: 39.922184
-    - _DoDissolve: 0
+    - _DissolveY: 36.875797
+    - _DoDissolve: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5

@@ -3,34 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameSettings : MonoBehaviour {
-
-    [SerializeField]
-    private int paintWidth;
-    [SerializeField]
-    private int paintHeight;
+	[SerializeField]
+	private int numberOfSplash;
 	[SerializeField]
 	List<Texture2D> inksType;
 	[SerializeField]
 	List<Color> colors;
 	[SerializeField]
-	private int inkSplatSize;
+	private int inkSheetSize;
 
-	public int InkSplatSize 
+	public int NumberOfSplash 
 	{
-		get{ return inkSplatSize; }
+		get{ return numberOfSplash; }
+	}
+	public int InkSheetSize 
+	{
+		get{ return inkSheetSize; }
 	}
 
     private static GameSettings instance;
-
-    public int PaintWidth
-    {
-        get { return paintWidth; }
-    }
-
-    public int PaintHeight
-    {
-        get { return paintHeight; }
-    }
 
     public static GameSettings GetInstance()
     {

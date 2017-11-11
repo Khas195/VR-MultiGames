@@ -65,7 +65,7 @@ public class PaintBall : MonoBehaviour {
 		}
 
 
-		for (int i = 0; i < 14; ++i) {
+		for (int i = 0; i < GameSettings.GetInstance().NumberOfSplash; ++i) {
 			result = TryShootPaint (transform.position, transform.TransformDirection(Random.onUnitSphere * splashRange)); 
 			if (result != null) {
 				painted.Add (result);

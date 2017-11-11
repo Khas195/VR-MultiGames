@@ -1,29 +1,32 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\Features\Movement\TweenTo.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\ShaderEffect\Paintable.cs">
     <Files>
-      <File FileName="Assets\script\Features\Movement\TweenTo.cs" Line="39" Column="3" />
-      <File FileName="Assets\script\Features\TestingScript.cs" Line="21" Column="21" />
-      <File FileName="Assets\script\ShaderEffect\HighlightObject\GlowComposite.cs" Line="17" Column="1" />
-      <File FileName="Assets\script\Features\PaintFillEvent.cs" Line="23" Column="1" />
-      <File FileName="Assets\script\ShaderEffect\Paintable.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\ShaderEffect\DissolveEffect.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\Ultils\UltilityEvents.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\GameMaster\Ultility.cs" Line="54" Column="52" />
+      <File FileName="Assets\script\GameMaster\GameSettings.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\Features\PaintBall.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\ShaderEffect\PaintableDefinition.cs" Line="9" Column="57" />
+      <File FileName="Assets\script\ShaderEffect\Paintable.cs" Line="34" Column="25" />
+      <File FileName="Assets\resource\shader\PaintOn.shader" Line="49" Column="65" />
+      <File FileName="Assets\script\GameMaster\Ultility.cs" Line="1" Column="1" />
+      <File FileName="Assets\Normal-Parallax.shader" Line="1" Column="1" />
+      <File FileName="Assets\script\UI\ColorUpdate.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\Features\PaintFillEvent.cs" Line="31" Column="26" />
+      <File FileName="Assets\script\ShaderEffect\HighlightObject\Glowable.cs" Line="4" Column="1" />
+      <File FileName="Assets\script\Features\Movement\TweenTo.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\Features\Movement\MoveAlong.cs" Line="22" Column="104" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
         <State>
-          <Value>time</Value>
-          <Value>startTime </Value>
-          <Value>duration</Value>
-          <Value>Time.time - startTime </Value>
+          <Value>ColorDifference (color, targetColor)</Value>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Projects\Unity\VR-MultiGames\VR-MultiGames\Assets\script\ShaderEffect\Paintable.cs" line="143" column="23" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

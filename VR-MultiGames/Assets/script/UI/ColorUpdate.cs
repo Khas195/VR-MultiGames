@@ -11,6 +11,7 @@ public class ColorUpdate : MonoBehaviour {
 
 	RaycastHit hit;
 	Paintable target;
+	PaintFillEvent fillEvent;
 	// Use this for initialization
 	void Start () {
 		
@@ -30,11 +31,13 @@ public class ColorUpdate : MonoBehaviour {
 			var glowable = hit.collider.gameObject.GetComponent<Glowable> ();
 			if (glowable != null) {
 				if (paintable != null) {
-					target = paintable;SetTextVisibility (1);			
+					target = paintable;
+					fillEvent = hit.collider.gameObject.GetComponent<PaintFillEvent> ();
+					SetTextVisibility (1);			
 				}
 			} else {
 				target = null;
-				target = paintable;SetTextVisibility (0);
+				SetTextVisibility (0);
 			}
 		}
 		UpdateTargetFillPercentage ();
@@ -44,7 +47,7 @@ public class ColorUpdate : MonoBehaviour {
 	{
 		if (target != null) {
 			if (target.HasInit ()) {
-				redText.text =target.gameObject.name + " : " + Mathf.Floor (target.GetFillPercentage () * 100).ToString () + "%";
+				redText.text =target.gameObject.name + " : " + Mathf.Floor (Mathf.Clamp01(target.GetFillPercentage ()/fillEvent.GetTargetPercent() ) * 100).ToString () + "%";
 			}
 		}
 	}

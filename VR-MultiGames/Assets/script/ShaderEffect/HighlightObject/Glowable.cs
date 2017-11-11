@@ -30,9 +30,11 @@ public class Glowable : MonoBehaviour {
 			_materials.AddRange(renderer.materials);
 		}
 	}
-
+	bool glowable = true;
 	public void Glow()
 	{
+		if (!glowable)
+			return;
 		_targetColor = GlowColor;
 		enabled = true;
 	}
@@ -40,9 +42,11 @@ public class Glowable : MonoBehaviour {
 	public void StopGlow()
 	{
 		_targetColor = Color.black;
-		enabled = true;
+		enabled = false;
 	}   
-
+	public void NolongerGlow(){
+		glowable = false;
+	}
 	/// <summary>
 	/// Loop over all cached materials and update their color, disable self if we reach our target color.
 	/// </summary>

@@ -25,4 +25,9 @@ public class PaintFillEvent : MonoBehaviour {
 			fillReachTarget.Invoke ();
 		}
 	}
+
+	public float GetTargetPercent ()
+	{
+		return targetPercentage / 100.0f;
+	}
 }
