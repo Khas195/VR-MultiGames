@@ -42,7 +42,7 @@ public class Glowable : MonoBehaviour {
 	public void StopGlow()
 	{
 		_targetColor = Color.black;
-		enabled = false;
+		enabled = true;
 	}   
 	public void NolongerGlow(){
 		glowable = false;
