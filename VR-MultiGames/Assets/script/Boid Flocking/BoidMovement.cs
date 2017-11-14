@@ -48,10 +48,6 @@ namespace script.Boid_Flocking
 				direction.Normalize();
 			}
 
-			GroundCheck();
-
-			if (!IsGrounded) return;
-
 			_rigidbody.AddForce(direction * Speed, ForceMode.Impulse);
 
 			if (_rigidbody.velocity.magnitude > MaxSpeed)

@@ -9,8 +9,8 @@ namespace script.ControllerScript
 	{
 		[SerializeField] protected List<Movement> MovementList;
 
-		[SerializeField]
-		public bool AllowMultipleMovements;
+		[SerializeField] public bool AllowMultipleMovements;
+		public Rigidbody RigidBody { get; protected set; }
 
 		protected Controller(bool allowMultipleMovements=false)
 		{
@@ -33,6 +33,8 @@ namespace script.ControllerScript
 			{
 				movement.SetController(this);
 			}
+
+			RigidBody = GetComponent<Rigidbody>();
 		}
 
 		private void OnEnable()

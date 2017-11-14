@@ -10,30 +10,36 @@ namespace script.Boid_Flocking
 		[SerializeField] private float _areaOfInterest;
 		[SerializeField] private List<GameObject> _neighbourList;
 		[SerializeField] private List<Collider> _obstacleList;
+		[SerializeField] private Transform _target;
 
-		private Rigidbody _rigidbody;
 		private Vector3 _aligmentForce;
 		private Vector3 _cohesionForce;
 		private Vector3 _separationForce;
 		private Vector3 _avoidanceForce;
 		
-		private void Start()
-		{
-			_rigidbody = GetComponent<Rigidbody>();
-		}
-
+		private float _aligmentWeight = 0.2f;
+		private float _cohensionWeight = 0.2f;
+		private float _separationWeight = 0.3f;
+		private float _avoidanceWeight = 0.3f;
+		private float _targetWeight = 0.3f;
+		
 		private void FixedUpdate()
 		{
 			CheckNeighbour();
-			_aligmentForce = Alignment(_neighbourList);
-			_cohesionForce = Cohesion(_neighbourList);
-			_separationForce = Separation(_neighbourList);
-			_avoidanceForce = AvoidanceObstacle(_obstacleList);
+			_aligmentForce = Alignment(_neighbourList).normalized * _aligmentWeight;
+			_cohesionForce = Cohesion(_neighbourList).normalized * _cohensionWeight;
+			_separationForce = Separation(_neighbourList).normalized * _separationWeight;
+			_avoidanceForce = AvoidanceObstacle(_obstacleList).normalized * _avoidanceWeight;
 			
-			Vector3 newVec = _aligmentForce.normalized +
-			                 _cohesionForce.normalized + 
-			                 _separationForce.normalized + 
-			                 _avoidanceForce.normalized;
+			Vector3 newVec = _aligmentForce +
+			                 _cohesionForce + 
+			                 _separationForce + 
+			                 _avoidanceForce;
+
+			if (_target != null)
+			{
+				newVec += (_target.position - transform.position).normalized * _targetWeight;
+			}
 			
 			foreach (var movement in MovementList)
 			{
@@ -83,16 +89,16 @@ namespace script.Boid_Flocking
 
 			foreach (var neighbour in neighbourList)
 			{
-				Vector3 temp = neighbour.transform.position - this.transform.position;
+				Vector3 temp = transform.position - neighbour.transform.position;
 
 				if (temp.magnitude <= _minDistance)
 				{
 					++tooCloseNeighbour;
-					newDir += temp;
+					newDir += temp.normalized * _minDistance / temp.magnitude;
 				}
 			}
 			newDir /= tooCloseNeighbour;
-			return newDir * -1;
+			return newDir;
 		}
 
 		private Vector3 AvoidanceObstacle(List<Collider> obstacleList)
@@ -104,16 +110,16 @@ namespace script.Boid_Flocking
 
 			foreach (var obstacle in obstacleList)
 			{
-				Vector3 temp = obstacle.ClosestPointOnBounds(transform.position) - transform.position;
+				Vector3 temp = transform.position - obstacle.ClosestPointOnBounds(transform.position);
 
 				if (temp.magnitude <= _minDistance)
 				{
 					++tooCloseObstacle;
-					newDir += temp;
+					newDir += temp.normalized * _minDistance / temp.magnitude;
 				}
 			}
 			newDir /= tooCloseObstacle;
-			return newDir * -1;
+			return newDir;
 		}
 
 		private void CheckNeighbour()
@@ -139,7 +145,6 @@ namespace script.Boid_Flocking
 		private void OnDrawGizmos()
 		{
 			Gizmos.color = Color.green;
-			Gizmos.DrawWireSphere(transform.position, _areaOfInterest);
 			Gizmos.DrawLine(transform.position, transform.position + _aligmentForce);
 			
 			Gizmos.color = Color.blue;
@@ -148,10 +153,17 @@ namespace script.Boid_Flocking
 			Gizmos.color = Color.red;
 			Gizmos.DrawLine(transform.position, transform.position + _separationForce);
 
-			Gizmos.DrawWireSphere(transform.position, _minDistance);
 			
 			Gizmos.color = Color.gray;
 			Gizmos.DrawLine(transform.position, transform.position + _avoidanceForce);
+		}
+
+		private void OnDrawGizmosSelected()
+		{
+			Gizmos.color = Color.green;
+			Gizmos.DrawWireSphere(transform.position, _areaOfInterest);
+			Gizmos.color = Color.red;
+			Gizmos.DrawWireSphere(transform.position, _minDistance);
 		}
 	}
 }
