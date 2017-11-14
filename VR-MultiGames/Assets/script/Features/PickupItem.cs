@@ -20,32 +20,41 @@ public class PickupItem : MonoBehaviour {
 	public ItemPickupEvent OnItemPickup;
 	[SerializeField]
 	public ItemDropEvent OnItemDrop;
-
+	[SerializeField]
+	float throwForce;
 	IPickupable curPickup;
 	GameObject curPickupObject;
 	RaycastHit hit;
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		HandlePickup ();
+		if (Input.GetKeyDown (trigger)) {
+			HandlePickup ();
+		}
+		if (curPickup != null && Input.GetMouseButtonDown(0)) {
+			Throw ();
+		}
+	}
+
+	void Throw ()
+	{
+		var target = curPickupObject;
+		DropItem ();
+		target.GetComponent<Rigidbody> ().AddForce (lookAtCamera.transform.forward * throwForce * 10, ForceMode.Impulse);
 	}
 
 	void HandlePickup ()
 	{
-		if (!Input.GetKeyDown (trigger))
-			return;
 		if (curPickup == null) {
 			Pickup ();
 		} else {
 			DropItem ();
 		}
 	}
-
 	void Pickup ()
 	{
 		if (!Physics.Raycast (lookAtCamera.transform.position, lookAtCamera.transform.forward, out hit))

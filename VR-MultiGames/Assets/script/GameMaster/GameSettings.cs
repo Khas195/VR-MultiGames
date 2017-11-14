@@ -3,29 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameSettings : MonoBehaviour {
+	[SerializeField]
+	private int numberOfSplash;
+	[SerializeField]
+	List<Texture2D> inksType;
+	[SerializeField]
+	List<Color> colors;
+	[SerializeField]
+	private int inkSheetSize;
 
-    [SerializeField]
-    private int paintWidth;
-    [SerializeField]
-    private int paintHeight;
+	public int NumberOfSplash 
+	{
+		get{ return numberOfSplash; }
+	}
+	public int InkSheetSize 
+	{
+		get{ return inkSheetSize; }
+	}
 
     private static GameSettings instance;
-
-    public int PaintWidth
-    {
-        get { return paintWidth; }
-    }
-
-    public int PaintHeight
-    {
-        get { return paintHeight; }
-    }
 
     public static GameSettings GetInstance()
     {
         return instance;
     }
 
+	public Color GetRandomColor ()
+	{
+		return colors[Random.Range (0, colors.Count)];
+	}
+	public Color GetColorAt(int index){
+		return colors [index];
+	}
+	public Texture2D GetRandomInk(){
+		return inksType[Random.Range (0, inksType.Count)];
+	}
     void Awake()
     {
         instance = this;

@@ -1,28 +1,68 @@
 using System;
 using Assets.script;
 using UnityEngine;
+using System.Collections.Generic;
 class Paintable : MonoBehaviour
 {
+	[SerializeField]
+	bool InitOnStart;
     private Material mat;
-    private Texture2D drawTexture;
+	private Texture2D drawTexture;
+	private Texture2D normalMap;
+	private Texture2D heightMap;
+
+	[SerializeField]
+	int drawTextureSize;
 
 	bool init = false;
 
+	float curFill;
+
+	float totalFill;
+
+	Color targetColor;
+
+	public float GetFillPercentage ()
+	{
+		return curFill / totalFill;
+	}
+
     void Start()
 	{       
-
+		if (this.GetComponent<Glowable> ()) {
+			targetColor = this.GetComponent<Glowable> ().GlowColor;
+			targetColor.a = 1.0f;
+		}
+//		Vector2[,] fractals = new Vector2[100,100];
+//		TestFractals (fractals, 0, 100, 0, 100,5);
+		if (InitOnStart) {
+			Init ();
+		}
     }
+
+	public bool HasInit ()
+	{
+		return init;;
+	}
 
     public void Init()
     {
-		mat = GetPaintableMaterial(GetComponent<Renderer>().materials);
+		// 640 sheet on a 10 scaled object
+		// ??? sheet on a 20 scaled Object
+		mat = Ultil.GetMaterialWithShader(GetComponent<Renderer>().materials, PaintableDefinition.PaintableShaderName, name);
 
-		var mainTex = mat.GetTexture(PaintableDefinition.MainTexture);
+		drawTexture = new Texture2D (drawTextureSize, drawTextureSize);
+		normalMap = new Texture2D (drawTextureSize, drawTextureSize);
+		heightMap = new Texture2D (drawTextureSize, drawTextureSize);
 
-		drawTexture = new Texture2D(640, 640);
 		ResetTextureToColor(drawTexture, new Color(0, 0, 0, 0));
+		ResetTextureToColor(normalMap, new Color(0.5f, 0.5f, 1, 0));
+		ResetTextureToColor(heightMap,new Color(0, 0, 0, 0));
 
 		mat.SetTexture(PaintableDefinition.DrawOnTextureName, drawTexture);
+		mat.SetTexture(PaintableDefinition.DrawOnNormalMap, normalMap);
+		mat.SetTexture(PaintableDefinition.DrawOnHeigtMap, heightMap);
+		totalFill = drawTexture.width * drawTexture.height;
 		this.init = true;
     }
 
@@ -36,51 +76,93 @@ class Paintable : MonoBehaviour
         texture.SetPixels(colors);
         texture.Apply();
     }
-    private Material GetPaintableMaterial(Material[] materials)
-    {
-        for (int i = 0; i < materials.Length; i++)
-        {
-            if (materials[i].shader.name.Equals(PaintableDefinition.PaintableShaderName))
-            {
-                return materials[i];
-            }
-        }
-        Debug.LogError("Cannot find Material with Shader " + PaintableDefinition.PaintableShaderName + " for " + name);
-        return GameDefinition.DefaultMaterial;
-    }
-
-    public void Update()
-    {
-    }
     private bool IsPositionValid(int x, int y, int colorIndex, int length, int width, int height)
     {
         return (x >= 0 && x < width) && (y >= 0 && y < height)
                && colorIndex < length;
     }
-    public void PaintMapping(Vector2 textureCoord, Texture2D ink, Color randomColor)
+		
+
+	public void FullFill(){
+
+		Color[] colors = drawTexture.GetPixels ();
+		for (int i = 0; i < colors.GetLength (0); ++i) {
+			colors [i] = targetColor;
+		}
+		drawTexture.SetPixels (colors);
+		drawTexture.Apply ();
+	}
+
+	float ColorDifference (Color colorToCheck, Color targetColor)
+	{
+		return Mathf.Sqrt (Mathf.Pow (colorToCheck.r - targetColor.r, 2) + Mathf.Pow (colorToCheck.b - targetColor.b, 2) + Mathf.Pow (colorToCheck.g - targetColor.g, 2));
+	}
+
+    public bool PaintMapping(Vector2 textureCoord, Texture2D ink, Color color)
     {
-		if (!init) return;
+		if (!init || !this.enabled) return false;
+		int xOrigin = (int)(textureCoord.x * (drawTexture.width)) - (ink.width/2);
+		int yOrigin = (int)(textureCoord.y * (drawTexture.height)) - (ink.height/2);
 
-        int xOrigin = (int)(textureCoord.x * (drawTexture.width)) - ink.width/2;
-        int yOrigin = (int)(textureCoord.y * (drawTexture.height)) - ink.height/2;
-        Color[] colors = drawTexture.GetPixels();
-        Color[] inkColor = ink.GetPixels();
-        for (int x = 0; x < ink.width; x++)
-        {
-            for (int y = 0; y < ink.height; y++)
-            {
-                var drawIndex = (x + xOrigin) + (y + yOrigin) * drawTexture.height;
-                var inkIndex = x + y * ink.height;
-                if (!IsPositionValid(x + xOrigin, y + yOrigin, drawIndex, colors.Length, drawTexture.width, drawTexture.height) ) continue;
+		int right = xOrigin + ink.width;
+		int bottom = yOrigin + ink.height;
 
-                if (inkColor[inkIndex].a > 0)
-                {
-                    colors[drawIndex] = (randomColor * inkColor[inkIndex]);
-                    colors[drawIndex].a = 1;
-                }
-            }
-        }
-        drawTexture.SetPixels(colors);
+		var inkLeft = 0;
+		var inkBottom = 0;
+
+		if (xOrigin < 0) {
+			inkLeft = xOrigin * -1;
+			xOrigin = 0;
+		}
+		if (yOrigin < 0) {
+			inkBottom = yOrigin * -1;
+			yOrigin = 0;
+		}
+
+		right = right >= drawTexture.width ? drawTexture.width - 1 : right;
+		bottom = bottom >= drawTexture.height ? drawTexture.height - 1 : bottom;
+		int blockWidth = right - xOrigin;
+		int blockHeight = bottom - yOrigin;
+
+		Color[] colors = drawTexture.GetPixels(xOrigin, yOrigin, blockWidth, blockHeight);
+		Color[] normals = normalMap.GetPixels(xOrigin, yOrigin, blockWidth, blockHeight);
+		Color[] heights = heightMap.GetPixels(xOrigin, yOrigin, blockWidth, blockHeight);
+
+		Color[] inkColors = ink.GetPixels (inkLeft, inkBottom, blockWidth , blockHeight);
+
+		for (int x = 0; x < blockWidth; x++)
+	    {
+			for (int y = 0; y < blockHeight; y++)
+	        {
+				var colorIndex = x  + y * blockWidth;
+
+				if (inkColors [colorIndex].a == 0) {
+					continue;
+				}
+				if (colors [colorIndex].a <= 0 && inkColors[colorIndex].a > 0) {
+					if (ColorDifference (color, targetColor) < 0.5f) {
+						curFill++;
+					} else {
+						curFill--;
+					}
+				}
+				colors[colorIndex] = Color.Lerp(colors[colorIndex], color, inkColors[colorIndex].a);
+
+
+
+				colors [colorIndex].a = colors [colorIndex].a + inkColors [colorIndex].a;
+				if (inkColors [colorIndex].a > 0) {
+					var average = (inkColors [colorIndex].r + inkColors [colorIndex].b + inkColors [colorIndex].g)/3.0f;
+					normals [colorIndex] = new Color (average,  average, average, 1);
+				}
+	        }
+		}
+		heightMap.SetPixels(xOrigin, yOrigin, blockWidth, blockHeight, heights);
+		heightMap.Apply ();
+		normalMap.SetPixels(xOrigin, yOrigin, blockWidth, blockHeight, normals);
+		normalMap.Apply ();
+		drawTexture.SetPixels(xOrigin, yOrigin, blockWidth, blockHeight, colors);
         drawTexture.Apply();
+		return true;
     }
 }
