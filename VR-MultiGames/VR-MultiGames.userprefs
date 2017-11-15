@@ -1,28 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\ShaderEffect\Paintable.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\MagicMirror\Demo\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader">
     <Files>
-      <File FileName="Assets\script\GameMaster\GameSettings.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\Features\PaintBall.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\ShaderEffect\PaintableDefinition.cs" Line="9" Column="57" />
-      <File FileName="Assets\script\ShaderEffect\Paintable.cs" Line="125" Column="16" />
-      <File FileName="Assets\resource\shader\PaintOn.shader" Line="49" Column="65" />
-      <File FileName="Assets\script\GameMaster\Ultility.cs" Line="1" Column="1" />
-      <File FileName="Assets\Normal-Parallax.shader" Line="1" Column="1" />
-      <File FileName="Assets\script\UI\ColorUpdate.cs" Line="13" Column="10" />
-      <File FileName="Assets\script\Features\PaintFillEvent.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\ShaderEffect\HighlightObject\Glowable.cs" Line="52" Column="16" />
-      <File FileName="Assets\script\Features\Movement\TweenTo.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\Features\Movement\MoveAlong.cs" Line="22" Column="104" />
-      <File FileName="Assets\script\Features\HighlightLookAt.cs" Line="35" Column="17" />
+      <File FileName="Assets\script\ShaderEffect\Paintable.cs" Line="124" Column="63" />
+      <File FileName="Assets\resource\shader\PaintOn.shader" Line="85" Column="8" />
+      <File FileName="Assets\MagicMirror\Demo\Standard Assets\Environment\Water\Water\Shaders\FXWaterPro.shader" Line="12" Column="57" />
     </Files>
-    <Pads>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State>
-          <Value>ColorDifference (color, targetColor)</Value>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

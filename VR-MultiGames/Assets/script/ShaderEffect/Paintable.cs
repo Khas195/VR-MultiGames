@@ -121,7 +121,7 @@ class Paintable : MonoBehaviour
 				dstColors [colorIndex].a = dstColors [colorIndex].a + srcColors [colorIndex].a;
 				if (srcColors [colorIndex].a > 0) {
 					var average = (srcColors [colorIndex].r + srcColors [colorIndex].b + srcColors [colorIndex].g) / 3.0f;
-					normals [colorIndex] = new Color (average, average, average, 1);
+					normals [colorIndex] = new Color (average, average, 1, 1);
 				}
 			}
 		}
