@@ -1,38 +1,48 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[ExecuteInEditMode]
 public class DissolveEffect : MonoBehaviour
 {
     [SerializeField]
-    private Material dissolveMat;
-    [SerializeField]
-    private float speed;
-    [SerializeField]
-    private float max;
+    private Shader dissolveShader;
 	[SerializeField]
-    private float currentY = 0;
-    private bool doOnce = false;
+	float dissolveSize;
+	[SerializeField]
+	float currentY;
+	[SerializeField]
+	float dissolveMax;
+	[SerializeField]
+	float duration;
+	[SerializeField]
+	float startDissolve;
+	[SerializeField]
+	Texture2D dissolveTexture;
+
+	float speed;
 	// Use this for initialization
 	void Start () {
-		dissolveMat.SetInt ("_DoDissolve", 1);
     }
-	
+	void OnEnable(){
+		if (dissolveShader != null) {
+			this.GetComponent<Camera> ().SetReplacementShader (dissolveShader, "RenderType");
+			Shader.SetGlobalFloat ("_DissolveY", currentY);
+			Shader.SetGlobalFloat("_StartingY", startDissolve);
+			Shader.SetGlobalFloat("_DissolveSize", dissolveSize);
+			Shader.SetGlobalTexture("_DissolveTexture", dissolveTexture);
+		}
+		currentY = startDissolve;
+		speed = (dissolveMax - startDissolve) / duration;
+	}
+	void OnDisable(){
+		this.GetComponent<Camera> ().ResetReplacementShader ();
+	}
 	// Update is called once per frame
 	void Update () {
-	    if (currentY < max)
-	    {
-	        dissolveMat.SetFloat("_DissolveY", currentY);
-	        currentY += Time.deltaTime * speed;
-	    }
-	    else
-	    {
-	        if (!doOnce)
-	        {
-				dissolveMat.SetInt ("_DoDissolve", 0);
-				this.GetComponent<Paintable> ().Init ();
-	            doOnce = true;
-	        }
-	    }
+		currentY += speed * Time.deltaTime;
+		Shader.SetGlobalFloat ("_DissolveY", currentY);
+		if (currentY >= dissolveMax) {
+			this.enabled = false;
+		}
 	}
 }

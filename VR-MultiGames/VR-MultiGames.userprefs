@@ -1,13 +1,28 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\PaintBall.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\ShaderEffect\Paintable.cs">
     <Files>
-      <File FileName="Assets\script\Ultils\StateMachine.cs" Line="1" Column="1" />
-      <File FileName="Assets\script\PaintBall.cs" Line="56" Column="3" />
-      <File FileName="Assets\script\Features\HighlightLookAt.cs" Line="44" Column="2" />
-      <File FileName="Assets\script\Features\PickupItem.cs" Line="50" Column="3" />
-      <File FileName="Assets\script\Ultils\UltilityEvents.cs" Line="11" Column="27" />
+      <File FileName="Assets\script\GameMaster\GameSettings.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\Features\PaintBall.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\ShaderEffect\PaintableDefinition.cs" Line="9" Column="57" />
+      <File FileName="Assets\script\ShaderEffect\Paintable.cs" Line="125" Column="16" />
+      <File FileName="Assets\resource\shader\PaintOn.shader" Line="49" Column="65" />
+      <File FileName="Assets\script\GameMaster\Ultility.cs" Line="1" Column="1" />
+      <File FileName="Assets\Normal-Parallax.shader" Line="1" Column="1" />
+      <File FileName="Assets\script\UI\ColorUpdate.cs" Line="13" Column="10" />
+      <File FileName="Assets\script\Features\PaintFillEvent.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\ShaderEffect\HighlightObject\Glowable.cs" Line="52" Column="16" />
+      <File FileName="Assets\script\Features\Movement\TweenTo.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\Features\Movement\MoveAlong.cs" Line="22" Column="104" />
+      <File FileName="Assets\script\Features\HighlightLookAt.cs" Line="35" Column="17" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State>
+          <Value>ColorDifference (color, targetColor)</Value>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
