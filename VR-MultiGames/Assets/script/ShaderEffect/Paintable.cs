@@ -32,10 +32,7 @@ class Paintable : MonoBehaviour
 
     void Start()
 	{       
-		if (this.GetComponent<Glowable> ()) {
-			targetColor = this.GetComponent<Glowable> ().GlowColor;
-			targetColor.a = 1.0f;
-		}
+		
 		mat = Ultil.GetMaterialWithShader(GetComponent<Renderer>().materials, PaintableDefinition.PaintableShaderName, name);
 
 		drawTexture = new Texture2D (drawTextureSize, drawTextureSize);
@@ -94,13 +91,57 @@ class Paintable : MonoBehaviour
     public bool PaintMapping(Vector2 textureCoord, Texture2D ink, Color color)
     {
 		if (!init || !this.enabled) return false;
+		if (this.GetComponent<Glowable> ()) {
+			targetColor = this.GetComponent<Glowable> ().GlowColor;
+			targetColor.a = 1.0f;
+		}
+		int xOrigin;
+		int yOrigin;
+		int inkLeft;
+		int inkBottom;
+		int blockWidth;
+		int blockHeight;
 
-		int xOrigin = (int)(textureCoord.x * (drawTexture.width)) - (ink.width / 2);
-		int yOrigin = (int)(textureCoord.y * (drawTexture.height)) - (ink.height / 2);
+		CalculatePaintBlock (textureCoord, ink,out xOrigin, out yOrigin, out inkLeft, out inkBottom, out blockWidth, out blockHeight);
+
+		Color[] dstColors = drawTexture.GetPixels (xOrigin, yOrigin, blockWidth, blockHeight);
+		Color[] normals = normalMap.GetPixels (xOrigin, yOrigin, blockWidth, blockHeight);
+		Color[] srcColors = ink.GetPixels (inkLeft, inkBottom, blockWidth, blockHeight);
+
+		for (int x = 0; x < blockWidth; x++) {
+			for (int y = 0; y < blockHeight; y++) {
+				var colorIndex = x + y * blockWidth;
+				if (srcColors [colorIndex].a <= 0) {
+					continue;
+				}
+
+				AdjustCurrentFill (dstColors[colorIndex], targetColor, color);
+
+				dstColors [colorIndex] = Color.Lerp (dstColors [colorIndex], color, srcColors [colorIndex].a);
+				dstColors [colorIndex].a = dstColors [colorIndex].a + srcColors [colorIndex].a;
+				if (srcColors [colorIndex].a > 0) {
+					var average = (srcColors [colorIndex].r + srcColors [colorIndex].b + srcColors [colorIndex].g) / 3.0f;
+					normals [colorIndex] = new Color (average, average, average, 1);
+				}
+			}
+		}
+
+		normalMap.SetPixels (xOrigin, yOrigin, blockWidth, blockHeight, normals);
+		normalMap.Apply ();
+		drawTexture.SetPixels (xOrigin, yOrigin, blockWidth, blockHeight, dstColors);
+		drawTexture.Apply ();
+
+		return true;
+    }
+
+	void CalculatePaintBlock (Vector2 textureCoord, Texture2D ink,out int xOrigin, out int yOrigin, out int inkLeft, out int inkBottom, out int blockWidth, out int blockHeight)
+	{
+		xOrigin = (int)(textureCoord.x * (drawTexture.width)) - (ink.width / 2);
+		yOrigin = (int)(textureCoord.y * (drawTexture.height)) - (ink.height / 2);
 		int right = xOrigin + ink.width;
 		int bottom = yOrigin + ink.height;
-		var inkLeft = 0;
-		var inkBottom = 0;
+		inkLeft = 0;
+		inkBottom = 0;
 		if (xOrigin < 0) {
 			inkLeft = xOrigin * -1;
 			xOrigin = 0;
@@ -111,40 +152,30 @@ class Paintable : MonoBehaviour
 		}
 		right = right >= drawTexture.width ? drawTexture.width - 1 : right;
 		bottom = bottom >= drawTexture.height ? drawTexture.height - 1 : bottom;
-		int blockWidth = right - xOrigin;
-		int blockHeight = bottom - yOrigin;
-		Color[] colors = drawTexture.GetPixels (xOrigin, yOrigin, blockWidth, blockHeight);
-		Color[] normals = normalMap.GetPixels (xOrigin, yOrigin, blockWidth, blockHeight);
-		Color[] inkColors = ink.GetPixels (inkLeft, inkBottom, blockWidth, blockHeight);
-		for (int x = 0; x < blockWidth; x++) {
-			for (int y = 0; y < blockHeight; y++) {
-				var colorIndex = x + y * blockWidth;
-				if (inkColors [colorIndex].a == 0) {
-					continue;
+		blockWidth = right - xOrigin;
+		blockHeight = bottom - yOrigin;
+	}
+
+	void AdjustCurrentFill (Color src, Color targetColor, Color paintColor)
+	{
+		if (src.a <= 0 && ColorDifference (paintColor, targetColor) < 0.5f) {
+			curFill++;
+		}
+		else
+			if (src.a > 0) {
+				if (IsColorCloseToSame (src, targetColor) && IsColorCloseToSame (paintColor, targetColor) == false) {
+					curFill--;
 				}
-				if (colors [colorIndex].a <= 0 && inkColors [colorIndex].a > 0) {
-					if (ColorDifference (color, targetColor) < 0.5f) {
+				else
+					if (IsColorCloseToSame (src, targetColor) == false && IsColorCloseToSame (paintColor, targetColor) == true) {
 						curFill++;
 					}
-					else {
-						curFill--;
-					}
-					Mathf.Clamp (curFill, 0, totalFill);
-				}
-
-				colors [colorIndex] = Color.Lerp (colors [colorIndex], color, inkColors [colorIndex].a);
-				colors [colorIndex].a = colors [colorIndex].a + inkColors [colorIndex].a;
-				if (inkColors [colorIndex].a > 0) {
-					var average = (inkColors [colorIndex].r + inkColors [colorIndex].b + inkColors [colorIndex].g) / 3.0f;
-					normals [colorIndex] = new Color (average, average, average, 1);
-				}
 			}
-		}
-		normalMap.SetPixels (xOrigin, yOrigin, blockWidth, blockHeight, normals);
-		normalMap.Apply ();
-		drawTexture.SetPixels (xOrigin, yOrigin, blockWidth, blockHeight, colors);
-		drawTexture.Apply ();
+		Mathf.Clamp (curFill, 0, totalFill);
+	}
 
-		return true;
-    }
+	bool IsColorCloseToSame (Color colorA, Color colorB)
+	{
+		return ColorDifference (colorA, colorB) < 0.5f;
+	}
 }
