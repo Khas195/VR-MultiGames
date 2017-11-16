@@ -11,8 +11,6 @@ class Paintable : MonoBehaviour
 	bool InitOnStart;
     private Material mat;
 	private Texture2D drawTexture;
-	private Texture2D normalMap;
-	private Texture2D heightMap;
 
 	[SerializeField]
 	int drawTextureSize;
@@ -36,16 +34,9 @@ class Paintable : MonoBehaviour
 		mat = Ultil.GetMaterialWithShader(GetComponent<Renderer>().materials, PaintableDefinition.PaintableShaderName, name);
 
 		drawTexture = new Texture2D (drawTextureSize, drawTextureSize);
-		normalMap = new Texture2D (drawTextureSize, drawTextureSize);
-		heightMap = new Texture2D (drawTextureSize, drawTextureSize);
 
 		ResetTextureToColor(drawTexture, new Color(0, 0, 0, 0));
-		ResetTextureToColor(normalMap, new Color(0.5f, 0.5f, 1, 0));
-		ResetTextureToColor(heightMap,new Color(0, 0, 0, 0));
-
 		mat.SetTexture(PaintableDefinition.DrawOnTextureName, drawTexture);
-		mat.SetTexture(PaintableDefinition.DrawOnNormalMap, normalMap);
-		mat.SetTexture(PaintableDefinition.DrawOnHeigtMap, heightMap);
 		totalFill = drawTexture.width * drawTexture.height;
 		this.init = true;
 
@@ -105,7 +96,7 @@ class Paintable : MonoBehaviour
 		CalculatePaintBlock (textureCoord, ink,out xOrigin, out yOrigin, out inkLeft, out inkBottom, out blockWidth, out blockHeight);
 
 		Color[] dstColors = drawTexture.GetPixels (xOrigin, yOrigin, blockWidth, blockHeight);
-		Color[] normals = normalMap.GetPixels (xOrigin, yOrigin, blockWidth, blockHeight);
+		//Color[] normals = normalMap.GetPixels (xOrigin, yOrigin, blockWidth, blockHeight);
 		Color[] srcColors = ink.GetPixels (inkLeft, inkBottom, blockWidth, blockHeight);
 
 		for (int x = 0; x < blockWidth; x++) {
@@ -118,16 +109,29 @@ class Paintable : MonoBehaviour
 				AdjustCurrentFill (dstColors[colorIndex], targetColor, color);
 
 				dstColors [colorIndex] = Color.Lerp (dstColors [colorIndex], color, srcColors [colorIndex].a);
-				dstColors [colorIndex].a = dstColors [colorIndex].a + srcColors [colorIndex].a;
-				if (srcColors [colorIndex].a > 0) {
-					var average = (srcColors [colorIndex].r + srcColors [colorIndex].b + srcColors [colorIndex].g) / 3.0f;
-					normals [colorIndex] = new Color (average, average, 1, 1);
-				}
+				//dstColors [colorIndex].a = dstColors [colorIndex].a + srcColors [colorIndex].a;
+
 			}
 		}
-
-		normalMap.SetPixels (xOrigin, yOrigin, blockWidth, blockHeight, normals);
-		normalMap.Apply ();
+		for (int x = 1; x < blockWidth - 1; x++) {
+			for (int y = 1; y < blockHeight - 1; y++) {
+				var colorIndex = x + y * blockWidth;
+				Vector4 average = new Vector4 ();
+				for (int i = x - 1; i <= x + 1; ++i) {
+					for (int j = y - 1; j <= y + 1; ++j) {
+						if (i == j) {
+							continue;
+						}
+						var index = i + j * blockWidth;
+						average.x += dstColors [index].r;
+						average.y += dstColors [index].g;
+						average.z += dstColors [index].b;
+						average.w += dstColors [index].a;
+					}
+				}
+				dstColors [colorIndex] = average / 8.0f;
+			}
+		}
 		drawTexture.SetPixels (xOrigin, yOrigin, blockWidth, blockHeight, dstColors);
 		drawTexture.Apply ();
 

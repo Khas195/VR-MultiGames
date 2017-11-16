@@ -8,9 +8,6 @@
 		_DrawOnTex("DrawTexture", 2D) = ""{}
 		_PaintNormal("Normal map of paint", 2D) = ""{}
 
-   		_Parallax ("Height", Range (0.005, 0.08)) = 0.02
-   	 	_ParallaxMap ("Heightmap (A)", 2D) = "black" {}
-
      	_Cube ("Cubemap", CUBE) = "" {}
 
 	}
@@ -32,8 +29,6 @@
 		sampler2D _NormalMap;
 		sampler2D _DrawOnTex;
 		sampler2D _PaintNormal;
-		float _Parallax;
-		sampler2D _ParallaxMap;
 		half _Glossiness;
 		half _Metallic;
 
@@ -57,22 +52,16 @@
 		UNITY_INSTANCING_CBUFFER_END
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
-
-			half h = tex2D (_ParallaxMap, IN.uv2_DrawOnTex).w;
-		    float2 offset = ParallaxOffset (h, _Parallax, IN.viewDir);
-		    IN.uv2_DrawOnTex += offset ;
-		    IN.uv2_PaintNormal  += offset ;
-
 			fixed4 c = 0;
 
-			fixed4 mainColor = tex2D(_MainTex, IN.uv_MainTex);
-
+			fixed4 mainColor = tex2D(_MainTex, IN.uv_MainTex );
 			fixed4 drawColor = tex2D(_DrawOnTex, IN.uv2_DrawOnTex);
 
 			c = lerp(mainColor, drawColor, drawColor.a);
 			c.a = mainColor.a + drawColor.a;
 			o.Albedo = c.rgb;
 			o.Normal = lerp(UnpackNormal(tex2D(_NormalMap, IN.uv_NormalMap)),UnpackNormal(tex2D(_PaintNormal, IN.uv2_PaintNormal)), drawColor.a) ;
+			//o.Normal = UnpackNormal(tex2D(_NormalMap, IN.uv_NormalMap)) ;
 
 			// Metallic and smoothness come from slider variables
 			if (drawColor.a > 0.5){
