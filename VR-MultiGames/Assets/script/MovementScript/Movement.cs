@@ -16,13 +16,20 @@ namespace script.MovementScript
             IsSprint = isSprint;
         }
 
-        public float GroundHeight = 1.25f;
-        public float HeightOffset = 1f;
-        public LayerMask GroundLayer;
+        [SerializeField] protected float _MaxSpeed = 10f;
+        [SerializeField] protected float GroundHeight = 1.25f;
+        [SerializeField] protected float HeightOffset = 1f;
+        [SerializeField] protected LayerMask GroundLayer;
+        [SerializeField] protected Controller Controller;
+        
         public bool IsGrounded { get; protected set; }
         public bool IsCrouch { get; protected set;  }
         public bool IsSprint { get; protected set; }
-        [SerializeField] protected Controller Controller;
+
+        public float MaxSpeed
+        {
+            get { return _MaxSpeed; }
+        }
         
         public abstract void Move(Vector3 direction);
         public abstract void Jump(float scale);
@@ -42,11 +49,6 @@ namespace script.MovementScript
 
         protected void OnEnable()
         {
-            if (Controller && !Controller.AllowMultipleMovements && IsOtherInstanceEnabled())
-            {
-                enabled = false;
-            }
-            
             GroundCheck();
             IsCrouch = IsSprint = false;
         }
@@ -82,13 +84,6 @@ namespace script.MovementScript
         public void SetSprint(bool isSprint)
         {
             IsSprint = isSprint;
-        }
-
-        private bool IsOtherInstanceEnabled()
-        {
-            var movementList = Controller.GetComponents<Movement>().ToList();
-            return movementList.Where(movement => !GameObject.ReferenceEquals(movement, this)).
-                Any(movement => movement.enabled);
         }
     }
 }

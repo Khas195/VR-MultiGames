@@ -43,9 +43,15 @@
           </e>
         </e>
         <e p="script" t="Include">
-          <e p="Boid Flocking" t="Include">
+          <e p="BoidBehavior" t="Include">
+            <e p="BoidBehavior.cs" t="Include" />
             <e p="BoidController.cs" t="Include" />
             <e p="BoidMovement.cs" t="Include" />
+            <e p="BoidUnit.cs" t="Include" />
+            <e p="CrowdAlignmentBehavior.cs" t="Include" />
+            <e p="CrowdCohensionBehavior.cs" t="Include" />
+            <e p="CrowdSeparationBehavior.cs" t="Include" />
+            <e p="WanderBehavior.cs" t="Include" />
           </e>
           <e p="Camera" t="Include">
             <e p="CameraFollow.cs" t="Include" />

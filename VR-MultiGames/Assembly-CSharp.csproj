@@ -52,8 +52,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\script\Boid Flocking\BoidController.cs" />
-    <Compile Include="Assets\script\Boid Flocking\BoidMovement.cs" />
+    <Compile Include="Assets\script\BoidBehavior\BoidBehavior.cs" />
+    <Compile Include="Assets\script\BoidBehavior\BoidController.cs" />
+    <Compile Include="Assets\script\BoidBehavior\BoidMovement.cs" />
+    <Compile Include="Assets\script\BoidBehavior\BoidUnit.cs" />
+    <Compile Include="Assets\script\BoidBehavior\CrowdAlignmentBehavior.cs" />
+    <Compile Include="Assets\script\BoidBehavior\CrowdCohensionBehavior.cs" />
+    <Compile Include="Assets\script\BoidBehavior\CrowdSeparationBehavior.cs" />
+    <Compile Include="Assets\script\BoidBehavior\WanderBehavior.cs" />
     <Compile Include="Assets\script\Camera\CameraFollow.cs" />
     <Compile Include="Assets\script\CameraScript\FirstPerson.cs" />
     <Compile Include="Assets\script\ControllerScript\Controller.cs" />
