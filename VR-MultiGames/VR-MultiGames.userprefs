@@ -2,13 +2,20 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\ShaderEffect\Paintable.cs">
     <Files>
-      <File FileName="Assets\script\ShaderEffect\Paintable.cs" Line="119" Column="38" />
-      <File FileName="Assets\resource\shader\PaintOn.shader" Line="76" Column="20" />
+      <File FileName="Assets\script\ShaderEffect\Paintable.cs" Line="135" Column="31" />
+      <File FileName="Assets\resource\shader\PaintOn.shader" Line="68" Column="24" />
       <File FileName="Assets\resource\shader\Blur.shader" Line="1" Column="1" />
+      <File FileName="Assets\script\Features\PaintBall.cs" Line="101" Column="1" />
+      <File FileName="Assets\script\Features\ChangeBallColor.cs" Line="19" Column="1" />
+      <File FileName="Assets\script\GameMaster\GameSettings.cs" Line="40" Column="1" />
+      <File FileName="Assets\script\RaycastClick.cs" Line="27" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Projects\Unity\VR-MultiGames\VR-MultiGames\Assets\script\Features\ChangeBallColor.cs" line="19" column="22" />
+      <Breakpoint file="C:\Projects\Unity\VR-MultiGames\VR-MultiGames\Assets\script\Features\PaintBall.cs" line="101" column="68" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

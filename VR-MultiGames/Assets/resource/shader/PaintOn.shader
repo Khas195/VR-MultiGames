@@ -64,7 +64,8 @@
 			//o.Normal = UnpackNormal(tex2D(_NormalMap, IN.uv_NormalMap)) ;
 
 			// Metallic and smoothness come from slider variables
-			if (drawColor.a > 0.5){
+			// bother width
+			if (drawColor.a >0.1f){
 				o.Metallic = _Metallic;
 				o.Smoothness = _Glossiness;
          		o.Emission = texCUBE (_Cube, WorldReflectionVector (IN, o.Normal)).rgb;

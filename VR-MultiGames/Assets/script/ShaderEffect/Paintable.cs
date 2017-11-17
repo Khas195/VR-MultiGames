@@ -79,7 +79,8 @@ class Paintable : MonoBehaviour
 		return Mathf.Sqrt (Mathf.Pow (colorToCheck.r - targetColor.r, 2) + Mathf.Pow (colorToCheck.b - targetColor.b, 2) + Mathf.Pow (colorToCheck.g - targetColor.g, 2));
 	}
 
-    public bool PaintMapping(Vector2 textureCoord, Texture2D ink, Color color)
+    
+	public bool PaintMapping(Vector2 textureCoord, Texture2D ink, Color color)
     {
 		if (!init || !this.enabled) return false;
 		if (this.GetComponent<Glowable> ()) {
@@ -96,47 +97,37 @@ class Paintable : MonoBehaviour
 		CalculatePaintBlock (textureCoord, ink,out xOrigin, out yOrigin, out inkLeft, out inkBottom, out blockWidth, out blockHeight);
 
 		Color[] dstColors = drawTexture.GetPixels (xOrigin, yOrigin, blockWidth, blockHeight);
-		//Color[] normals = normalMap.GetPixels (xOrigin, yOrigin, blockWidth, blockHeight);
 		Color[] srcColors = ink.GetPixels (inkLeft, inkBottom, blockWidth, blockHeight);
 
-		for (int x = 0; x < blockWidth; x++) {
-			for (int y = 0; y < blockHeight; y++) {
-				var colorIndex = x + y * blockWidth;
-				if (srcColors [colorIndex].a <= 0) {
-					continue;
-				}
-
-				AdjustCurrentFill (dstColors[colorIndex], targetColor, color);
-
-				dstColors [colorIndex] = Color.Lerp (dstColors [colorIndex], color, srcColors [colorIndex].a);
-				//dstColors [colorIndex].a = dstColors [colorIndex].a + srcColors [colorIndex].a;
-
-			}
-		}
-		for (int x = 1; x < blockWidth - 1; x++) {
-			for (int y = 1; y < blockHeight - 1; y++) {
-				var colorIndex = x + y * blockWidth;
-				Vector4 average = new Vector4 ();
-				for (int i = x - 1; i <= x + 1; ++i) {
-					for (int j = y - 1; j <= y + 1; ++j) {
-						if (i == j) {
-							continue;
-						}
-						var index = i + j * blockWidth;
-						average.x += dstColors [index].r;
-						average.y += dstColors [index].g;
-						average.z += dstColors [index].b;
-						average.w += dstColors [index].a;
-					}
-				}
-				dstColors [colorIndex] = average / 8.0f;
-			}
-		}
-		drawTexture.SetPixels (xOrigin, yOrigin, blockWidth, blockHeight, dstColors);
-		drawTexture.Apply ();
+		StartCoroutine ( TweenPaint( xOrigin, yOrigin, blockWidth,  blockHeight,  dstColors, srcColors, color));
 
 		return true;
     }
+
+
+	IEnumerator  TweenPaint( int xOrigin, int yOrigin, int blockWidth, int  blockHeight,Color[]  dstColors, Color[]   srcColors, Color color){
+		int centerX = blockWidth / 2;
+		int centerY = blockHeight / 2;
+		int blockToColor = centerX / 2;
+		while (blockToColor < blockWidth) {
+			int left = Mathf.Clamp(centerX - blockToColor, 0, centerX);
+			int right = Mathf.Clamp(centerX + blockToColor, centerX, blockWidth);
+			int bottom =  Mathf.Clamp(centerY - blockToColor, 0, centerY);
+			int top =  Mathf.Clamp(centerY + blockToColor, centerY, blockHeight);
+
+			MapTexture (color, blockWidth, blockHeight, dstColors, srcColors, left, bottom, top, right);
+			for ( int i = 0; i < GameSettings.GetInstance().NumOfSmoothIteration; i++){
+				SmoothPaint (blockWidth, blockHeight, dstColors, srcColors, left, bottom, top, right);
+			}
+//			SmoothPaint (blockWidth, blockHeight, dstColors, srcColors);
+			drawTexture.SetPixels (xOrigin, yOrigin, blockWidth, blockHeight, dstColors);
+			drawTexture.Apply ();
+			blockToColor += blockWidth/4;
+			yield return 0;
+		}
+
+	}
+
 
 	void CalculatePaintBlock (Vector2 textureCoord, Texture2D ink,out int xOrigin, out int yOrigin, out int inkLeft, out int inkBottom, out int blockWidth, out int blockHeight)
 	{
@@ -158,6 +149,49 @@ class Paintable : MonoBehaviour
 		bottom = bottom >= drawTexture.height ? drawTexture.height - 1 : bottom;
 		blockWidth = right - xOrigin;
 		blockHeight = bottom - yOrigin;
+	}
+	void MapTexture (Color color, int blockWidth, int blockHeight, Color[] dstColors, Color[] srcColors, int left, int bottom, int top, int right)
+	{
+		for (int x = left; x < right; x++) {
+			for (int y = bottom; y < top; y++) {
+				var colorIndex = x + y * blockWidth;
+				if (srcColors [colorIndex].a <= 0) {
+					continue;
+				}
+				AdjustCurrentFill (dstColors [colorIndex], targetColor, color);
+				float xCoord = (float)x / blockWidth;
+				float yCoord = (float)y / blockHeight;
+				float sample = dstColors [colorIndex].a + Mathf.PerlinNoise (xCoord, yCoord);
+				dstColors [colorIndex] = Color.Lerp (dstColors [colorIndex], color, srcColors [colorIndex].a);
+				dstColors [colorIndex].a = sample;
+			}
+		}
+	}
+	void SmoothPaint (int blockWidth, int blockHeight, Color[] dstColors, Color[] srcColors, int left, int bottom, int top, int right)
+	{
+		for (int x = left + 1; x < right - 1; x++) {
+			for (int y = bottom + 1; y < top - 1; y++) {
+				var colorIndex = x + y * blockWidth;
+//				if (srcColors[colorIndex].a <= 0.0f) {
+//					continue;
+//				}
+				Vector4 average = new Vector4 ();
+
+				for (int i = x - 1; i <= x + 1; ++i) {
+					for (int j = y - 1; j <= y + 1; ++j) {
+						if (i == j) {
+							continue;
+						}
+						var index = i + j * blockWidth;
+						average.x += dstColors [index].r;
+						average.y += dstColors [index].g;
+						average.z += dstColors [index].b;
+						average.w += dstColors [index].a;
+					}
+				}
+				dstColors [colorIndex] = average / 8.0f;
+			}
+		}
 	}
 
 	void AdjustCurrentFill (Color src, Color targetColor, Color paintColor)
