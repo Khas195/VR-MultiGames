@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4138460667424584}
   - component: {fileID: 33591882094233594}
-  - component: {fileID: 136259307938966022}
   - component: {fileID: 23902095064341780}
   - component: {fileID: 114005227833700490}
+  - component: {fileID: 64602026199636568}
   m_Layer: 0
   m_Name: ColorChangingBarrier
   m_TagString: Untagged
@@ -66,9 +66,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1101827435102396}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 5, z: 198.99}
+  m_LocalScale: {x: 10.5, y: 5, z: 1}
   m_Children:
   - {fileID: 4027386454146784}
   m_Father: {fileID: 0}
@@ -152,6 +152,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1101827435102396}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &64602026199636568
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1101827435102396}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &114005227833700490
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -163,17 +177,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe72f4a226af404098f71e5b3b207df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetColor: {r: 0.1764706, g: 0, b: 1, a: 0}
---- !u!136 &136259307938966022
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1101827435102396}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.5
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.21, z: 0}
+  targetColor: {r: 0.1764706, g: 0, b: 1, a: 1}
