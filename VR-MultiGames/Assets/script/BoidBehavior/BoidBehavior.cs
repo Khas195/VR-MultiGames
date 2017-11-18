@@ -8,6 +8,7 @@ namespace script.BoidBehavior
         private BoidController _boidController = null;
         private Vector3 _steeringForce = Vector3.zero;
 
+        [SerializeField] private bool _isEnable = true;
         [SerializeField] protected bool IsDrawGizmos = true;
         
         [Range(1,100)]
@@ -24,6 +25,12 @@ namespace script.BoidBehavior
             protected set { _steeringForce = value; }
         }
 
+        public bool IsEnable
+        {
+            get { return _isEnable; }
+            set { _isEnable = value; }
+        }
+        
         protected BoidController BoidController
         {
             get { return _boidController; }

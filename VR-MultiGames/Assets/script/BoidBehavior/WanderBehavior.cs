@@ -6,12 +6,6 @@ namespace script.BoidBehavior
 	{
 		[Header("Wander setting")] 
 		
-		[SerializeField] 
-		private bool _useWanderAngle = false;
-		
-		[SerializeField] 
-		private bool _isDisableYAxis = false;
-		
 		[Tooltip("Radius of wander circle in front of boid")]
 		[SerializeField] 
 		private float _wanderRadius = 4;
@@ -20,11 +14,25 @@ namespace script.BoidBehavior
 		[SerializeField] 
 		private float _wanderCircleDistance = 5;
 
-		[SerializeField] 
-		private float _wanderAngleVariation = 15f;
 
 		[SerializeField] 
 		private float _randomTime = 1;
+		
+		[Header("Wander random point setting")]
+		
+		[SerializeField] 
+		private bool _useYAxis = false;
+
+		[SerializeField] 
+		private bool _useRandomOnSphere = false;
+		
+		[Header("Wander angle setting")]
+		
+		[SerializeField] 
+		private bool _useWanderAngle = false;
+		
+		[SerializeField] 
+		private float _wanderAngleVariation = 15f;
 
 		private float _wanderAngle;
 		private float _lastWander = 0;
@@ -42,7 +50,7 @@ namespace script.BoidBehavior
 		
 		public override void PerformBehavior()
 		{
-			if (BoidController == null)
+			if (!IsEnable || BoidController == null)
 			{
 				return;
 			}
@@ -69,16 +77,23 @@ namespace script.BoidBehavior
 
 			if (_lastWander > _randomTime)
 			{
-				if (BoidController._Rigidbody.useGravity && _isDisableYAxis)
+				if (_useRandomOnSphere)
 				{
-					_randomPoint = Random.insideUnitCircle;
-					_randomPoint.y = 0;
-					_randomPoint = _randomPoint.normalized * _wanderRadius;
+					_randomPoint = Random.onUnitSphere;
 				}
 				else
 				{
-					_randomPoint = Random.insideUnitCircle * _wanderRadius;
+					_randomPoint = Random.insideUnitSphere;
 				}
+				
+				if (!_useYAxis)
+				{
+					_randomPoint.y = 0;
+				}
+				
+				_randomPoint *= _wanderRadius;
+//				_randomPoint = Quaternion.LookRotation(BoidController.Velocity) * _randomPoint;
+				
 				_randomPoint += _wanderCirclePosition;
 				_lastWander = 0;
 			}
@@ -90,20 +105,16 @@ namespace script.BoidBehavior
 
 			if (_lastWander > _randomTime)
 			{
-				_wanderAngle += Random.value * _wanderAngleVariation * (Random.Range(0, 2) - 1) - _wanderAngleVariation * 0.5f;
-				if (_wanderAngle > 360f)
-				{
-					_wanderAngle -= 360f;
-				}
-				var quaternion = Quaternion.AngleAxis(_wanderAngle, Vector3.up);
-				_randomPoint = _wanderCirclePosition + quaternion * transform.forward * _wanderRadius;
+				_wanderAngle = Random.Range(0, 360);
 				_lastWander = 0;
 			}
+			var quaternion = Quaternion.AngleAxis(_wanderAngle, Vector3.up);
+			_randomPoint = _wanderCirclePosition + quaternion * transform.forward * _wanderRadius;
 		}
 
 		private void OnDrawGizmos()
 		{
-			if (IsDrawGizmos)
+			if (IsEnable && IsDrawGizmos)
 			{
 				Gizmos.color = _wanderCircleColor;
 				Gizmos.DrawLine(transform.position, transform.position + transform.forward * _wanderCircleDistance);
@@ -121,7 +132,16 @@ namespace script.BoidBehavior
 					Gizmos.DrawLine(_wanderCirclePosition, _randomPoint);
 					
 					Gizmos.color = _wanderVelocity;
-					Gizmos.DrawLine(transform.position, _randomPoint);
+
+					if (_useWanderAngle)
+					{
+						Gizmos.DrawLine(transform.position, transform.position + BoidController.Velocity  + 
+						                                    _randomPoint - _wanderCirclePosition);
+					}
+					else
+					{
+						Gizmos.DrawLine(transform.position, _randomPoint);
+					}
 				}
 			}
 		}

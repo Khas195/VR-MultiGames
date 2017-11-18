@@ -26,7 +26,9 @@ namespace script.BoidBehavior
 		
 		public override void PerformBehavior()
 		{
-			if (BoidController == null) return;
+			if (!IsEnable || BoidController == null) return;
+
+			if (!IsEnable) return;
 
 			Vector3 alignmentVelocity;
 			if (CalculateAlignment(out alignmentVelocity))
@@ -69,10 +71,10 @@ namespace script.BoidBehavior
 
 		private void OnDrawGizmos()
 		{
-			if (IsDrawGizmos)
+			if (IsEnable && IsDrawGizmos)
 			{
 				Gizmos.color = _alignmentForceColor;
-				Gizmos.DrawLine(transform.position, transform.position + SteeringForce);
+				Gizmos.DrawLine(transform.position, transform.position + _desiredVelocity);
 
 				Gizmos.color = _sphereColor;
 				Gizmos.DrawWireSphere(transform.position, _neighbourRadius);

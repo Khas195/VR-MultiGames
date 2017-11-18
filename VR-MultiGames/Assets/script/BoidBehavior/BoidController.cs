@@ -11,10 +11,12 @@ namespace script.BoidBehavior
 		private List<BoidBehavior> _behaviorList = new List<BoidBehavior>();
 		
 		[Header("Target")]
-		[SerializeField] private Transform _targetTransform = null;
+		[SerializeField] 
+		private GameObject _target = null;
 
 		[Header("Behavior Settings")] 
-		[SerializeField] private float _maxSteeringForce = 1f;
+		[SerializeField] 
+		private float _maxSteeringForce = 1f;
 
 		[Tooltip("Scale the rotation speed to look at velocity direction")] 
 		[SerializeField]
@@ -34,10 +36,10 @@ namespace script.BoidBehavior
 			get { return _rotationSyncScale; }
 		}
 
-		public Transform TargetTransform
+		public GameObject Target
 		{
-			get { return _targetTransform; }
-			set { _targetTransform = value; }
+			get { return _target; }
+			set { _target = value; }
 		}
 
 		public Vector3 Velocity
@@ -60,7 +62,7 @@ namespace script.BoidBehavior
 		{
 			foreach (var behavior in _behaviorList)
 			{
-				if(!behavior.enabled) continue;
+				if(behavior == null || !behavior.enabled) continue;
 				
 				behavior.PerformBehavior();
 			}
@@ -72,7 +74,7 @@ namespace script.BoidBehavior
 			
 			foreach (var behavior in _behaviorList)
 			{
-				if(!behavior.enabled) continue;
+				if(behavior == null || !behavior.enabled) continue;
 
 				if (_behaviorList.Count == 1)
 				{
@@ -89,7 +91,7 @@ namespace script.BoidBehavior
 			
 			steeringForce = Vector3.ClampMagnitude(steeringForce, _maxSteeringForce);
 
-			_Rigidbody.velocity += steeringForce;
+			Movement.Move(steeringForce);
 
 			if (_Rigidbody.velocity.sqrMagnitude > 1)
 			{

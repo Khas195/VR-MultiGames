@@ -26,7 +26,7 @@ namespace script.BoidBehavior
 
 		public override void PerformBehavior()
 		{
-			if (BoidController == null) return;
+			if (!IsEnable || BoidController == null) return;
 
 			Vector3 cohensionPoint, averageVelocity;
 			if (CalculateCohension(out cohensionPoint, out averageVelocity))
@@ -73,16 +73,13 @@ namespace script.BoidBehavior
 
 		private void OnDrawGizmos()
 		{
-			if (IsDrawGizmos)
+			if (IsEnable && IsDrawGizmos)
 			{
-				if (IsDrawGizmos)
-				{
-					Gizmos.color = _cohensionForceColor;
-					Gizmos.DrawLine(transform.position, transform.position + SteeringForce);
+				Gizmos.color = _cohensionForceColor;
+				Gizmos.DrawLine(transform.position, transform.position + _desiredVelocity);
 
-					Gizmos.color = _sphereColor;
-					Gizmos.DrawWireSphere(transform.position, _neighbourRadius);
-				}
+				Gizmos.color = _sphereColor;
+				Gizmos.DrawWireSphere(transform.position, _neighbourRadius);
 			}
 		}
 	}
