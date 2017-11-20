@@ -17,10 +17,6 @@ namespace script.BoidBehavior
 		[Header("Behavior Settings")] 
 		[SerializeField] 
 		private float _maxSteeringForce = 1f;
-
-		[Tooltip("Scale the rotation speed to look at velocity direction")] 
-		[SerializeField]
-		private float _rotationSyncScale = 5;
 		
 		[Header("Gizmos")]		
 		[SerializeField]
@@ -29,11 +25,6 @@ namespace script.BoidBehavior
 		public float MaxSteeringForce
 		{
 			get { return _maxSteeringForce; }
-		}
-
-		public float RotationSyncScale
-		{
-			get { return _rotationSyncScale; }
 		}
 
 		public GameObject Target
@@ -54,6 +45,7 @@ namespace script.BoidBehavior
 
 		private void Update()
 		{
+			CheckBehaviorList();
 			UpdateBehavior();
 			ApplyBehavior();
 		}
@@ -62,7 +54,7 @@ namespace script.BoidBehavior
 		{
 			foreach (var behavior in _behaviorList)
 			{
-				if(behavior == null || !behavior.enabled) continue;
+				if(behavior == null || !behavior.IsEnable) continue;
 				
 				behavior.PerformBehavior();
 			}
@@ -74,7 +66,7 @@ namespace script.BoidBehavior
 			
 			foreach (var behavior in _behaviorList)
 			{
-				if(behavior == null || !behavior.enabled) continue;
+				if(behavior == null || !behavior.IsEnable) continue;
 
 				if (_behaviorList.Count == 1)
 				{
@@ -92,12 +84,11 @@ namespace script.BoidBehavior
 			steeringForce = Vector3.ClampMagnitude(steeringForce, _maxSteeringForce);
 
 			Movement.Move(steeringForce);
+		}
 
-			if (_Rigidbody.velocity.sqrMagnitude > 1)
-			{
-				transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(_Rigidbody.velocity), 
-					Time.deltaTime * _rotationSyncScale);
-			}
+		private void CheckBehaviorList()
+		{
+			_behaviorList = GetComponents<BoidBehavior>().ToList();
 		}
 
 		private void OnDrawGizmos()
@@ -110,7 +101,7 @@ namespace script.BoidBehavior
 			
 				foreach (var behavior in _behaviorList)
 				{
-					if(!behavior.enabled) continue;
+					if(!behavior.IsEnable) continue;
 
 					if (_behaviorList.Count == 1)
 					{

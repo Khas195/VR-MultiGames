@@ -61,6 +61,7 @@
     <Compile Include="Assets\script\BoidBehavior\CrowdCohensionBehavior.cs" />
     <Compile Include="Assets\script\BoidBehavior\CrowdSeparationBehavior.cs" />
     <Compile Include="Assets\script\BoidBehavior\EvadeBehavior.cs" />
+    <Compile Include="Assets\script\BoidBehavior\EvadeObstacleBehavior.cs" />
     <Compile Include="Assets\script\BoidBehavior\FleeBehavior.cs" />
     <Compile Include="Assets\script\BoidBehavior\ObstacleAvoidanceBehavior.cs" />
     <Compile Include="Assets\script\BoidBehavior\PursuitBehavior.cs" />

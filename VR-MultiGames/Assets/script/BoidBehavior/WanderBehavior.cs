@@ -55,7 +55,7 @@ namespace script.BoidBehavior
 				return;
 			}
 
-			_wanderCirclePosition = transform.position + transform.forward * _wanderCircleDistance;
+			_wanderCirclePosition = transform.position + BoidController.Velocity.normalized * _wanderCircleDistance;
 			
 			_desiredVelocity = (_randomPoint - transform.position).normalized * BoidController.Movement.MaxSpeed;
 			
@@ -109,7 +109,7 @@ namespace script.BoidBehavior
 				_lastWander = 0;
 			}
 			var quaternion = Quaternion.AngleAxis(_wanderAngle, Vector3.up);
-			_randomPoint = _wanderCirclePosition + quaternion * transform.forward * _wanderRadius;
+			_randomPoint = _wanderCirclePosition + quaternion * BoidController.Velocity.normalized * _wanderRadius;
 		}
 
 		private void OnDrawGizmos()
@@ -117,12 +117,13 @@ namespace script.BoidBehavior
 			if (IsEnable && IsDrawGizmos)
 			{
 				Gizmos.color = _wanderCircleColor;
-				Gizmos.DrawLine(transform.position, transform.position + transform.forward * _wanderCircleDistance);
+				Gizmos.DrawLine(transform.position, transform.position 
+				                                    + BoidController.Velocity.normalized * _wanderCircleDistance);
 				
 				if (Application.isEditor && !Application.isPlaying)
 				{
-					Gizmos.DrawWireSphere(transform.position + transform.forward * _wanderCircleDistance,
-						_wanderRadius);
+					Gizmos.DrawWireSphere(transform.position 
+					                      + BoidController.Velocity.normalized * _wanderCircleDistance, _wanderRadius);
 				}
 				else
 				{

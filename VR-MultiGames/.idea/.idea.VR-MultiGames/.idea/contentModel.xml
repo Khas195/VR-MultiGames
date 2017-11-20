@@ -53,6 +53,7 @@
             <e p="CrowdCohensionBehavior.cs" t="Include" />
             <e p="CrowdSeparationBehavior.cs" t="Include" />
             <e p="EvadeBehavior.cs" t="Include" />
+            <e p="EvadeObstacleBehavior.cs" t="Include" />
             <e p="FleeBehavior.cs" t="Include" />
             <e p="ObstacleAvoidanceBehavior.cs" t="Include" />
             <e p="PursuitBehavior.cs" t="Include" />
