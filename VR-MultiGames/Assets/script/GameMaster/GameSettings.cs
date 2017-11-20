@@ -11,7 +11,12 @@ public class GameSettings : MonoBehaviour {
 	List<Color> colors;
 	[SerializeField]
 	private int inkSheetSize;
+	[SerializeField]
+	private int numOfSmoothIteration;
 
+	public int NumOfSmoothIteration{
+		get { return numOfSmoothIteration; }
+	}
 	public int NumberOfSplash 
 	{
 		get{ return numberOfSplash; }
