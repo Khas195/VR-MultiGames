@@ -75,28 +75,21 @@ namespace script.BoidBehavior
 		{
 			_lastWander += Time.deltaTime;
 
-			if (_lastWander > _randomTime)
+			if (!(_lastWander > _randomTime)) return;
+			
+			_randomPoint = _useRandomOnSphere ? Random.onUnitSphere : Random.insideUnitSphere;
+				
+			if (!_useYAxis)
 			{
-				if (_useRandomOnSphere)
-				{
-					_randomPoint = Random.onUnitSphere;
-				}
-				else
-				{
-					_randomPoint = Random.insideUnitSphere;
-				}
-				
-				if (!_useYAxis)
-				{
-					_randomPoint.y = 0;
-				}
-				
-				_randomPoint *= _wanderRadius;
-//				_randomPoint = Quaternion.LookRotation(BoidController.Velocity) * _randomPoint;
-				
-				_randomPoint += _wanderCirclePosition;
-				_lastWander = 0;
+				_randomPoint.y = 0;
+				_randomPoint = _useRandomOnSphere ? _randomPoint.normalized : _randomPoint;
 			}
+				
+			_randomPoint *= _wanderRadius;
+//			_randomPoint = Quaternion.LookRotation(BoidController.Velocity) * _randomPoint;
+				
+			_randomPoint += _wanderCirclePosition;
+			_lastWander = 0;
 		}
 
 		private void UpdateRandomAngle()
@@ -116,14 +109,16 @@ namespace script.BoidBehavior
 		{
 			if (IsEnable && IsDrawGizmos)
 			{
+				Vector3 forward = BoidController ? BoidController.Velocity.normalized : transform.forward;
+				
 				Gizmos.color = _wanderCircleColor;
 				Gizmos.DrawLine(transform.position, transform.position 
-				                                    + BoidController.Velocity.normalized * _wanderCircleDistance);
+				                                    + forward * _wanderCircleDistance);
 				
 				if (Application.isEditor && !Application.isPlaying)
 				{
 					Gizmos.DrawWireSphere(transform.position 
-					                      + BoidController.Velocity.normalized * _wanderCircleDistance, _wanderRadius);
+					                      + forward * _wanderCircleDistance, _wanderRadius);
 				}
 				else
 				{

@@ -4,8 +4,41 @@ timeCreated: 1510890075
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
-  fileIDToRecycleName: {}
-  externalObjects: {}
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: B2FuseBo
+    100004: B2FuseFr
+    100006: B2FuseT
+    100008: B2Glass
+    100010: B2Mot
+    400000: //RootNode
+    400002: B2FuseBo
+    400004: B2FuseFr
+    400006: B2FuseT
+    400008: B2Glass
+    400010: B2Mot
+    2300000: B2FuseBo
+    2300002: B2FuseFr
+    2300004: B2FuseT
+    2300006: B2Glass
+    2300008: B2Mot
+    3300000: B2FuseBo
+    3300002: B2FuseFr
+    3300004: B2FuseT
+    3300006: B2Glass
+    3300008: B2Mot
+    4300000: B2FuseBo
+    4300002: B2FuseFr
+    4300004: B2Glass
+    4300006: B2Mot
+    4300008: B2FuseT
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #115'
+    second: {fileID: 2100000, guid: 202215f322aeb83429bd79f99da52a7a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

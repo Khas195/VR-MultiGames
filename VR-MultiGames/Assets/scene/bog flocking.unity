@@ -144,7 +144,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8ccdd38f49ef97e409c98dd099f23d5c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -557,6 +557,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &84786848
 MonoBehaviour:
@@ -1053,6 +1054,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &138351747
 MonoBehaviour:
@@ -1435,6 +1437,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &204745158
 MonoBehaviour:
@@ -1991,6 +1994,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &366327105
 MonoBehaviour:
@@ -2283,6 +2287,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &386498011
 MonoBehaviour:
@@ -2641,6 +2646,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &397872876
 MonoBehaviour:
@@ -2996,7 +3002,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8ccdd38f49ef97e409c98dd099f23d5c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3491,6 +3497,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &669858692
 MonoBehaviour:
@@ -3783,6 +3790,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &691837091
 MonoBehaviour:
@@ -4229,6 +4237,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &762659938
 MonoBehaviour:
@@ -5303,6 +5312,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &1084453254
 MonoBehaviour:
@@ -5775,6 +5785,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &1153209353
 MonoBehaviour:
@@ -6067,6 +6078,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &1182720317
 MonoBehaviour:
@@ -6443,6 +6455,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &1195755849
 MonoBehaviour:
@@ -6825,6 +6838,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &1236926951
 MonoBehaviour:
@@ -7117,6 +7131,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &1313288994
 MonoBehaviour:
@@ -7268,7 +7283,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8ccdd38f49ef97e409c98dd099f23d5c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7493,6 +7508,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &1368443568
 MonoBehaviour:
@@ -7785,6 +7801,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &1374885052
 MonoBehaviour:
@@ -8233,6 +8250,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &1421198557
 MonoBehaviour:
@@ -9087,6 +9105,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &1602506811
 MonoBehaviour:
@@ -9549,6 +9568,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &1659032191
 MonoBehaviour:
@@ -10111,6 +10131,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &1696614957
 MonoBehaviour:
@@ -10773,6 +10794,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &1830264301
 MonoBehaviour:
@@ -11014,7 +11036,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 8ccdd38f49ef97e409c98dd099f23d5c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11239,6 +11261,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &1870653134
 MonoBehaviour:
@@ -12368,7 +12391,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: a3cd24e9b74996441b34bb8953c5098b, type: 2}
+  - {fileID: 2100000, guid: 8d77bf4efa4d9ff48afa642f91790f8d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12775,6 +12798,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &2051707995
 MonoBehaviour:
@@ -13331,6 +13355,7 @@ MonoBehaviour:
     m_Bits: 0
   Controller: {fileID: 0}
   _jumpForce: 5
+  _isRotateToVelocity: 1
   _rotationSyncScale: 5
 --- !u!114 &2094459586
 MonoBehaviour:
