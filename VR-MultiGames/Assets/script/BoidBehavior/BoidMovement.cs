@@ -9,12 +9,19 @@ namespace script.BoidBehavior
 	{
 		[Header("Setting")]
 
+		[Tooltip("Use force to move instead of velocity")]
 		[SerializeField] 
 		private bool _useForce;
 
+		[Tooltip("Allow movement to rotate object toward velocity")]
 		[SerializeField]
 		private bool _isRotateToVelocity = true;
+
+		[Tooltip("Allow script to apply movement while in the air")]
+		[SerializeField]
+		private bool _allowMoveInAir = true;
 		
+		[Tooltip("Affect how strong the object jump")]
 		[SerializeField]
 		private float _jumpForce = 5f;
 
@@ -22,6 +29,24 @@ namespace script.BoidBehavior
 		[SerializeField]
 		private float _rotationSyncScale = 5;
 
+		public bool UseForce
+		{
+			get { return _useForce; }
+			set { _useForce = value; }
+		}
+
+		public bool IsRotateToVelocity
+		{
+			get { return _isRotateToVelocity; }
+			set { _isRotateToVelocity = value; }
+		}
+
+		public bool AllowMoveInAir
+		{
+			get { return _allowMoveInAir; }
+			set { _allowMoveInAir = value; }
+		}
+		
 		public float RotationSyncScale
 		{
 			get { return _rotationSyncScale; }
@@ -40,6 +65,9 @@ namespace script.BoidBehavior
 
 		private void MoveToDirection(Vector3 direction)
 		{
+			GroundCheck();
+			if (Controller.Rigidbody.useGravity && !_allowMoveInAir && !IsGrounded) return;
+			
 			if (_useForce)
 			{
 				Controller.Rigidbody.AddForce(direction, ForceMode.Impulse);

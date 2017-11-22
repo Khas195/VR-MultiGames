@@ -59,6 +59,7 @@ namespace script.BoidBehavior
 		{
 			RaycastHit info;
 			avoidanceForce = Vector3.zero;
+			_viewSpherePosition = Vector3.zero;
 			viewSphereDistance = 0;
 
 			if (Physics.SphereCast(transform.position - BoidController.Velocity.normalized
@@ -67,19 +68,13 @@ namespace script.BoidBehavior
 			{
 				_viewSpherePosition = transform.position + BoidController.Velocity.normalized * info.distance;
 				viewSphereDistance = info.distance;
+
+				if (!(Vector3.Angle(info.normal, transform.up) > _maxFloorAngle) &&
+				    !(Vector3.Angle(info.normal, Vector3.up) > _maxFloorAngle)) return false;
 				
-				if (Vector3.Angle(info.normal, transform.up) > _maxFloorAngle ||
-				    Vector3.Angle(info.normal, Vector3.up) > _maxFloorAngle)
-				{
-					avoidanceForce = Vector3.Reflect(BoidController.Velocity, info.normal);
-					return true;
-				}
+				avoidanceForce = Vector3.Reflect(BoidController.Velocity, info.normal);
 			}
-			else
-			{
-				_viewSpherePosition = Vector3.zero;
-			}
-			return false;
+			return true;
 		}
 
 		private void OnDrawGizmos()

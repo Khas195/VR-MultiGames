@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -307,6 +307,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sphereRadius: 1
+  _maxAngle: 45
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &63369292
@@ -355,6 +356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement: {fileID: 0}
   IsDrawGizmos: 0
+  _behaviorList: []
   _target: {fileID: 1103379581}
   _maxSteeringForce: 1
   _steeringForceColor: {r: 1, g: 0, b: 1, a: 1}
@@ -456,7 +458,7 @@ Transform:
   m_GameObject: {fileID: 63369287}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.2, y: 0.87, z: 4.01}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -1280,6 +1282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement: {fileID: 0}
   IsDrawGizmos: 0
+  _behaviorList: []
   _target: {fileID: 63369287}
   _maxSteeringForce: 1
   _steeringForceColor: {r: 1, g: 0, b: 1, a: 1}
@@ -1381,7 +1384,7 @@ Transform:
   m_GameObject: {fileID: 608832685}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.42, y: 0.87, z: 21.8}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -1434,6 +1437,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sphereRadius: 1
+  _maxAngle: 45
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &608832697
@@ -2535,7 +2539,7 @@ Transform:
   m_GameObject: {fileID: 1103379581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.2, y: 0.87, z: 9.68}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -2615,6 +2619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement: {fileID: 0}
   IsDrawGizmos: 0
+  _behaviorList: []
   _target: {fileID: 63369287}
   _maxSteeringForce: 1
   _steeringForceColor: {r: 1, g: 0, b: 1, a: 1}
@@ -2647,6 +2652,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sphereRadius: 1
+  _maxAngle: 45
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1103379593
@@ -3513,6 +3519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement: {fileID: 0}
   IsDrawGizmos: 0
+  _behaviorList: []
   _target: {fileID: 63369287}
   _maxSteeringForce: 1
   _steeringForceColor: {r: 1, g: 0, b: 1, a: 1}
@@ -3625,7 +3632,7 @@ Transform:
   m_GameObject: {fileID: 1692309042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.9, y: 0.87, z: 9.68}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -3667,6 +3674,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sphereRadius: 1
+  _maxAngle: 45
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1692309054
@@ -4098,6 +4106,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sphereRadius: 1
+  _maxAngle: 45
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1884603037
@@ -4165,6 +4174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement: {fileID: 0}
   IsDrawGizmos: 0
+  _behaviorList: []
   _target: {fileID: 63369287}
   _maxSteeringForce: 1
   _steeringForceColor: {r: 1, g: 0, b: 1, a: 1}
@@ -4266,7 +4276,7 @@ Transform:
   m_GameObject: {fileID: 1884603035}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.24, y: 0.87, z: -4.42}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -4484,6 +4494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement: {fileID: 0}
   IsDrawGizmos: 0
+  _behaviorList: []
   _target: {fileID: 63369287}
   _maxSteeringForce: 1
   _steeringForceColor: {r: 1, g: 0, b: 1, a: 1}
@@ -4604,7 +4615,7 @@ Transform:
   m_GameObject: {fileID: 1977540777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -16.42, y: 0.87, z: 9.68}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -4638,6 +4649,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sphereRadius: 1
+  _maxAngle: 45
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1977540789
@@ -4717,6 +4729,7 @@ GameObject:
   - component: {fileID: 1980352763}
   - component: {fileID: 1980352762}
   - component: {fileID: 1980352761}
+  - component: {fileID: 1980352765}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -4792,6 +4805,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1980352765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1980352760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa6ba0011e62b5942b710f28255a7b61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeScale: 1
 --- !u!1 &2014065063
 GameObject:
   m_ObjectHideFlags: 0

@@ -1274,6 +1274,11 @@ Prefab:
       propertyPath: m_UseGravity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114276968866679602, guid: c41cd68615be6a042bdeab3d49aeb759,
+        type: 2}
+      propertyPath: IsDrawGizmos
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c41cd68615be6a042bdeab3d49aeb759, type: 2}
   m_IsPrefabParent: 0

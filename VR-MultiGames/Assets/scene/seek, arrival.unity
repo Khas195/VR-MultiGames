@@ -241,7 +241,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.428
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -279,6 +279,23 @@ Prefab:
     - target: {fileID: 114310468432752108, guid: 4ee8b54d0eb0d6241bb9d592d9290da9,
         type: 2}
       propertyPath: _useForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114310468432752108, guid: 4ee8b54d0eb0d6241bb9d592d9290da9,
+        type: 2}
+      propertyPath: _allowMoveInAir
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -339,6 +356,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sphereRadius: 1
+  _maxAngle: 45
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &203354600
@@ -391,7 +409,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.428
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -429,6 +447,22 @@ Prefab:
     - target: {fileID: 114310468432752108, guid: 4ee8b54d0eb0d6241bb9d592d9290da9,
         type: 2}
       propertyPath: _useForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1909146534694488, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -489,6 +523,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sphereRadius: 1
+  _maxAngle: 45
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &467900100
@@ -713,7 +748,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.428
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -751,6 +786,22 @@ Prefab:
     - target: {fileID: 114310468432752108, guid: 4ee8b54d0eb0d6241bb9d592d9290da9,
         type: 2}
       propertyPath: _useForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1909146534694488, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -811,6 +862,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sphereRadius: 1
+  _maxAngle: 45
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1000200204
@@ -1031,7 +1083,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.428
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1069,6 +1121,22 @@ Prefab:
     - target: {fileID: 114310468432752108, guid: 4ee8b54d0eb0d6241bb9d592d9290da9,
         type: 2}
       propertyPath: _useForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1909146534694488, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1129,6 +1197,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sphereRadius: 1
+  _maxAngle: 45
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1338747533
@@ -1416,7 +1485,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.428
+      value: 1.16
       objectReference: {fileID: 0}
     - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1454,6 +1523,22 @@ Prefab:
     - target: {fileID: 114310468432752108, guid: 4ee8b54d0eb0d6241bb9d592d9290da9,
         type: 2}
       propertyPath: _useForce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1909146534694488, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4359251889376106, guid: 4ee8b54d0eb0d6241bb9d592d9290da9, type: 2}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1514,6 +1599,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sphereRadius: 1
+  _maxAngle: 45
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &2107124575
