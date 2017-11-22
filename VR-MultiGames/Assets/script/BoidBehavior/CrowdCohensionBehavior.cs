@@ -6,7 +6,7 @@ namespace script.BoidBehavior
 	public class CrowdCohensionBehavior : BoidBehavior 
 	{
 		[SerializeField] 
-		private bool _isAdaptSpeedToCrowdSpeed = false;
+		private bool _isAdaptSpeedToCrowdSpeed = true;
 		
 		[Tooltip("Minimum number of boid to consider them as a crowd")]
 		[SerializeField] 
@@ -24,6 +24,12 @@ namespace script.BoidBehavior
 		[SerializeField]
 		private Color _sphereColor = Color.blue;
 
+		public bool IsAdaptSpeedToCrowdSpeed
+		{
+			get { return _isAdaptSpeedToCrowdSpeed; }
+			set { _isAdaptSpeedToCrowdSpeed = value; }
+		}
+		
 		public override void PerformBehavior()
 		{
 			if (!IsEnable || BoidController == null) return;

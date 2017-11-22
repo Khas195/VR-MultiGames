@@ -2,7 +2,7 @@
 
 namespace script.BoidBehavior
 {
-	public class EvadeObstacleBehavior : BoidBehavior
+	public class ObstacleSeparationBehavior : BoidBehavior
 	{
 
 		[Header("Setting")]
@@ -11,6 +11,9 @@ namespace script.BoidBehavior
 
 		[SerializeField]
 		private float _sphereRadius = 1;
+
+		[SerializeField] 
+		private float _maxAngle = 45;
 
 		[Header("Gizmos")] 
 		[SerializeField]
@@ -21,7 +24,6 @@ namespace script.BoidBehavior
 		
 		private Vector3 _desiredVelocity = Vector3.zero;
 		
-
 		public override void PerformBehavior()
 		{
 			if (!IsEnable || BoidController == null)
@@ -41,7 +43,7 @@ namespace script.BoidBehavior
 				SteeringForce = Vector3.zero;
 			}
 		}
-
+		
 		private bool CalculateAvoidanceBarrierForce(out Vector3 avoidanceForce)
 		{
 			RaycastHit info;
@@ -53,6 +55,9 @@ namespace script.BoidBehavior
 			{
 				var closestPoint = obstacle.ClosestPointOnBounds(transform.position);
 				var avoidanceVector = transform.position - closestPoint;
+
+				if (Vector3.Angle(avoidanceVector, Vector3.up) < _maxAngle) continue;
+				
 				avoidanceForce += avoidanceVector.normalized * (1 - avoidanceVector.magnitude / _sphereRadius);
 			}
 			

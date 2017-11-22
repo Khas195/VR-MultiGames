@@ -85,26 +85,24 @@ namespace script.BoidBehavior
 		private void OnDrawGizmos()
 		{
 			if (!IsEnable || !IsDrawGizmos) return;
+
+			Vector3 forward = BoidController ? BoidController.Velocity.normalized : transform.forward;
+			Vector3 sphereCastOrigin = transform.position - forward * _spherecastOffset;
+			Vector3 sphereCenter = sphereCastOrigin + forward * (_viewSphereMaxDistance + _spherecastOffset);
 			
 			if (_viewSpherePosition == Vector3.zero)
 			{
 				Gizmos.color = _normalViewSphereColor;
-				Gizmos.DrawLine(transform.position - BoidController.Velocity.normalized * _spherecastOffset, 
-					transform.position - BoidController.Velocity.normalized * _spherecastOffset
-					+ BoidController.Velocity.normalized * (_viewSphereMaxDistance + _spherecastOffset));
 				
-				Gizmos.DrawWireSphere(transform.position - BoidController.Velocity.normalized * _spherecastOffset
-				                      + BoidController.Velocity.normalized * (_viewSphereMaxDistance + _spherecastOffset), 
-					_viewSphereRadius);
+				Gizmos.DrawLine(sphereCastOrigin, sphereCenter);
+				
+				Gizmos.DrawWireSphere(sphereCenter, _viewSphereRadius);
 			}
 			else
 			{
 				Gizmos.color = SteeringForce == Vector3.zero ? _goodViewSphereColor : _badViewSphereColor;
 				
-				Gizmos.DrawLine(transform.position - BoidController.Velocity.normalized * _spherecastOffset, 
-					transform.position - BoidController.Velocity.normalized * _spherecastOffset
-					+ BoidController.Velocity.normalized * (_viewSphereMaxDistance + _spherecastOffset));
-				
+				Gizmos.DrawLine(sphereCastOrigin, sphereCenter);
 				Gizmos.DrawLine(transform.position, transform.position + _desiredVelocity);
 				Gizmos.DrawWireSphere(_viewSpherePosition, _viewSphereRadius);
 			}

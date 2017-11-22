@@ -1,4 +1,5 @@
-﻿using script.MovementScript;
+﻿using System;
+using script.MovementScript;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -7,11 +8,15 @@ namespace script.BoidBehavior
 	public class BoidMovement : Movement
 	{
 		[Header("Setting")]
-		[SerializeField]
-		private float _jumpForce = 5f;
+
+		[SerializeField] 
+		private bool _useForce;
 
 		[SerializeField]
 		private bool _isRotateToVelocity = true;
+		
+		[SerializeField]
+		private float _jumpForce = 5f;
 
 		[Tooltip("Scale the rotation speed to look at velocity direction")] 
 		[SerializeField]
@@ -25,20 +30,43 @@ namespace script.BoidBehavior
 		// Use this for initialization
 		public override void Move(Vector3 direction)
 		{
-			Controller._Rigidbody.velocity += direction;
+			MoveToDirection(direction);
 
-			if (_isRotateToVelocity && Controller._Rigidbody.velocity.sqrMagnitude > 1)
+			if (_isRotateToVelocity && Controller.Rigidbody.velocity.sqrMagnitude > 1)
 			{
-				transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(Controller._Rigidbody.velocity), 
-					Time.deltaTime * _rotationSyncScale);
+				RotateToDirection(Controller.Rigidbody.velocity);
 			}
+		}
+
+		private void MoveToDirection(Vector3 direction)
+		{
+			if (_useForce)
+			{
+				Controller.Rigidbody.AddForce(direction, ForceMode.Impulse);
+			}
+			else
+			{
+				Controller.Rigidbody.velocity += direction;
+			}
+		}
+
+		private void RotateToDirection(Vector3 direction)
+		{
+			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), 
+				Time.deltaTime * _rotationSyncScale);
 		}
 
 		public override void Jump(float scale)
 		{
-			if (Controller._Rigidbody.useGravity)
+			if (!Controller.Rigidbody.useGravity) return;
+			
+			if (_useForce)
 			{
-				
+				Controller.Rigidbody.AddForce(Vector3.up * _jumpForce * scale, ForceMode.Impulse);
+			}
+			else
+			{
+				Controller.Rigidbody.velocity += Vector3.up * _jumpForce * scale; 
 			}
 		}
 	}

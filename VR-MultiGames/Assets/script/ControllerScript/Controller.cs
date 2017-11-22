@@ -7,10 +7,18 @@ namespace script.ControllerScript
 {
 	public class Controller : MonoBehaviour
 	{
-		[SerializeField] private Movement _movement;
-		[SerializeField] protected bool IsDrawGizmos = true;
+		[SerializeField] 
+		private Movement _movement;
+		
+		[SerializeField] 
+		protected bool IsDrawGizmos;
 
-		public Rigidbody _Rigidbody { get; private set; }
+		public Rigidbody Rigidbody { get; private set; }
+
+		public Vector3 Velocity
+		{
+			get { return Rigidbody.velocity; }
+		}
 
 		public Movement Movement
 		{
@@ -20,8 +28,12 @@ namespace script.ControllerScript
 		private void Awake()
 		{
 			// Get current movement list
-			_movement = GetComponent<Movement>();
-			_Rigidbody = GetComponent<Rigidbody>();
+			if (!_movement)
+			{
+				_movement = GetComponent<Movement>();
+			}
+			
+			Rigidbody = GetComponent<Rigidbody>();
 		}
 	}
 }

@@ -9,7 +9,7 @@ namespace script.BoidBehavior
         private Vector3 _steeringForce = Vector3.zero;
 
         [SerializeField] private bool _isEnable = true;
-        [SerializeField] protected bool IsDrawGizmos = true;
+        [SerializeField] protected bool IsDrawGizmos;
         
         [Range(1,100)]
         [SerializeField] private float _blendScale = 1;
@@ -39,6 +39,18 @@ namespace script.BoidBehavior
         private void Awake()
         {
             _boidController = GetComponent<BoidController>();
+            if (!_boidController.BehaviorList.Contains(this))
+            {
+                _boidController.BehaviorList.Add(this);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (_boidController.BehaviorList.Contains(this))
+            {
+                _boidController.BehaviorList.Remove(this);
+            }
         }
 
         public abstract void PerformBehavior();

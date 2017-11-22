@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using script.ControllerScript;
 using UnityEngine;
@@ -8,6 +9,8 @@ namespace script.BoidBehavior
 	[RequireComponent(typeof(Rigidbody))]
 	public class BoidController : Controller
 	{
+		[Tooltip("Current list of behavior, not recommended to change in editor")]
+		[SerializeField]
 		private List<BoidBehavior> _behaviorList = new List<BoidBehavior>();
 		
 		[Header("Target")]
@@ -33,19 +36,13 @@ namespace script.BoidBehavior
 			set { _target = value; }
 		}
 
-		public Vector3 Velocity
+		public List<BoidBehavior> BehaviorList
 		{
-			get { return _Rigidbody.velocity; }
-		}
-
-		private void Start()
-		{
-			_behaviorList = GetComponents<BoidBehavior>().ToList();
+			get { return _behaviorList; }
 		}
 
 		private void Update()
 		{
-			CheckBehaviorList();
 			UpdateBehavior();
 			ApplyBehavior();
 		}
@@ -76,7 +73,7 @@ namespace script.BoidBehavior
 				steeringForce += behavior.SteeringForce * behavior.BlendScale;
 			}
 
-			if (_Rigidbody.useGravity)
+			if (Rigidbody.useGravity)
 			{
 				steeringForce.y = 0;
 			}
@@ -84,11 +81,6 @@ namespace script.BoidBehavior
 			steeringForce = Vector3.ClampMagnitude(steeringForce, _maxSteeringForce);
 
 			Movement.Move(steeringForce);
-		}
-
-		private void CheckBehaviorList()
-		{
-			_behaviorList = GetComponents<BoidBehavior>().ToList();
 		}
 
 		private void OnDrawGizmos()

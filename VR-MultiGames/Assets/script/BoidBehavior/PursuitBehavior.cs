@@ -9,6 +9,14 @@ namespace script.BoidBehavior
 		private Vector3 _desiredVelocity = Vector3.zero;
 		
 		private Vector3 _predictedTargetPosition = Vector3.zero;
+
+		private float _lastUpdate;
+
+		[Header("Setting")]
+		
+		[Tooltip("Time to update the predicted position of the target")]
+		[SerializeField] 
+		private float _updatePredictionTime = 1;
 		
 		[Header("Gizmos")]
 		[SerializeField]
@@ -19,11 +27,29 @@ namespace script.BoidBehavior
 
 		public override void PerformBehavior()
 		{
-			if (!IsEnable || BoidController == null || BoidController.Target == null)
+			if (!IsEnable || BoidController == null)
 			{
 				return;
 			}
 
+			_lastUpdate += Time.deltaTime;
+
+			if (_lastUpdate > _updatePredictionTime)
+			{
+				CalculateTargetPosition();
+				_lastUpdate = 0;
+			}
+
+			_desiredVelocity = (_predictedTargetPosition - transform.position).normalized
+			                   * BoidController.Movement.MaxSpeed;
+
+			SteeringForce = _desiredVelocity - BoidController.Velocity;
+		}
+
+		private void CalculateTargetPosition()
+		{
+			if (!BoidController.Target) return;
+			
 			Vector3 targetCurPosition = BoidController.Target.transform.position;
 			Vector3 targetVelocity;
 			
@@ -38,14 +64,10 @@ namespace script.BoidBehavior
 				targetVelocity = targetRigidbody.velocity;
 			}
 			
-			float targetDistance = (targetCurPosition - transform.position).magnitude;
-			float timeToTarget = targetDistance / BoidController.Movement.MaxSpeed;
-
+			var targetDistance = (targetCurPosition - transform.position).magnitude;
+			var timeToTarget = targetDistance / BoidController.Movement.MaxSpeed;
+			
 			_predictedTargetPosition = targetCurPosition + targetVelocity * timeToTarget;
-			_desiredVelocity = (_predictedTargetPosition - transform.position).normalized 
-			                   * BoidController.Movement.MaxSpeed;
-
-			SteeringForce = _desiredVelocity - BoidController.Velocity;
 
 			_prevTargetPosition = targetCurPosition;
 		}

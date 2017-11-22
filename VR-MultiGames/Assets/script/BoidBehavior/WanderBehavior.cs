@@ -86,7 +86,6 @@ namespace script.BoidBehavior
 			}
 				
 			_randomPoint *= _wanderRadius;
-//			_randomPoint = Quaternion.LookRotation(BoidController.Velocity) * _randomPoint;
 				
 			_randomPoint += _wanderCirclePosition;
 			_lastWander = 0;
@@ -107,37 +106,36 @@ namespace script.BoidBehavior
 
 		private void OnDrawGizmos()
 		{
-			if (IsEnable && IsDrawGizmos)
+			if (!IsEnable || !IsDrawGizmos) return;
+			
+			Vector3 forward = BoidController ? BoidController.Velocity.normalized : transform.forward;
+				
+			Gizmos.color = _wanderCircleColor;
+			Gizmos.DrawLine(transform.position, transform.position 
+			                                    + forward * _wanderCircleDistance);
+				
+			if (Application.isEditor && !Application.isPlaying)
 			{
-				Vector3 forward = BoidController ? BoidController.Velocity.normalized : transform.forward;
-				
-				Gizmos.color = _wanderCircleColor;
-				Gizmos.DrawLine(transform.position, transform.position 
-				                                    + forward * _wanderCircleDistance);
-				
-				if (Application.isEditor && !Application.isPlaying)
+				Gizmos.DrawWireSphere(transform.position 
+				                      + forward * _wanderCircleDistance, _wanderRadius);
+			}
+			else
+			{
+				Gizmos.DrawWireSphere(_wanderCirclePosition, _wanderRadius);
+					
+				Gizmos.color = _displacementColor;
+				Gizmos.DrawLine(_wanderCirclePosition, _randomPoint);
+					
+				Gizmos.color = _wanderVelocity;
+
+				if (_useWanderAngle)
 				{
-					Gizmos.DrawWireSphere(transform.position 
-					                      + forward * _wanderCircleDistance, _wanderRadius);
+					Gizmos.DrawLine(transform.position, transform.position + BoidController.Velocity  + 
+					                                    _randomPoint - _wanderCirclePosition);
 				}
 				else
 				{
-					Gizmos.DrawWireSphere(_wanderCirclePosition, _wanderRadius);
-					
-					Gizmos.color = _displacementColor;
-					Gizmos.DrawLine(_wanderCirclePosition, _randomPoint);
-					
-					Gizmos.color = _wanderVelocity;
-
-					if (_useWanderAngle)
-					{
-						Gizmos.DrawLine(transform.position, transform.position + BoidController.Velocity  + 
-						                                    _randomPoint - _wanderCirclePosition);
-					}
-					else
-					{
-						Gizmos.DrawLine(transform.position, _randomPoint);
-					}
+					Gizmos.DrawLine(transform.position, _randomPoint);
 				}
 			}
 		}

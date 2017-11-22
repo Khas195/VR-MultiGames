@@ -46,7 +46,10 @@ namespace script.BoidBehavior
 		private void Awake()
 		{
 			_rigidbody = GetComponent<Rigidbody>();
-			_boidList.Add(this);
+			if (!_boidList.Contains(this))
+			{
+				_boidList.Add(this);
+			}
 		}
 
 		private void OnEnable()

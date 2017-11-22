@@ -19,26 +19,40 @@ namespace script.BoidBehavior
 
 		public override void PerformBehavior()
 		{
-			if (!IsEnable || BoidController == null || BoidController.Target == null)
+			if (!IsEnable || BoidController == null)
 			{
 				return;
 			}
-
-			Vector3 targetVector = (BoidController.Target.transform.position - transform.position);
-			float stoppingFactor;
 			
+			Vector3 arrivalForce;
+			float slowingFactor;
+			
+			CalculateArrivalForce(out arrivalForce, out slowingFactor);
+
+			_desiredVelocity = arrivalForce.normalized * BoidController.Movement.MaxSpeed * slowingFactor;
+
+			SteeringForce = _desiredVelocity - BoidController.Velocity;
+		}
+
+		private bool CalculateArrivalForce(out Vector3 arrivalForce, out float slowingFactor)
+		{
+			arrivalForce = Vector3.zero;
+			slowingFactor = 0;
+			
+			if (BoidController.Target == null) return false;
+			
+			arrivalForce = (BoidController.Target.transform.position - transform.position);
+
 			if (_slowingDistance > 0)
 			{
-				stoppingFactor = Mathf.Clamp(targetVector.magnitude / _slowingDistance, 0f, 1f);
+				slowingFactor = Mathf.Clamp(arrivalForce.magnitude / _slowingDistance, 0f, 1f);
 			}
 			else
 			{
-				stoppingFactor = Mathf.Clamp(targetVector.magnitude, 0f, 1f);
+				slowingFactor = Mathf.Clamp(arrivalForce.magnitude, 0f, 1f);
 			}
 
-			_desiredVelocity = targetVector.normalized * BoidController.Movement.MaxSpeed * stoppingFactor;
-
-			SteeringForce = _desiredVelocity - BoidController.Velocity;
+			return true;
 		}
 
 		private void OnDrawGizmos()
