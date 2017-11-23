@@ -4,7 +4,9 @@ using UnityEngine;
 using Assets.script;
 
 
-public class PaintBall : MonoBehaviour {
+public class PaintBall : MonoBehaviour
+{
+	[SerializeField] private float _lifeTime = 10f;
 	[SerializeField]
 	float splashRange;
 	[SerializeField]
@@ -15,14 +17,23 @@ public class PaintBall : MonoBehaviour {
 
 	Rigidbody cacheRigidBody;
 
+	private float _timeActive;
+
 	// Use this for initialization
-	void Awake(){
+	void Awake()
+	{
+		_timeActive = Time.time;
 		cacheRigidBody = this.GetComponent<Rigidbody> ();
 	}
 	void Start () {
 	}
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
+		if (Time.time - _timeActive >= _lifeTime)
+		{
+			AmunitionPool.GetPool().ReturnAmmo(this);
+		}
 	}
 
 	public void ApplyForce (Vector3 direction)
@@ -40,6 +51,7 @@ public class PaintBall : MonoBehaviour {
 	{
 		gameObject.SetActive (true);
 		SetColor (GameSettings.GetInstance().GetRandomColor());
+		_timeActive = Time.time;
 	}
 
 	void OnCollisionEnter(Collision other){     
@@ -102,6 +114,7 @@ public class PaintBall : MonoBehaviour {
 				return hitPaintable;
 			}
 		}
+		
 		return null;
 	}
 }

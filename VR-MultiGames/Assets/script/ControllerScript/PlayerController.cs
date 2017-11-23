@@ -15,18 +15,8 @@ namespace script.ControllerScript
 
 			float jump = Input.GetAxis("Jump");
 			
-			foreach (var movement in MovementList)
-			{
-				if (movement.isActiveAndEnabled)
-				{
-					movement.Move(direction);
-
-					if (jump > 0.001)
-					{
-						movement.Jump(jump);
-					}
-				}
-			}
+			Movement.Move(direction);
+			Movement.Jump(jump);
 		}
 	}
 }

@@ -7,38 +7,33 @@ namespace script.ControllerScript
 {
 	public class Controller : MonoBehaviour
 	{
-		[SerializeField] protected List<Movement> MovementList;
-
-		[SerializeField]
-		public bool AllowMultipleMovements;
-
-		protected Controller(bool allowMultipleMovements=false)
-		{
-			AllowMultipleMovements = allowMultipleMovements;
-		}
+		[SerializeField] 
+		private Movement _movement;
 		
-		private void Awake()
-		{ 
-			// Get current movement list
-			if (MovementList != null)
-			{
-				MovementList = MovementList.Concat(GetComponents<Movement>().ToList()).ToList();
-			}
-			else
-			{
-				MovementList = GetComponents<Movement>().ToList();
-			}
+		[SerializeField] 
+		protected bool IsDrawGizmos;
 
-			foreach (var movement in MovementList)
-			{
-				movement.SetController(this);
-			}
+		public Rigidbody Rigidbody { get; private set; }
+
+		public Vector3 Velocity
+		{
+			get { return Rigidbody.velocity; }
 		}
 
-		private void OnEnable()
+		public Movement Movement
 		{
-			//update current MovementList;
-			MovementList = GetComponents<Movement>().ToList();
+			get { return _movement; }
+		}
+
+		private void Awake()
+		{
+			// Get current movement list
+			if (!_movement)
+			{
+				_movement = GetComponent<Movement>();
+			}
+			
+			Rigidbody = GetComponent<Rigidbody>();
 		}
 	}
 }

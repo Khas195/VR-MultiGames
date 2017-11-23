@@ -11,131 +11,70 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BoidMovement.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/script/Boid Flocking/BoidMovement.cs">
+      <file leaf-file-name="ObstacleAvoidanceBehavior.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/ObstacleAvoidanceBehavior.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
-              <caret line="65" column="9" lean-forward="false" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
+            <state relative-caret-position="520">
+              <caret line="92" column="16" lean-forward="false" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
               <folding>
-                <marker date="1509770854426" expanded="false" signature="6:96" ph="..." />
-                <marker date="1509770854426" expanded="true" signature="128:1296" ph="{...}" />
-                <marker date="1509770854426" expanded="true" signature="168:1294" ph="{...}" />
-                <marker date="1509770854426" expanded="true" signature="369:449" ph="{...}" />
-                <marker date="1509770854426" expanded="true" signature="479:692" ph="{...}" />
-                <marker date="1509770854426" expanded="true" signature="532:688" ph="{...}" />
-                <marker date="1509770854426" expanded="true" signature="588:630" ph="{...}" />
-                <marker date="1509770854426" expanded="true" signature="639:683" ph="{...}" />
-                <marker date="1509770854426" expanded="true" signature="726:826" ph="{...}" />
-                <marker date="1509770854426" expanded="true" signature="907:1237" ph="{...}" />
-                <marker date="1509770854426" expanded="true" signature="944:981" ph="{...}" />
-                <marker date="1509770854426" expanded="true" signature="1142:1233" ph="{...}" />
-                <marker date="1509770854426" expanded="true" signature="1279:1291" ph="{...}" />
+                <marker date="1511342708845" expanded="true" signature="49:3109" ph="{...}" />
+                <marker date="1511342708845" expanded="true" signature="106:3107" ph="{...}" />
+                <marker date="1511342708845" expanded="true" signature="820:1317" ph="{...}" />
+                <marker date="1511342708845" expanded="true" signature="868:890" ph="{...}" />
+                <marker date="1511342708845" expanded="true" signature="1023:1261" ph="{...}" />
+                <marker date="1511342708845" expanded="true" signature="1269:1313" ph="{...}" />
+                <marker date="1511342708845" expanded="true" signature="1415:2204" ph="{...}" />
+                <marker date="1511342708845" expanded="true" signature="1799:2184" ph="{...}" />
+                <marker date="1511342708845" expanded="true" signature="2235:3104" ph="{...}" />
+                <marker date="1511342708845" expanded="true" signature="2606:2782" ph="{...}" />
+                <marker date="1511342708845" expanded="true" signature="2790:3100" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StateController.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/script/FSM/StateController.cs">
+      <file leaf-file-name="ArrivalBehavior.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/ArrivalBehavior.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="374">
+              <caret line="46" column="13" lean-forward="false" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
               <folding>
-                <marker date="1509771369913" expanded="false" signature="6:134" ph="..." />
-                <marker date="1509771369913" expanded="true" signature="156:683" ph="{...}" />
-                <marker date="1509771369913" expanded="true" signature="201:681" ph="{...}" />
-                <marker date="1509771369913" expanded="true" signature="409:461" ph="{...}" />
-                <marker date="1509771369913" expanded="true" signature="491:530" ph="{...}" />
-                <marker date="1509771369913" expanded="true" signature="580:675" ph="{...}" />
-                <marker date="1509771369913" expanded="true" signature="635:671" ph="{...}" />
+                <marker date="1511256311641" expanded="true" signature="49:1701" ph="{...}" />
+                <marker date="1511256311641" expanded="true" signature="96:1699" ph="{...}" />
+                <marker date="1511256311641" expanded="true" signature="419:776" ph="{...}" />
+                <marker date="1511256311641" expanded="true" signature="467:489" ph="{...}" />
+                <marker date="1511256311641" expanded="true" signature="865:1294" ph="{...}" />
+                <marker date="1511256311641" expanded="true" signature="1096:1190" ph="{...}" />
+                <marker date="1511256311641" expanded="true" signature="1198:1273" ph="{...}" />
+                <marker date="1511256311641" expanded="true" signature="1325:1696" ph="{...}" />
+                <marker date="1511256311641" expanded="true" signature="1362:1692" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BoidController.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/script/Boid Flocking/BoidController.cs">
+      <file leaf-file-name="BoidMovement.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/BoidMovement.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="708">
-              <caret line="152" column="37" lean-forward="false" selection-start-line="152" selection-start-column="33" selection-end-line="152" selection-end-column="37" />
+            <state relative-caret-position="340">
+              <caret line="23" column="51" lean-forward="false" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
               <folding>
-                <marker date="1509773266169" expanded="false" signature="6:83" ph="..." />
-                <marker date="1509773266169" expanded="true" signature="115:3993" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="159:3991" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="574:625" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="655:1227" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="1124:1222" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="1166:1217" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="1288:1561" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="1430:1500" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="1621:1912" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="1776:1830" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="1974:2389" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="2145:2330" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="2266:2325" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="2455:2880" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="2622:2822" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="2759:2817" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="2913:3382" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="3097:3378" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="3209:3262" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="3332:3373" ph="{...}" />
-                <marker date="1509773266169" expanded="true" signature="3413:3988" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LookDecision.cs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/script/FSM/LookDecision.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="31" column="39" lean-forward="false" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="39" />
-              <folding>
-                <marker date="1509771355966" expanded="true" signature="40:838" ph="{...}" />
-                <marker date="1509771355966" expanded="true" signature="131:836" ph="{...}" />
-                <marker date="1509771355966" expanded="true" signature="234:299" ph="{...}" />
-                <marker date="1509771355966" expanded="true" signature="348:627" ph="{...}" />
-                <marker date="1509771355966" expanded="true" signature="535:606" ph="{...}" />
-                <marker date="1509771355966" expanded="true" signature="650:833" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayerController.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/script/ControllerScript/PlayerController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1509351555640" expanded="false" signature="6:126" ph="..." />
-                <marker date="1509351555640" expanded="true" signature="161:594" ph="{...}" />
-                <marker date="1509351555640" expanded="true" signature="208:592" ph="{...}" />
-                <marker date="1509351555640" expanded="true" signature="240:589" ph="{...}" />
-                <marker date="1509351555640" expanded="true" signature="430:585" ph="{...}" />
-                <marker date="1509351555640" expanded="true" signature="472:580" ph="{...}" />
-                <marker date="1509351555640" expanded="true" signature="533:574" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Controller.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/script/ControllerScript/Controller.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="43" lean-forward="false" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
-              <folding>
-                <marker date="1509352726904" expanded="true" signature="6:100" ph="..." />
-                <marker date="1509352726904" expanded="true" signature="135:895" ph="{...}" />
-                <marker date="1509352726904" expanded="true" signature="178:893" ph="{...}" />
-                <marker date="1509352726904" expanded="true" signature="356:416" ph="{...}" />
-                <marker date="1509352726904" expanded="true" signature="442:767" ph="{...}" />
-                <marker date="1509352726904" expanded="true" signature="508:603" ph="{...}" />
-                <marker date="1509352726904" expanded="true" signature="611:676" ph="{...}" />
-                <marker date="1509352726904" expanded="true" signature="719:763" ph="{...}" />
-                <marker date="1509352726904" expanded="true" signature="794:890" ph="{...}" />
+                <marker date="1511343609629" expanded="false" signature="6:96" ph="..." />
+                <marker date="1511343609629" expanded="true" signature="127:2276" ph="{...}" />
+                <marker date="1511343609629" expanded="true" signature="167:2274" ph="{...}" />
+                <marker date="1511343609629" expanded="true" signature="799:866" ph="{...}" />
+                <marker date="1511343609629" expanded="true" signature="900:987" ph="{...}" />
+                <marker date="1511343609629" expanded="true" signature="1017:1096" ph="{...}" />
+                <marker date="1511343609629" expanded="true" signature="1132:1178" ph="{...}" />
+                <marker date="1511343609629" expanded="true" signature="1259:1441" ph="{...}" />
+                <marker date="1511343609629" expanded="true" signature="1373:1437" ph="{...}" />
+                <marker date="1511343609629" expanded="true" signature="1492:1764" ph="{...}" />
+                <marker date="1511343609629" expanded="true" signature="1619:1694" ph="{...}" />
+                <marker date="1511343609629" expanded="true" signature="1702:1760" ph="{...}" />
+                <marker date="1511343609629" expanded="true" signature="1817:1964" ph="{...}" />
+                <marker date="1511343609629" expanded="true" signature="2006:2271" ph="{...}" />
+                <marker date="1511343609629" expanded="true" signature="2081:2178" ph="{...}" />
+                <marker date="1511343609629" expanded="true" signature="2186:2267" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -152,40 +91,60 @@
       <find>CurrentTargetSpeed</find>
       <find>JumpForce</find>
       <find>curSpeed</find>
+      <find>curFill</find>
+      <find>Move</find>
+      <find>_Rigidbody</find>
+      <find>enabled</find>
+      <find>_normalViewSphereColor</find>
+      <find>forward</find>
+      <find>overl</find>
     </findStrings>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../../vr-horror/HorrorMap/Assets/scripts/Controller/RigidbodyPawn.cs" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/MovementScript/Movement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/MovementScript/MockMovement.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/FSM/State.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/MovementScript/SimpleMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/ShaderEffect/Paintable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/BoidController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/BoidBehavior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/script/EditorScript/ReadOnlyAttribute.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/ControllerScript/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/MouseLook.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/ControllerScript/Controller.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/BoidUnit.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../vr-horror/HorrorMap/Assets/scripts/Controller/RigidbodyPawn.cs" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/BoidMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/SeekBehavior.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/GameMaster/AmunitionPool.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/ArrivalBehavior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/script/FSM/Transition.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/Boid Flocking/BoidController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/FSM/Decision.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/Boid Flocking/BoidMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/script/FSM/ChaseAction.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/script/FSM/PatrolAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/script/FSM/LookDecision.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/FleeBehavior.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/script/FSM/StateController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/FSM/Decision.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/GameMaster/EffectPool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/script/FSM/Action.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/FSM/State.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/FSM/PatrolAction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/Features/PaintShooter/PaintBallShooter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/ObstacleAvoidanceBehavior.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/Features/PaintBall.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/EvadeBehavior.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/ControllerScript/Controller.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/WanderBehavior.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/ControllerScript/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/MovementScript/SimpleMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/ObstacleSeparationBehavior.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/MovementScript/MockMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/MovementScript/Movement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/Features/PaintFillEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/MouseLook.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/CrowdSeparationBehavior.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/PursuitBehavior.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Normal-Parallax.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/CrowdCohensionBehavior.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/Respawn.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/CrowdAlignmentBehavior.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/script/IActor.cs" />
-        <option value="$PROJECT_DIR$/Assets/script/SkateBoardMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/script/IController.cs" />
-        <option value="$PROJECT_DIR$/Assets/script/IMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/script/MockMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/script/RigidBodyActor.cs" />
-        <option value="$PROJECT_DIR$/Assets/script/SimpleMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/script/Movement/RigidBodyActor.cs" />
         <option value="$PROJECT_DIR$/Assets/script/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/script/BoidFlocking/Boid.cs" />
         <option value="$PROJECT_DIR$/Assets/script/Movement/IMovement.cs" />
@@ -195,9 +154,6 @@
         <option value="$PROJECT_DIR$/Assets/script/Movement/MockMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/script/EditorScript/ReadOnlyAttribute.cs" />
         <option value="$PROJECT_DIR$/Assets/script/MovementScript/MockMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/script/ControllerScript/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/script/MovementScript/Movement.cs" />
-        <option value="$PROJECT_DIR$/Assets/script/ControllerScript/Controller.cs" />
         <option value="$PROJECT_DIR$/Assets/script/MovementScript/SimpleMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/script/FSMScript/StateController.cs" />
         <option value="$PROJECT_DIR$/Assets/script/FSMScript/Action.cs" />
@@ -207,10 +163,39 @@
         <option value="$PROJECT_DIR$/Assets/script/FSM/ChaseAction.cs" />
         <option value="$PROJECT_DIR$/Assets/script/FSM/PatrolAction.cs" />
         <option value="$PROJECT_DIR$/Assets/script/FSM/State.cs" />
-        <option value="$PROJECT_DIR$/Assets/script/Boid Flocking/BoidMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/script/FSM/LookDecision.cs" />
         <option value="$PROJECT_DIR$/Assets/script/FSM/StateController.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/Boid Flocking/BoidMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/Respawn.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/Features/PaintBall.cs" />
         <option value="$PROJECT_DIR$/Assets/script/Boid Flocking/BoidController.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/Boid Flocking/Boid.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/Boid Flocking/BoidBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/Boid Flocking/BoidUnit.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/ControllerScript/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/MovementScript/Movement.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/BoidBehavior/CrowdSeparationBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/BoidBehavior/SeekBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/BoidBehavior/ObstacleAvoidanceBarrierBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/BoidBehavior/EvadeObstacleBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/BoidBehavior/ArrivalBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/BoidBehavior/FleeBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/BoidBehavior/EvadeBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/BoidBehavior/PursuitBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/BoidBehavior/WanderBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/test.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/test1.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/test2.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/BoidBehavior/BoidBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/BoidBehavior/CrowdAlignmentBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/BoidBehavior/CrowdCohensionBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/BoidBehavior/BoidController.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/ControllerScript/Controller.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/BoidBehavior/BoidUnit.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/BoidBehavior/ObstacleSeparationBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/TimeMaster.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/BoidBehavior/ObstacleAvoidanceBehavior.cs" />
+        <option value="$PROJECT_DIR$/Assets/script/BoidBehavior/BoidMovement.cs" />
       </list>
     </option>
   </component>
@@ -220,8 +205,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="953" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="918" />
+    <option name="y" value="-16" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -240,6 +226,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -247,18 +234,12 @@
               <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
               <item name="VR-MultiGames (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
             </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="VR-MultiGames (2 projects)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="Assembly-CSharp" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-file-system" value="false" />
         <option name="show-all-items" value="false" />
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -358,18 +339,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33297643" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3319194" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20041753" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -425,49 +406,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/script/BoidFlocking/Boid.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/PlayerController.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/RigidBodyActor.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/MockMovement.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/IMovement.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/PlayerController.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/IActor.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/SimpleMovement.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/RigidBodyActor.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/MockMovement.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/IMovement.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/PlayerController.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/IActor.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/SimpleMovement.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/SkateBoardMovement.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/IController.cs" />
-    <entry file="file://$PROJECT_DIR$/../../vr-horror/HorrorMap/Assets/scripts/Controller/RigidbodyPawn.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="139" column="33" lean-forward="false" selection-start-line="139" selection-start-column="33" selection-end-line="139" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/script/RigidBodyActor.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/IMovement.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/MockMovement.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/IActor.cs" />
-    <entry file="file://$USER_HOME$/Downloads/Flight Sim/Fly.js" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/SimpleMovement.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/Movement/RigidBodyActor.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/CharacterMotor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-850">
-          <caret line="164" column="0" lean-forward="false" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/script/Movement/IMovement.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/Movement/SimpleMovement.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/Movement/MockMovement.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/Movement/Movement.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/PlayerController.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/Controller/Controller.cs" />
     <entry file="file://$PROJECT_DIR$/Assets/script/EditorScript/ReadOnlyAttribute.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -476,13 +414,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/script/BoidFlocking/Boid.cs" />
-    <entry file="file://$PROJECT_DIR$/Assets/script/MovementScript/Movement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/script/MovementScript/MockMovement.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -541,24 +472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/script/ControllerScript/Controller.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="43" lean-forward="false" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
-          <folding>
-            <marker date="1509352726904" expanded="true" signature="6:100" ph="..." />
-            <marker date="1509352726904" expanded="true" signature="135:895" ph="{...}" />
-            <marker date="1509352726904" expanded="true" signature="178:893" ph="{...}" />
-            <marker date="1509352726904" expanded="true" signature="356:416" ph="{...}" />
-            <marker date="1509352726904" expanded="true" signature="442:767" ph="{...}" />
-            <marker date="1509352726904" expanded="true" signature="508:603" ph="{...}" />
-            <marker date="1509352726904" expanded="true" signature="611:676" ph="{...}" />
-            <marker date="1509352726904" expanded="true" signature="719:763" ph="{...}" />
-            <marker date="1509352726904" expanded="true" signature="794:890" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/Unity3DRider.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="303">
@@ -566,102 +479,257 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/script/ControllerScript/PlayerController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1509351555640" expanded="false" signature="6:126" ph="..." />
-            <marker date="1509351555640" expanded="true" signature="161:594" ph="{...}" />
-            <marker date="1509351555640" expanded="true" signature="208:592" ph="{...}" />
-            <marker date="1509351555640" expanded="true" signature="240:589" ph="{...}" />
-            <marker date="1509351555640" expanded="true" signature="430:585" ph="{...}" />
-            <marker date="1509351555640" expanded="true" signature="472:580" ph="{...}" />
-            <marker date="1509351555640" expanded="true" signature="533:574" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/script/Boid Flocking/BoidMovement.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="65" column="9" lean-forward="false" selection-start-line="65" selection-start-column="9" selection-end-line="65" selection-end-column="9" />
-          <folding>
-            <marker date="1509770854426" expanded="false" signature="6:96" ph="..." />
-            <marker date="1509770854426" expanded="true" signature="128:1296" ph="{...}" />
-            <marker date="1509770854426" expanded="true" signature="168:1294" ph="{...}" />
-            <marker date="1509770854426" expanded="true" signature="369:449" ph="{...}" />
-            <marker date="1509770854426" expanded="true" signature="479:692" ph="{...}" />
-            <marker date="1509770854426" expanded="true" signature="532:688" ph="{...}" />
-            <marker date="1509770854426" expanded="true" signature="588:630" ph="{...}" />
-            <marker date="1509770854426" expanded="true" signature="639:683" ph="{...}" />
-            <marker date="1509770854426" expanded="true" signature="726:826" ph="{...}" />
-            <marker date="1509770854426" expanded="true" signature="907:1237" ph="{...}" />
-            <marker date="1509770854426" expanded="true" signature="944:981" ph="{...}" />
-            <marker date="1509770854426" expanded="true" signature="1142:1233" ph="{...}" />
-            <marker date="1509770854426" expanded="true" signature="1279:1291" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/script/FSM/StateController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <marker date="1509771369913" expanded="false" signature="6:134" ph="..." />
-            <marker date="1509771369913" expanded="true" signature="156:683" ph="{...}" />
-            <marker date="1509771369913" expanded="true" signature="201:681" ph="{...}" />
-            <marker date="1509771369913" expanded="true" signature="409:461" ph="{...}" />
-            <marker date="1509771369913" expanded="true" signature="491:530" ph="{...}" />
-            <marker date="1509771369913" expanded="true" signature="580:675" ph="{...}" />
-            <marker date="1509771369913" expanded="true" signature="635:671" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/script/Boid Flocking/BoidController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="708">
-          <caret line="152" column="37" lean-forward="false" selection-start-line="152" selection-start-column="33" selection-end-line="152" selection-end-column="37" />
-          <folding>
-            <marker date="1509773266169" expanded="false" signature="6:83" ph="..." />
-            <marker date="1509773266169" expanded="true" signature="115:3993" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="159:3991" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="574:625" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="655:1227" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="1124:1222" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="1166:1217" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="1288:1561" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="1430:1500" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="1621:1912" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="1776:1830" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="1974:2389" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="2145:2330" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="2266:2325" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="2455:2880" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="2622:2822" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="2759:2817" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="2913:3382" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="3097:3378" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="3209:3262" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="3332:3373" ph="{...}" />
-            <marker date="1509773266169" expanded="true" signature="3413:3988" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/script/FSM/LookDecision.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="31" column="39" lean-forward="false" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/Boid Flocking/BoidMovement.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/script/FSM/StateController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/Character/CharacterMotor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2159">
+          <caret line="127" column="36" lean-forward="false" selection-start-line="127" selection-start-column="36" selection-end-line="127" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/Respawn.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/Features/PaintFillEvent.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" column="27" lean-forward="false" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/Features/PaintShooter/PaintBallShooter.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="21" column="25" lean-forward="false" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/ShaderEffect/Paintable.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/GameMaster/AmunitionPool.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="26" column="21" lean-forward="false" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/Boid Flocking/BoidController.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/script/GameMaster/EffectPool.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="23" column="39" lean-forward="false" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/Boid Flocking/Boid.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/script/Boid Flocking/BoidBehavior.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/script/Boid Flocking/BoidUnit.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/script/Features/PaintBall.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="6" column="19" lean-forward="false" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/ControllerScript/PlayerController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/ObstacleAvoidanceBarrierBehavior.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/CrowdSeparationBehavior.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/SeekBehavior.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/PursuitBehavior.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="69" column="73" lean-forward="false" selection-start-line="69" selection-start-column="59" selection-end-line="69" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/FleeBehavior.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="52" lean-forward="false" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/EvadeBehavior.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="49" column="46" lean-forward="false" selection-start-line="49" selection-start-column="46" selection-end-line="49" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/WanderBehavior.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="622">
+          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/MovementScript/Movement.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/test.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/script/test1.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/script/test2.cs" />
+    <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/BoidBehavior.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/ControllerScript/Controller.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="13" column="35" lean-forward="false" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/CrowdAlignmentBehavior.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="65" column="51" lean-forward="false" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/CrowdCohensionBehavior.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="70" column="45" lean-forward="false" selection-start-line="70" selection-start-column="45" selection-end-line="70" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/BoidUnit.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="47" column="51" lean-forward="false" selection-start-line="47" selection-start-column="51" selection-end-line="47" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/ObstacleSeparationBehavior.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="51" column="46" lean-forward="false" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/BoidController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-561">
+          <caret line="9" column="37" lean-forward="false" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/TimeMaster.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/ObstacleAvoidanceBehavior.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="92" column="16" lean-forward="false" selection-start-line="92" selection-start-column="16" selection-end-line="92" selection-end-column="16" />
           <folding>
-            <marker date="1509771355966" expanded="true" signature="40:838" ph="{...}" />
-            <marker date="1509771355966" expanded="true" signature="131:836" ph="{...}" />
-            <marker date="1509771355966" expanded="true" signature="234:299" ph="{...}" />
-            <marker date="1509771355966" expanded="true" signature="348:627" ph="{...}" />
-            <marker date="1509771355966" expanded="true" signature="535:606" ph="{...}" />
-            <marker date="1509771355966" expanded="true" signature="650:833" ph="{...}" />
+            <marker date="1511342708845" expanded="true" signature="49:3109" ph="{...}" />
+            <marker date="1511342708845" expanded="true" signature="106:3107" ph="{...}" />
+            <marker date="1511342708845" expanded="true" signature="820:1317" ph="{...}" />
+            <marker date="1511342708845" expanded="true" signature="868:890" ph="{...}" />
+            <marker date="1511342708845" expanded="true" signature="1023:1261" ph="{...}" />
+            <marker date="1511342708845" expanded="true" signature="1269:1313" ph="{...}" />
+            <marker date="1511342708845" expanded="true" signature="1415:2204" ph="{...}" />
+            <marker date="1511342708845" expanded="true" signature="1799:2184" ph="{...}" />
+            <marker date="1511342708845" expanded="true" signature="2235:3104" ph="{...}" />
+            <marker date="1511342708845" expanded="true" signature="2606:2782" ph="{...}" />
+            <marker date="1511342708845" expanded="true" signature="2790:3100" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/ArrivalBehavior.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="46" column="13" lean-forward="false" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
+          <folding>
+            <marker date="1511256311641" expanded="true" signature="49:1701" ph="{...}" />
+            <marker date="1511256311641" expanded="true" signature="96:1699" ph="{...}" />
+            <marker date="1511256311641" expanded="true" signature="419:776" ph="{...}" />
+            <marker date="1511256311641" expanded="true" signature="467:489" ph="{...}" />
+            <marker date="1511256311641" expanded="true" signature="865:1294" ph="{...}" />
+            <marker date="1511256311641" expanded="true" signature="1096:1190" ph="{...}" />
+            <marker date="1511256311641" expanded="true" signature="1198:1273" ph="{...}" />
+            <marker date="1511256311641" expanded="true" signature="1325:1696" ph="{...}" />
+            <marker date="1511256311641" expanded="true" signature="1362:1692" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/script/BoidBehavior/BoidMovement.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="23" column="51" lean-forward="false" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
+          <folding>
+            <marker date="1511343609629" expanded="false" signature="6:96" ph="..." />
+            <marker date="1511343609629" expanded="true" signature="127:2276" ph="{...}" />
+            <marker date="1511343609629" expanded="true" signature="167:2274" ph="{...}" />
+            <marker date="1511343609629" expanded="true" signature="799:866" ph="{...}" />
+            <marker date="1511343609629" expanded="true" signature="900:987" ph="{...}" />
+            <marker date="1511343609629" expanded="true" signature="1017:1096" ph="{...}" />
+            <marker date="1511343609629" expanded="true" signature="1132:1178" ph="{...}" />
+            <marker date="1511343609629" expanded="true" signature="1259:1441" ph="{...}" />
+            <marker date="1511343609629" expanded="true" signature="1373:1437" ph="{...}" />
+            <marker date="1511343609629" expanded="true" signature="1492:1764" ph="{...}" />
+            <marker date="1511343609629" expanded="true" signature="1619:1694" ph="{...}" />
+            <marker date="1511343609629" expanded="true" signature="1702:1760" ph="{...}" />
+            <marker date="1511343609629" expanded="true" signature="1817:1964" ph="{...}" />
+            <marker date="1511343609629" expanded="true" signature="2006:2271" ph="{...}" />
+            <marker date="1511343609629" expanded="true" signature="2081:2178" ph="{...}" />
+            <marker date="1511343609629" expanded="true" signature="2186:2267" ph="{...}" />
           </folding>
         </state>
       </provider>
