@@ -1,19 +1,17 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\ShaderEffect\Paintable.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\ShaderEffect\DissolveEffect.cs">
     <Files>
-      <File FileName="Assets\script\ShaderEffect\Paintable.cs" Line="135" Column="31" />
-      <File FileName="Assets\resource\shader\PaintOn.shader" Line="68" Column="24" />
-      <File FileName="Assets\resource\shader\Blur.shader" Line="1" Column="1" />
-      <File FileName="Assets\script\Features\PaintBall.cs" Line="101" Column="1" />
-      <File FileName="Assets\script\Features\ChangeBallColor.cs" Line="19" Column="1" />
-      <File FileName="Assets\script\GameMaster\GameSettings.cs" Line="40" Column="1" />
-      <File FileName="Assets\script\RaycastClick.cs" Line="27" Column="11" />
+      <File FileName="Assets\resource\shader\PaintOn.shader" Line="54" Column="56" />
+      <File FileName="Assets\script\ShaderEffect\Paintable.cs" Line="110" Column="3" />
+      <File FileName="Assets\script\Features\ChangeBallColor.cs" Line="19" Column="22" />
+      <File FileName="Assets\script\Features\PaintFillEvent.cs" Line="15" Column="22" />
+      <File FileName="Assets\script\GameMaster\Ultility.cs" Line="8" Column="48" />
+      <File FileName="Assets\script\ShaderEffect\DissolveEffect.cs" Line="38" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="C:\Projects\Unity\VR-MultiGames\VR-MultiGames\Assets\script\Features\ChangeBallColor.cs" line="19" column="22" />
       <Breakpoint file="C:\Projects\Unity\VR-MultiGames\VR-MultiGames\Assets\script\Features\PaintBall.cs" line="101" column="68" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
