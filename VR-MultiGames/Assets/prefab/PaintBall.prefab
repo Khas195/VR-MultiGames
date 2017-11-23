@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4687537255087538}
   - component: {fileID: 33167301287953046}
   - component: {fileID: 23244158295631322}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Silhouette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 23647847712302396}
   - component: {fileID: 54879071003546840}
   - component: {fileID: 114149454022626406}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PaintBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

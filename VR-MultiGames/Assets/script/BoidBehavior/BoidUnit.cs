@@ -27,14 +27,16 @@ namespace script.BoidBehavior
 		public static List<BoidUnit> GetNeighbour(GameObject gobject, float radius)
 		{
 			List<BoidUnit> neighbourList = new List<BoidUnit>();
+			float sqrRadius = radius * radius;
+			Vector3 origin = gobject.transform.position;
 			
 			foreach (var boid in _boidList)
 			{
 				if(boid == null || boid.gameObject == gobject) continue;
 
-				float sqrDist = (boid.transform.position - gobject.transform.position).sqrMagnitude;
+				float sqrDist = (boid.transform.position - origin).sqrMagnitude;
 
-				if (sqrDist <= radius * radius)
+				if (sqrDist <= sqrRadius)
 				{
 					neighbourList.Add(boid);
 				}

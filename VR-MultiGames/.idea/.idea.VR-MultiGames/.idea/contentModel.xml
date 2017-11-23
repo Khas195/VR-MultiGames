@@ -116,6 +116,9 @@
             <e p="Movement.cs" t="Include" />
             <e p="SimpleMovement.cs" t="Include" />
           </e>
+          <e p="PathFinding" t="Include">
+            <e p="Path.cs" t="Include" />
+          </e>
           <e p="RaycastClick.cs" t="Include" />
           <e p="Respawn.cs" t="Include" />
           <e p="ShaderEffect" t="Include">
