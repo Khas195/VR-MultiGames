@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class Ultil  {
+	public static float CalColorDifference (Color targetColor, Color color)
+	{
+		return Vector4.Distance (targetColor, color);
+	}
 
 	/// <summary>
 	/// Get the object the camera is looking at

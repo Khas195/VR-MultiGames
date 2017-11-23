@@ -17,6 +17,8 @@ class Paintable : MonoBehaviour
 
 	bool init = false;
 
+	[SerializeField]
+	bool shouldCalFill;
 	float curFill;
 
 	float totalFill;
@@ -100,15 +102,16 @@ class Paintable : MonoBehaviour
 		Color[] srcColors = ink.GetPixels (inkLeft, inkBottom, blockWidth, blockHeight);
 
 		StartCoroutine ( TweenPaint( xOrigin, yOrigin, blockWidth,  blockHeight,  dstColors, srcColors, color));
-
 		return true;
     }
 
 
 	IEnumerator  TweenPaint( int xOrigin, int yOrigin, int blockWidth, int  blockHeight,Color[]  dstColors, Color[]   srcColors, Color color){
+		
 		int centerX = blockWidth / 2;
 		int centerY = blockHeight / 2;
 		int blockToColor = centerX / 2;
+		ISmoothPaint smoother = new MeanFilter ();
 		while (blockToColor < blockWidth) {
 			int left = Mathf.Clamp(centerX - blockToColor, 0, centerX);
 			int right = Mathf.Clamp(centerX + blockToColor, centerX, blockWidth);
@@ -117,15 +120,27 @@ class Paintable : MonoBehaviour
 
 			MapTexture (color, blockWidth, blockHeight, dstColors, srcColors, left, bottom, top, right);
 			for ( int i = 0; i < GameSettings.GetInstance().NumOfSmoothIteration; i++){
-				SmoothPaint (blockWidth, blockHeight, dstColors, srcColors, left, bottom, top, right);
+				smoother.Smooth (blockWidth, blockHeight, dstColors, srcColors, left, bottom, top, right);
 			}
-//			SmoothPaint (blockWidth, blockHeight, dstColors, srcColors);
 			drawTexture.SetPixels (xOrigin, yOrigin, blockWidth, blockHeight, dstColors);
 			drawTexture.Apply ();
-			blockToColor += blockWidth/4;
+			if (shouldCalFill) {
+				UpdateFillPercent (drawTexture.GetPixels ());
+			}
+			blockToColor += blockWidth/6;
 			yield return 0;
 		}
 
+	}
+	void UpdateFillPercent (Color[] colors)
+	{		
+		int filledPixels = 0;
+		for (int i = 0; i < colors.GetLength (0); ++i) {
+			if ( Ultil.CalColorDifference(targetColor, colors[i]) < 1.0f ){
+				filledPixels++;
+			}
+		}
+		curFill = filledPixels;
 	}
 
 
@@ -158,62 +173,13 @@ class Paintable : MonoBehaviour
 				if (srcColors [colorIndex].a <= 0) {
 					continue;
 				}
-				AdjustCurrentFill (dstColors [colorIndex], targetColor, color);
 				float xCoord = (float)x / blockWidth;
 				float yCoord = (float)y / blockHeight;
 				float sample = dstColors [colorIndex].a + Mathf.PerlinNoise (xCoord, yCoord);
-				dstColors [colorIndex] = Color.Lerp (dstColors [colorIndex], color, srcColors [colorIndex].a);
-				dstColors [colorIndex].a = sample;
-			}
-		}
-	}
-	void SmoothPaint (int blockWidth, int blockHeight, Color[] dstColors, Color[] srcColors, int left, int bottom, int top, int right)
-	{
-		for (int x = left + 1; x < right - 1; x++) {
-			for (int y = bottom + 1; y < top - 1; y++) {
-				var colorIndex = x + y * blockWidth;
-//				if (srcColors[colorIndex].a <= 0.0f) {
-//					continue;
-//				}
-				Vector4 average = new Vector4 ();
-
-				for (int i = x - 1; i <= x + 1; ++i) {
-					for (int j = y - 1; j <= y + 1; ++j) {
-						if (i == j) {
-							continue;
-						}
-						var index = i + j * blockWidth;
-						average.x += dstColors [index].r;
-						average.y += dstColors [index].g;
-						average.z += dstColors [index].b;
-						average.w += dstColors [index].a;
-					}
-				}
-				dstColors [colorIndex] = average / 8.0f;
+				dstColors [colorIndex] = Color.Lerp (dstColors [colorIndex], color , srcColors [colorIndex].a);
+				dstColors [colorIndex].a = sample ;
 			}
 		}
 	}
 
-	void AdjustCurrentFill (Color src, Color targetColor, Color paintColor)
-	{
-		if (src.a <= 0 && ColorDifference (paintColor, targetColor) < 0.5f) {
-			curFill++;
-		}
-		else
-			if (src.a > 0) {
-				if (IsColorCloseToSame (src, targetColor) && IsColorCloseToSame (paintColor, targetColor) == false) {
-					curFill--;
-				}
-				else
-					if (IsColorCloseToSame (src, targetColor) == false && IsColorCloseToSame (paintColor, targetColor) == true) {
-						curFill++;
-					}
-			}
-		Mathf.Clamp (curFill, 0, totalFill);
-	}
-
-	bool IsColorCloseToSame (Color colorA, Color colorB)
-	{
-		return ColorDifference (colorA, colorB) < 0.5f;
-	}
 }
