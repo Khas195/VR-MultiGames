@@ -19,7 +19,7 @@ public class PaintFillEvent : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () {	
 		if (paintable.GetFillPercentage () * 100 >= targetPercentage) {
 			this.enabled = false;
 			fillReachTarget.Invoke ();

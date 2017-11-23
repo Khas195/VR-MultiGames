@@ -199,6 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 1920
+  shouldCalFill: 0
 --- !u!23 &81644183
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -337,6 +338,11 @@ Prefab:
       propertyPath: m_Name
       value: Box (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 114464264275055876, guid: 24c2c452affe3db448b075951dc8fef1,
+        type: 2}
+      propertyPath: shouldCalFill
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24c2c452affe3db448b075951dc8fef1, type: 2}
   m_IsPrefabParent: 0
@@ -423,6 +429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 640
+  shouldCalFill: 0
 --- !u!23 &151621641
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -839,6 +846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 640
+  shouldCalFill: 0
 --- !u!23 &292073145
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -994,6 +1002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 640
+  shouldCalFill: 0
 --- !u!23 &317694202
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1220,6 +1229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 640
+  shouldCalFill: 0
 --- !u!23 &451019922
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1334,6 +1344,11 @@ Prefab:
       propertyPath: m_Name
       value: Box (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 114464264275055876, guid: 24c2c452affe3db448b075951dc8fef1,
+        type: 2}
+      propertyPath: shouldCalFill
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24c2c452affe3db448b075951dc8fef1, type: 2}
   m_IsPrefabParent: 0
@@ -1411,6 +1426,11 @@ Prefab:
     - target: {fileID: 1051056232524346, guid: 24c2c452affe3db448b075951dc8fef1, type: 2}
       propertyPath: m_Name
       value: Box (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114464264275055876, guid: 24c2c452affe3db448b075951dc8fef1,
+        type: 2}
+      propertyPath: shouldCalFill
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24c2c452affe3db448b075951dc8fef1, type: 2}
@@ -1632,6 +1652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 1920
+  shouldCalFill: 0
 --- !u!23 &529672589
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2041,6 +2062,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 640
+  shouldCalFill: 0
 --- !u!23 &802908775
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2169,6 +2191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 640
+  shouldCalFill: 0
 --- !u!23 &829159771
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2673,6 +2696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 640
+  shouldCalFill: 0
 --- !u!23 &1064778205
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2790,6 +2814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 640
+  shouldCalFill: 0
 --- !u!23 &1186015316
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2947,6 +2972,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 640
+  shouldCalFill: 0
 --- !u!23 &1205340257
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3185,6 +3211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 1920
+  shouldCalFill: 0
 --- !u!23 &1284533757
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3369,6 +3396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 640
+  shouldCalFill: 0
 --- !u!23 &1328642089
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4043,6 +4071,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 640
+  shouldCalFill: 0
 --- !u!23 &1539936270
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4121,6 +4150,33 @@ Transform:
   m_PrefabParentObject: {fileID: 4486511125393028, guid: 2dd80f21852d9314dadaa156bdce75b9,
     type: 2}
   m_PrefabInternal: {fileID: 1413593549}
+--- !u!84 &1621641783
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_Width: 697
+  m_Height: 274
+  m_AntiAliasing: 1
+  m_DepthFormat: 2
+  m_ColorFormat: 0
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 0
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1629469808
 GameObject:
   m_ObjectHideFlags: 0
@@ -4330,6 +4386,11 @@ Prefab:
         type: 2}
       propertyPath: GlowColor.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114464264275055876, guid: 24c2c452affe3db448b075951dc8fef1,
+        type: 2}
+      propertyPath: shouldCalFill
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 24c2c452affe3db448b075951dc8fef1, type: 2}
@@ -4691,6 +4752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 640
+  shouldCalFill: 0
 --- !u!23 &1886896897
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5052,6 +5114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 640
+  shouldCalFill: 0
 --- !u!23 &2009728216
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5150,6 +5213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 1920
+  shouldCalFill: 0
 --- !u!23 &2054016898
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5294,6 +5358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InitOnStart: 1
   drawTextureSize: 640
+  shouldCalFill: 0
 --- !u!23 &2060733937
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5333,33 +5398,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2060733931}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!84 &2094248762
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_Width: 697
-  m_Height: 274
-  m_AntiAliasing: 1
-  m_DepthFormat: 2
-  m_ColorFormat: 0
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 0
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &2095802912
 GameObject:
   m_ObjectHideFlags: 0
