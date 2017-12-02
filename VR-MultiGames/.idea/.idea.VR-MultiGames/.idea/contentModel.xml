@@ -98,6 +98,7 @@
               <e p="Laser.cs" t="Include" />
               <e p="PaintBallShooter.cs" t="Include" />
               <e p="PaintLaserShooter.cs" t="Include" />
+              <e p="PaintLaserShooterDrone.cs" t="Include" />
               <e p="PaintShooter.cs" t="Include" />
             </e>
             <e p="PickupItem.cs" t="Include" />
@@ -106,13 +107,11 @@
           <e p="FSM" t="Include">
             <e p="Action.cs" t="Include" />
             <e p="AimAction.cs" t="Include" />
-            <e p="ChaseAction.cs" t="Include" />
             <e p="Decision.cs" t="Include" />
-            <e p="LookDecision.cs" t="Include" />
-            <e p="PatrolAction.cs" t="Include" />
             <e p="ShootAction.cs" t="Include" />
             <e p="State.cs" t="Include" />
             <e p="StateController.cs" t="Include" />
+            <e p="TargetWithinSightDesicion.cs" t="Include" />
             <e p="Transition.cs" t="Include" />
           </e>
           <e p="GameMaster" t="Include">

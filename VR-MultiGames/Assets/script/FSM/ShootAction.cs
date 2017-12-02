@@ -7,14 +7,17 @@ namespace script.FSM
 	{
 		public override void Act(StateController controller)
 		{
-			throw new System.NotImplementedException();
+			ShootAtTarget(controller);
 		}
 
 		private void ShootAtTarget(StateController controller)
 		{
-			var target = controller._controller.Target;
+			var shooter = controller.GetComponent<PaintLaserShooterDrone>();
 
-			controller.transform.LookAt(target.transform);
+			if (shooter.CanFire())
+			{
+				shooter.Fire();
+			}
 		}
 	}
 }

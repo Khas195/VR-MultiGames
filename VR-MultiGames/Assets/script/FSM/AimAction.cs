@@ -7,12 +7,12 @@ namespace script.FSM
 	{
 		public override void Act(StateController controller)
 		{
-			throw new System.NotImplementedException();
+			AimAtTarget(controller);
 		}
 
 		private void AimAtTarget(StateController controller)
 		{
-			var target = controller._controller.Target;
+			var target = controller._boidController.Target;
 
 			controller.transform.LookAt(target.transform);
 		}

@@ -10,17 +10,11 @@ namespace script.FSM
 	public class StateController : Controller
 	{
 		public State CurState;
-		public List<Transform> WaypointList;
-		public NavMeshAgent NavAgent;
-		public Transform ChaseTarget;
-		public int NextWaypoint;
-		public float LookRange;
-		public BoidController _controller;
+		public BoidController _boidController;
 
 		private void Awake()
 		{
-			NavAgent = GetComponent<NavMeshAgent>();
-			_controller = GetComponent<BoidController>();
+			_boidController = GetComponent<BoidController>();
 		}
 
 		private void FixedUpdate()
