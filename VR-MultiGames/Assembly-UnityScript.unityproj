@@ -66,7 +66,7 @@
      <None Include="Assets\VolumetricLines\Shaders\Strip-Additive.shader" />
      <None Include="Assets\resource\shader\Dissolve.shader" />
      <None Include="Assets\resource\shader\Bullet.shader" />
-     <None Include="Assets\resource\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
+     <None Include="Assets\resource\model\SimpleFX\Materials\UnlitVertexColour_Alpha.shader" />
      <None Include="Assets\VolumetricLines\Shaders\Fast-AlphaBlended.shader" />
      <None Include="Assets\VolumetricLines\Shaders\Strip-AlphaBlended.shader" />
      <None Include="Assets\resource\shader\Barrier.shader" />
