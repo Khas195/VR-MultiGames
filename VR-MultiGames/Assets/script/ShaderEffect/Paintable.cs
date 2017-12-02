@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Collections;
 
 
-class Paintable : MonoBehaviour
+public class Paintable : MonoBehaviour
 {
 	[SerializeField]
 	bool InitOnStart;

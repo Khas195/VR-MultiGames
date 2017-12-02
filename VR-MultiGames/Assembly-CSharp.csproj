@@ -79,7 +79,9 @@
      <Compile Include="Assets\script\Features\Movement\TweenTo.cs" />
      <Compile Include="Assets\script\Features\PaintBall.cs" />
      <Compile Include="Assets\script\Features\PaintFillEvent.cs" />
+     <Compile Include="Assets\script\Features\PaintShooter\Laser.cs" />
      <Compile Include="Assets\script\Features\PaintShooter\PaintBallShooter.cs" />
+     <Compile Include="Assets\script\Features\PaintShooter\PaintLaserShooter.cs" />
      <Compile Include="Assets\script\Features\PaintShooter\PaintShooter.cs" />
      <Compile Include="Assets\script\Features\PickupItem.cs" />
      <Compile Include="Assets\script\Features\TestingScript.cs" />
@@ -97,6 +99,7 @@
      <Compile Include="Assets\script\GameMaster\GameDefinition.cs" />
      <Compile Include="Assets\script\GameMaster\GameSettings.cs" />
      <Compile Include="Assets\script\GameMaster\InputReceiver.cs" />
+     <Compile Include="Assets\script\GameMaster\LaserPool.cs" />
      <Compile Include="Assets\script\GameMaster\Ultility.cs" />
      <Compile Include="Assets\script\MouseLook.cs" />
      <Compile Include="Assets\script\MovementScript\MockMovement.cs" />

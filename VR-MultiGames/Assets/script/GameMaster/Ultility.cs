@@ -3,6 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class Ultil  {
+	public static Paintable TryShootPaint (Vector3 position, Vector3 direction, Color color,float distance)
+	{		
+		RaycastHit hit;
+		if (Physics.Raycast (position, direction, out hit,  distance )) {
+			var hitPaintable = hit.collider.gameObject.GetComponent<Paintable> ();
+			if (hitPaintable != null && hitPaintable.PaintMapping (hit.textureCoord2, GameSettings.GetInstance ().GetRandomInk (), color)) {
+				return hitPaintable;
+			}
+		}
+
+		return null;
+	}
+
 	public static float CalColorDifference (Color targetColor, Color color)
 	{
 		return Vector4.Distance (targetColor, color);

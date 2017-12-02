@@ -71,14 +71,14 @@ public class PaintBall : MonoBehaviour
 	{
 		List<Paintable> painted = new List<Paintable> ();
 
-		var result = TryShootPaint (transform.position, cacheRigidBody.velocity.normalized * splashRange); 
+		var result = Ultil.TryShootPaint (transform.position, cacheRigidBody.velocity.normalized * splashRange, color, splashRange); 
 		if (result != null) {
 			painted.Add (result);
 		}
 
 
 		for (int i = 0; i < GameSettings.GetInstance().NumberOfSplash; ++i) {
-			result = TryShootPaint (transform.position, transform.TransformDirection(Random.onUnitSphere * splashRange)); 
+			result = Ultil.TryShootPaint (transform.position, transform.TransformDirection(Random.onUnitSphere * splashRange), color, splashRange); 
 			if (result != null) {
 				painted.Add (result);
 			}
@@ -103,18 +103,5 @@ public class PaintBall : MonoBehaviour
 			mat = Ultil.GetMaterialWithShader (GetComponent<Renderer> ().materials, PaintableDefinition.BulletShader, name);
 		}
 		mat.SetColor (PaintableDefinition.ColorProperty, color);
-	}
-
-	Paintable TryShootPaint (Vector3 position, Vector3 direction)
-	{		
-		RaycastHit hit;
-		if (Physics.Raycast (position, direction, out hit,  splashRange )) {
-			var hitPaintable = hit.collider.gameObject.GetComponent<Paintable> ();
-			if (hitPaintable != null && hitPaintable.PaintMapping (hit.textureCoord2, GameSettings.GetInstance ().GetRandomInk (), color)) {
-				return hitPaintable;
-			}
-		}
-		
-		return null;
 	}
 }
