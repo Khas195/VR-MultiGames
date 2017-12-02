@@ -8,7 +8,6 @@ public class Laser : MonoBehaviour
 	float flySpeed;
 	[SerializeField]
 	Light laserLight;
-
 	void Start(){
 	}
 	public void SetSpeed (float laserSpeed)
@@ -26,14 +25,12 @@ public class Laser : MonoBehaviour
 		var paintable = other.collider.gameObject.GetComponent<Paintable> ();
 		if (paintable == null)
 			return;
-
 		Ultil.TryShootPaint (this.transform.position, flyDirection, laserLight.color, 10f);
 
 		LaserPool.GetPool ().ReturnAmmo (this.gameObject);
 	}
-	public void SetRayCastInfo(Vector3 position, Vector3 direction){
+	public void SetDirection(Vector3 direction){
 		// direction should be normalized
-		this.shootOrigin = position;
 		this.flyDirection = direction;
 		this.transform.rotation = Quaternion.LookRotation (direction);
 	}

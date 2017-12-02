@@ -28,7 +28,7 @@ public class PaintLaserShooter : PaintShooter {
 		laser.transform.position = shootPos.position;
 		laser.SetSpeed (laserSpeed);
 		laser.SetLaserColor (laserColor);
-		laser.SetRayCastInfo ( this.lookAtCamera.transform.position, lookAtCamera.transform.forward);
+		laser.SetDirection (lookAtCamera.transform.forward.normalized);
 		nextShot = Time.time + fireRate;
 	}
 }
