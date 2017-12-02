@@ -4,6 +4,7 @@
     <e p="C:\Users\kim_n\.Rider2017.2\system\resharper-host\local\Transient\ReSharperHost\v10\SolutionCaches\_VR-MultiGames.-1255143413.00" t="ExcludeRecursive" />
     <e p="Z:\UnityWorkSpace\VR-MultiGames.git\VR-MultiGames" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Normal-Parallax.shader" t="Include" />
@@ -21,6 +22,13 @@
           <e p="material" t="Include">
             <e p="readme.txt" t="Include" />
           </e>
+          <e p="model" t="Include">
+            <e p="SimpleFX" t="Include">
+              <e p="Materials" t="Include">
+                <e p="UnlitVertexColour_Alpha.shader" t="Include" />
+              </e>
+            </e>
+          </e>
           <e p="shader" t="Include">
             <e p="Barrier.shader" t="Include" />
             <e p="Blur.shader" t="Include" />
@@ -32,11 +40,6 @@
             <e p="PaintOn.shader" t="Include" />
             <e p="RollingTransparent.shader" t="Include" />
             <e p="Silhouette.shader" t="Include" />
-          </e>
-          <e p="SimpleFX" t="Include">
-            <e p="Materials" t="Include">
-              <e p="UnlitVertexColour_Alpha.shader" t="Include" />
-            </e>
           </e>
           <e p="texture" t="Include">
             <e p="readme.txt" t="Include" />
@@ -56,6 +59,7 @@
             <e p="FleeBehavior.cs" t="Include" />
             <e p="ObstacleAvoidanceBehavior.cs" t="Include" />
             <e p="ObstacleSeparationBehavior.cs" t="Include" />
+            <e p="PathFollowBehavior.cs" t="Include" />
             <e p="PursuitBehavior.cs" t="Include" />
             <e p="SeekBehavior.cs" t="Include" />
             <e p="WanderBehavior.cs" t="Include" />
@@ -69,6 +73,12 @@
           <e p="ControllerScript" t="Include">
             <e p="Controller.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
+          </e>
+          <e p="Editor" t="Include">
+            <e p="PathFinding" t="Include">
+              <e p="PathEditor.cs" t="Include" />
+              <e p="PathPointEditor.cs" t="Include" />
+            </e>
           </e>
           <e p="EditorScript" t="Include">
             <e p="ReadOnlyAttribute.cs" t="Include" />
@@ -117,7 +127,12 @@
             <e p="SimpleMovement.cs" t="Include" />
           </e>
           <e p="PathFinding" t="Include">
+            <e p="BezierCurve.cs" t="Include" />
             <e p="Path.cs" t="Include" />
+            <e p="PathFinder.cs" t="Include" />
+            <e p="PathInspector.cs" t="Include" />
+            <e p="PathPoint.cs" t="Include" />
+            <e p="PathPointInspector.cs" t="Include" />
           </e>
           <e p="RaycastClick.cs" t="Include" />
           <e p="Respawn.cs" t="Include" />
@@ -128,6 +143,8 @@
               <e p="GlowComposite.cs" t="Include" />
               <e p="Prepass.cs" t="Include" />
             </e>
+            <e p="ISmoothPaint.cs" t="Include" />
+            <e p="MeanFilter.cs" t="Include" />
             <e p="Paintable.cs" t="Include" />
             <e p="PaintableDefinition.cs" t="Include" />
           </e>
@@ -146,6 +163,35 @@
             </e>
             <e p="StateMachine.cs" t="Include" />
             <e p="UltilityEvents.cs" t="Include" />
+          </e>
+        </e>
+        <e p="VolumetricLines" t="Include">
+          <e p="ExampleScenes" t="Include">
+            <e p="ExampleScripts" t="Include">
+              <e p="CannonBehavior.cs" t="Include" />
+              <e p="CreateSinShapedLineStrip.cs" t="Include" />
+              <e p="ShotBehavior.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="Utils" t="Include">
+              <e p="TransformExtensionMethods.cs" t="Include" />
+            </e>
+            <e p="VolumetricLineBehavior.cs" t="Include" />
+            <e p="VolumetricLineSettings.cs" t="Include" />
+            <e p="VolumetricLineStripBehavior.cs" t="Include" />
+            <e p="VolumetricLineVertexData.cs" t="Include" />
+            <e p="VolumetricMultiLineBehavior.cs" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="_SimpleShader.cginc" t="Include" />
+            <e p="_StripShader.cginc" t="Include" />
+            <e p="Additive.shader" t="Include" />
+            <e p="AlphaBlended.shader" t="Include" />
+            <e p="Fast-Additive.shader" t="Include" />
+            <e p="Fast-AlphaBlended.shader" t="Include" />
+            <e p="Strip-Additive.shader" t="Include" />
+            <e p="Strip-AlphaBlended.shader" t="Include" />
           </e>
         </e>
       </e>

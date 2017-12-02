@@ -34,7 +34,7 @@ namespace script.BoidBehavior
 			{
 				if(boid == null || boid.gameObject == gobject) continue;
 
-				float sqrDist = (boid.transform.position - origin).sqrMagnitude;
+				float sqrDist = (boid.transform.position - gobject.transform.position).sqrMagnitude;
 
 				if (sqrDist <= sqrRadius)
 				{

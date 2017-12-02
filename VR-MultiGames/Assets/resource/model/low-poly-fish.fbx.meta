@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 1b0f5b8a9b44d574d98062b1ec7ac11d
-timeCreated: 1511330088
+guid: 201d31f38985da64ead946e1cba40952
+timeCreated: 1511410425
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -67,8 +67,6 @@ ModelImporter:
     400056: cruscarp
     400058: cruscarp_skel
     400060: //RootNode
-    2300000: cruscarp
-    3300000: cruscarp
     4300000: cruscarp
     7400000: cruscarp_skel|swim
     9500000: //RootNode
@@ -78,7 +76,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: cruscarp
-    second: {fileID: 2100000, guid: d791c34063749c944a3b2a0dcf5adcdf, type: 2}
+    second: {fileID: 2100000, guid: 827ce0849ea1e494381702aa3519b741, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -97,7 +95,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -131,7 +129,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2
@@ -144,13 +142,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    rootMotionBoneName: cruscarp
+    rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
