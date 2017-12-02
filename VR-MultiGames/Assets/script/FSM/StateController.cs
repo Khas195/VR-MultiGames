@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using JetBrains.Annotations;
+using script.BoidBehavior;
 using script.ControllerScript;
 using UnityEngine;
 using UnityEngine.AI;
@@ -14,10 +15,12 @@ namespace script.FSM
 		public Transform ChaseTarget;
 		public int NextWaypoint;
 		public float LookRange;
+		public BoidController _controller;
 
 		private void Awake()
 		{
 			NavAgent = GetComponent<NavMeshAgent>();
+			_controller = GetComponent<BoidController>();
 		}
 
 		private void FixedUpdate()
