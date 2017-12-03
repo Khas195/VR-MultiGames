@@ -11,6 +11,9 @@ namespace script.FSM
 	{
 		public State CurState;
 		public BoidController _boidController;
+		public Color _color = Color.green;
+
+		public GameObject[] CheckTargets;
 
 		private void Awake()
 		{
@@ -26,9 +29,10 @@ namespace script.FSM
 		{
 			if (nextState != null && CurState != nextState)
 			{
+				CurState.OnStateExit(this);
 				CurState = nextState;
+				CurState.OnStateEnter(this);
 			}
 		}
-		
 	}
 }

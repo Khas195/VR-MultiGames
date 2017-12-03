@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 136116931343440578}
   - component: {fileID: 114867371344999002}
   - component: {fileID: 54897861252619154}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,9 +99,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!108 &108552479937175778
 Light:
   m_ObjectHideFlags: 1

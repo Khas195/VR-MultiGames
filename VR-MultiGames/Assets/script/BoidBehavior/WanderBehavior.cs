@@ -55,7 +55,7 @@ namespace script.BoidBehavior
 				return;
 			}
 
-			_wanderCirclePosition = transform.position + BoidController.Velocity.normalized * _wanderCircleDistance;
+			_wanderCirclePosition = transform.position + BoidController.transform.forward * _wanderCircleDistance;
 			
 			_desiredVelocity = (_randomPoint - transform.position).normalized * BoidController.Movement.MaxSpeed;
 			

@@ -46,6 +46,7 @@
           </e>
         </e>
         <e p="script" t="Include">
+          <e p="Automove.cs" t="Include" />
           <e p="BoidBehavior" t="Include">
             <e p="ArrivalBehavior.cs" t="Include" />
             <e p="BoidBehavior.cs" t="Include" />
@@ -106,12 +107,18 @@
           </e>
           <e p="FSM" t="Include">
             <e p="Action.cs" t="Include" />
-            <e p="AimAction.cs" t="Include" />
+            <e p="CheckDecision.cs" t="Include" />
+            <e p="CheckState.cs" t="Include" />
             <e p="Decision.cs" t="Include" />
+            <e p="MoveToTargetAction.cs" t="Include" />
+            <e p="PatrolState.cs" t="Include" />
+            <e p="SelectTargetAction.cs" t="Include" />
             <e p="ShootAction.cs" t="Include" />
+            <e p="ShootDecision.cs" t="Include" />
+            <e p="ShootState.cs" t="Include" />
+            <e p="ShouldShootDecision.cs" t="Include" />
             <e p="State.cs" t="Include" />
             <e p="StateController.cs" t="Include" />
-            <e p="TargetWithinSightDesicion.cs" t="Include" />
             <e p="Transition.cs" t="Include" />
           </e>
           <e p="GameMaster" t="Include">

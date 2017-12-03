@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adff9df5599cad84b834ff7abd6a8d9c, type: 3}
+  m_Name: New Shoot State
+  m_EditorClassIdentifier: 
+  ActionList:
+  - {fileID: 11400000, guid: d88de37798503fe49a6c0d952d9e6a52, type: 2}
+  TransitionList:
+  - decision: {fileID: 11400000, guid: c5ff1b2dcd65e264cb88ab5537f564db, type: 2}
+    TrueState: {fileID: 11400000}
+    FalseState: {fileID: 11400000, guid: 2f4406a9ac1d6614f8681ce3e32c7c62, type: 2}

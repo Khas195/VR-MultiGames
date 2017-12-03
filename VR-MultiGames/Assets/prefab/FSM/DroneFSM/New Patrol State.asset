@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d191479e2f12cf549b2bc7807ff8897f, type: 3}
+  m_Name: New Patrol State
+  m_EditorClassIdentifier: 
+  ActionList: []
+  TransitionList:
+  - decision: {fileID: 11400000, guid: c61c8d2594050414384dd2fff40828b5, type: 2}
+    TrueState: {fileID: 11400000, guid: d8bb027de4d293144b0890f98c861d23, type: 2}
+    FalseState: {fileID: 11400000}

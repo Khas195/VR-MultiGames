@@ -31,23 +31,12 @@ namespace script.Editor.PathFinding
 
         public override void OnInspectorGUI()
         {
-            var newStepNum = EditorGUILayout.IntField("Number of step", _path.bezierCurveStepNum);
 
             var newPathType = (Path.PathType) EditorGUILayout.EnumPopup("Path Type",
                 _path.pathType);
 
             var newPathStyle = (Path.PathStyle) EditorGUILayout.EnumPopup("Path Style",
                 _path.pathStyle);
-
-            var newBezierCurveType = (BezierCurve.BezierCurveType) EditorGUILayout.EnumPopup("Bezier Curve Type",
-                _path.bezierCurveType);
-
-            _path.isDrawGizmos = EditorGUILayout.Toggle("Is Draw Gizmos", _path.isDrawGizmos);
-
-            if (newStepNum != _path.bezierCurveStepNum)
-            {
-                _path.bezierCurveStepNum = newStepNum;
-            }
 
             if (newPathType != _path.pathType)
             {
@@ -59,10 +48,29 @@ namespace script.Editor.PathFinding
                 _path.pathStyle = newPathStyle;
             }
 
-            if (newBezierCurveType != _path.bezierCurveType)
+            if (_path.pathType == Path.PathType.BezierCurve)
             {
-                _path.bezierCurveType = newBezierCurveType;
+                var newBezierCurveType = (BezierCurve.BezierCurveType) EditorGUILayout.EnumPopup("Bezier Curve Type",
+                    _path.bezierCurveType);
+            
+                var newStepNum = EditorGUILayout.IntField("Number of step", _path.bezierCurveStepNum);
+
+                if (newBezierCurveType != _path.bezierCurveType)
+                {
+                    _path.bezierCurveType = newBezierCurveType;
+                }
+
+                if (newStepNum != _path.bezierCurveStepNum)
+                {
+                    _path.bezierCurveStepNum = newStepNum;
+                }
             }
+
+            var newRadius = EditorGUILayout.FloatField("Radius", _path.pathRadius);
+
+            _path.pathRadius = newRadius;
+
+            _self.isDrawGizmos = EditorGUILayout.Toggle("Is Draw Gizmos", _self.isDrawGizmos);
             
             EditorGUILayout.Foldout(_showPoints, "Points");
 
@@ -75,7 +83,16 @@ namespace script.Editor.PathFinding
 			
                 if(GUILayout.Button("Add Point"))
                 {
-                    _path.Add(new PathPoint());
+                    var newPathPoint = new PathPoint();
+                    if (_path.pointList.Count == 0)
+                    {
+                        newPathPoint.position = _self.transform.position;
+                    }
+                    else
+                    {
+                        newPathPoint.position = _path.pointList[_path.pointList.Count - 1].position;
+                    }
+                    _path.Add(newPathPoint);
                 }
             }
         }

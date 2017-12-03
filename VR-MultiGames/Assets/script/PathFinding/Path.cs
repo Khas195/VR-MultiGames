@@ -28,8 +28,6 @@ namespace script.PathFinding
 		#region Setting
 		
 		[SerializeField]
-		private bool _isDrawGizmos;
-		[SerializeField]
 		private PathType _pathType = PathType.PointList;
 		[SerializeField]
 		private PathStyle _pathStyle = PathStyle.None;
@@ -62,12 +60,6 @@ namespace script.PathFinding
 
 		#region GetSet
 		
-		public bool isDrawGizmos
-		{
-			get { return _isDrawGizmos; }
-			set { _isDrawGizmos = value; }
-		}
-
 		public PathType pathType
 		{
 			get { return _pathType; }
@@ -158,19 +150,19 @@ namespace script.PathFinding
 		public Vector3 GetNearestPoint(Vector3 origin, out Vector3 prevPoint, out Vector3 nextPoint)
 		{
 			prevPoint = nextPoint = Vector3.zero;
-
+			
 			if (_precalculatedPath.Count < 2) return Vector3.zero;
 
 			var nearestPoint = _precalculatedPath[0];
 			nextPoint = _precalculatedPath[1];
 
-			var nearestSqrDist = (origin - nearestPoint).sqrMagnitude;
+			var nearestSqrDist = (nearestPoint - origin).sqrMagnitude;
 
 			for (var i = 1; i < _precalculatedPath.Count; ++i)
 			{
 				var sqrDist = (_precalculatedPath[i] - origin).sqrMagnitude;
 
-				if (!(nearestSqrDist < sqrDist)) continue;
+				if (nearestSqrDist <= sqrDist) continue;
 				
 				nearestPoint = _precalculatedPath[i];
 				nearestSqrDist = (nearestPoint - origin).sqrMagnitude;
@@ -191,6 +183,25 @@ namespace script.PathFinding
 			}
 
 			return nearestPoint;
+		}
+
+		public static Vector3 GetNormalPoint(Vector3 origin, Vector3 start, Vector3 end)
+		{
+			var startToPosition = origin - start;
+			var pathLine = end - start;
+			var projection = Vector3.Project(startToPosition, pathLine);
+			var normalPoint = start + projection;
+
+			if (Vector3.Dot(projection.normalized, pathLine.normalized) < 0)
+			{
+				normalPoint = start;
+			}
+			else if (projection.sqrMagnitude > pathLine.sqrMagnitude)
+			{
+				normalPoint = end;
+			}
+
+			return normalPoint;
 		}
 
 		public bool Contains(PathPoint point)
@@ -306,6 +317,11 @@ namespace script.PathFinding
 
 		public void CalculatePath()
 		{
+
+			if (_precalculatedPath == null)
+			{
+				_precalculatedPath = new List<Vector3>();
+			}
 			_precalculatedPath.Clear();
 			
 			switch (pathType)

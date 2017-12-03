@@ -3,7 +3,7 @@
 namespace script.FSM
 {
 	[CreateAssetMenu(menuName = "FSM/State")]
-	public class State : ScriptableObject
+	public abstract class State : ScriptableObject
 	{
 		public Action[] ActionList;
 		public Transition[] TransitionList;
@@ -28,7 +28,6 @@ namespace script.FSM
 			{
 				if (transition.decision.Decide(controller))
 				{
-					Debug.Log("True");
 					controller.TransitionToState(transition.TrueState);
 				}
 				else
@@ -37,5 +36,8 @@ namespace script.FSM
 				}
 			}
 		}
+
+		public abstract void OnStateExit(StateController controller);
+		public abstract void OnStateEnter(StateController controller);
 	}
 }
