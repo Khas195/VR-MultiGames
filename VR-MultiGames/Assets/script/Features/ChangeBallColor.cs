@@ -15,7 +15,7 @@ public class ChangeBallColor : MonoBehaviour {
 		
 	}
 	public void OnTriggerEnter(Collider other){ 
-		PaintBall ball = other.gameObject.GetComponent<PaintBall> ();
+		IBullet ball = other.gameObject.GetComponent<IBullet> ();
 		if (ball != null) {
 			ball.SetColor (targetColor);
 		}

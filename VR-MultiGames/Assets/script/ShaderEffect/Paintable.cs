@@ -80,9 +80,14 @@ public class Paintable : MonoBehaviour
 	{
 		return Mathf.Sqrt (Mathf.Pow (colorToCheck.r - targetColor.r, 2) + Mathf.Pow (colorToCheck.b - targetColor.b, 2) + Mathf.Pow (colorToCheck.g - targetColor.g, 2));
 	}
-
-    
-	public bool PaintMapping(Vector2 textureCoord, Texture2D ink, Color color)
+	// the input texutrecoord must be from hit.textureCoord2
+	public Color GetColorAtTextureCoord(Vector2 textureCoord2){
+		if (!init || !this.enabled) return Color.black;
+		var x = (int)(textureCoord2.x * (drawTexture.width));
+		var y = (int)(textureCoord2.y * (drawTexture.height));
+		return drawTexture.GetPixel (x, y);
+	}
+	public bool PaintMapping(Vector2 textureCoord2, Texture2D ink, Color color)
     {
 		if (!init || !this.enabled) return false;
 		if (this.GetComponent<Glowable> ()) {
@@ -96,7 +101,7 @@ public class Paintable : MonoBehaviour
 		int blockWidth;
 		int blockHeight;
 
-		CalculatePaintBlock (textureCoord, ink,out xOrigin, out yOrigin, out inkLeft, out inkBottom, out blockWidth, out blockHeight);
+		CalculatePaintBlock (textureCoord2, ink,out xOrigin, out yOrigin, out inkLeft, out inkBottom, out blockWidth, out blockHeight);
 
 		Color[] dstColors = drawTexture.GetPixels (xOrigin, yOrigin, blockWidth, blockHeight);
 		Color[] srcColors = ink.GetPixels (inkLeft, inkBottom, blockWidth, blockHeight);

@@ -4,7 +4,7 @@ using UnityEngine;
 using Assets.script;
 
 
-public class PaintBall : MonoBehaviour
+public class PaintBall : MonoBehaviour, IBullet
 {
 	[SerializeField] private float _lifeTime = 10f;
 	[SerializeField]

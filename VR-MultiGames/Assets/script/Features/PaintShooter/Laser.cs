@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class Laser : MonoBehaviour
+public class Laser : MonoBehaviour, IBullet
 {
 	Vector3 shootOrigin;
 	Vector3 flyDirection;
@@ -54,5 +54,13 @@ public class Laser : MonoBehaviour
 		this.flyDirection = direction;
 		this.transform.rotation = Quaternion.LookRotation (direction);
 	}
+	
+	
+	#region IBullet implementation
+	public void SetColor (Color newColor)
+	{
+		SetLaserColor (newColor);
+	}
+	#endregion
 }
 
