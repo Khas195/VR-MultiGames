@@ -309,6 +309,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sphereRadius: 1
+  _maxAngle: 45
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &63369292
@@ -342,6 +343,7 @@ MonoBehaviour:
   Controller: {fileID: 0}
   _useForce: 0
   _isRotateToVelocity: 1
+  _allowMoveInAir: 1
   _jumpForce: 5
   _rotationSyncScale: 5
 --- !u!114 &63369294
@@ -357,6 +359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement: {fileID: 0}
   IsDrawGizmos: 0
+  _behaviorList: []
   _target: {fileID: 1103379581}
   _maxSteeringForce: 1
   _steeringForceColor: {r: 1, g: 0, b: 1, a: 1}
@@ -1047,6 +1050,7 @@ MonoBehaviour:
   Controller: {fileID: 0}
   _useForce: 0
   _isRotateToVelocity: 1
+  _allowMoveInAir: 1
   _jumpForce: 5
   _rotationSyncScale: 5
 --- !u!114 &608832687
@@ -1062,6 +1066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement: {fileID: 0}
   IsDrawGizmos: 0
+  _behaviorList: []
   _target: {fileID: 63369287}
   _maxSteeringForce: 1
   _steeringForceColor: {r: 1, g: 0, b: 1, a: 1}
@@ -1216,6 +1221,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sphereRadius: 1
+  _maxAngle: 45
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &608832697
@@ -2089,7 +2095,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1103379581}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.2, y: 0.87, z: 9.68}
+  m_LocalPosition: {x: -6.56, y: 0.87, z: 8.82}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2136,6 +2142,7 @@ MonoBehaviour:
   Controller: {fileID: 0}
   _useForce: 0
   _isRotateToVelocity: 1
+  _allowMoveInAir: 1
   _jumpForce: 5
   _rotationSyncScale: 5
 --- !u!114 &1103379589
@@ -2170,6 +2177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement: {fileID: 0}
   IsDrawGizmos: 0
+  _behaviorList: []
   _target: {fileID: 63369287}
   _maxSteeringForce: 1
   _steeringForceColor: {r: 1, g: 0, b: 1, a: 1}
@@ -2202,6 +2210,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sphereRadius: 1
+  _maxAngle: 45
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1103379593
@@ -2234,7 +2243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isEnable: 1
-  IsDrawGizmos: 0
+  IsDrawGizmos: 1
   _blendScale: 1.2
   _obstacleLayer:
     serializedVersion: 2
@@ -2780,6 +2789,7 @@ MonoBehaviour:
   Controller: {fileID: 0}
   _useForce: 0
   _isRotateToVelocity: 1
+  _allowMoveInAir: 1
   _jumpForce: 5
   _rotationSyncScale: 5
 --- !u!114 &1692309044
@@ -2795,6 +2805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement: {fileID: 0}
   IsDrawGizmos: 0
+  _behaviorList: []
   _target: {fileID: 63369287}
   _maxSteeringForce: 1
   _steeringForceColor: {r: 1, g: 0, b: 1, a: 1}
@@ -2949,6 +2960,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sphereRadius: 1
+  _maxAngle: 45
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1692309054
@@ -3373,6 +3385,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sphereRadius: 1
+  _maxAngle: 45
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1884603037
@@ -3425,6 +3438,7 @@ MonoBehaviour:
   Controller: {fileID: 0}
   _useForce: 0
   _isRotateToVelocity: 1
+  _allowMoveInAir: 1
   _jumpForce: 5
   _rotationSyncScale: 5
 --- !u!114 &1884603040
@@ -3440,6 +3454,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement: {fileID: 0}
   IsDrawGizmos: 0
+  _behaviorList: []
   _target: {fileID: 63369287}
   _maxSteeringForce: 1
   _steeringForceColor: {r: 1, g: 0, b: 1, a: 1}
@@ -3737,6 +3752,7 @@ MonoBehaviour:
   Controller: {fileID: 0}
   _useForce: 0
   _isRotateToVelocity: 1
+  _allowMoveInAir: 1
   _jumpForce: 5
   _rotationSyncScale: 5
 --- !u!114 &1977540779
@@ -3752,6 +3768,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movement: {fileID: 0}
   IsDrawGizmos: 0
+  _behaviorList: []
   _target: {fileID: 63369287}
   _maxSteeringForce: 1
   _steeringForceColor: {r: 1, g: 0, b: 1, a: 1}
@@ -3906,6 +3923,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _sphereRadius: 1
+  _maxAngle: 45
   _normalColor: {r: 1, g: 1, b: 1, a: 1}
   _hitColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &1977540789

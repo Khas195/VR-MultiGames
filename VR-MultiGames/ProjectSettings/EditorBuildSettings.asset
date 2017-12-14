@@ -4,4 +4,16 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 0
+    path: Assets/scene/MainScene.unity
+    guid: bf5e90c2124a9294f9599ea7b393875c
+  - enabled: 0
+    path: Assets/scene/Path follow, wall follow.unity
+    guid: a7f96dac2bb721241b6463d72b6af2f9
+  - enabled: 1
+    path: Assets/scene/flying fish flocking.unity
+    guid: 9561fcd5aa47afa4ba19bc0f3c0183ff
+  - enabled: 0
+    path: Assets/scene/bog flocking.unity
+    guid: eb9c814a234094942b9528332fcd9a3c

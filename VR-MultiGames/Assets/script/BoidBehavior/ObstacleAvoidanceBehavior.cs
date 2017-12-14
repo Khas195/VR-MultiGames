@@ -69,8 +69,7 @@ namespace script.BoidBehavior
 				_viewSpherePosition = transform.position + BoidController.Velocity.normalized * info.distance;
 				viewSphereDistance = info.distance;
 
-				if (!(Vector3.Angle(info.normal, transform.up) > _maxFloorAngle) &&
-				    !(Vector3.Angle(info.normal, Vector3.up) > _maxFloorAngle)) return false;
+				if (!(Vector3.Angle(info.normal, Vector3.up) > _maxFloorAngle)) return false;
 				
 				avoidanceForce = Vector3.Reflect(BoidController.Velocity, info.normal);
 			}

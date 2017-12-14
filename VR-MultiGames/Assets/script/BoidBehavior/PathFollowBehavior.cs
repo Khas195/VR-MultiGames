@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using NUnit.Framework;
-using script.ControllerScript;
 using script.PathFinding;
 using UnityEngine;
 

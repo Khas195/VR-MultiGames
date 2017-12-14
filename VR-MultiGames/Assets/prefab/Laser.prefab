@@ -23,9 +23,9 @@ GameObject:
   - component: {fileID: 33238328204301658}
   - component: {fileID: 114788066039793724}
   - component: {fileID: 108552479937175778}
-  - component: {fileID: 136116931343440578}
   - component: {fileID: 114867371344999002}
-  - component: {fileID: 54897861252619154}
+  - component: {fileID: 136736948999356706}
+  - component: {fileID: 54594425681913660}
   m_Layer: 9
   m_Name: Laser
   m_TagString: Untagged
@@ -87,16 +87,16 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1340984056012898}
   m_Mesh: {fileID: 0}
---- !u!54 &54897861252619154
+--- !u!54 &54594425681913660
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1340984056012898}
   serializedVersion: 2
-  m_Mass: 0.0000001
+  m_Mass: 0.01
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -168,16 +168,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserLight: {fileID: 108552479937175778}
---- !u!136 &136116931343440578
+  _paintableLayermMask:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!136 &136736948999356706
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1340984056012898}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 3.4
-  m_Height: 61.4
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 23.6}
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}

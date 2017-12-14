@@ -17,10 +17,10 @@ TagManager:
   - 
   - Obstacle
   - Bullet
-  - 
-  - 
-  - 
-  - 
+  - Ignore Collision
+  - Invisible wall
+  - Boid
+  - Player
   - 
   - 
   - 

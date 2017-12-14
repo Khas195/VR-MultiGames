@@ -5,6 +5,7 @@
     <e p="Z:\UnityWorkSpace\VR-MultiGames.git\VR-MultiGames" t="IncludeRecursive">
       <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Normal-Parallax.shader" t="Include" />
@@ -65,6 +66,7 @@
             <e p="SeekBehavior.cs" t="Include" />
             <e p="WanderBehavior.cs" t="Include" />
           </e>
+          <e p="BulletHitEvent.cs" t="Include" />
           <e p="Camera" t="Include">
             <e p="CameraFollow.cs" t="Include" />
           </e>
@@ -80,9 +82,14 @@
               <e p="PathEditor.cs" t="Include" />
               <e p="PathPointEditor.cs" t="Include" />
             </e>
-          </e>
-          <e p="EditorScript" t="Include">
-            <e p="ReadOnlyAttribute.cs" t="Include" />
+            <e p="SerializableDictionary" t="Include">
+              <e p="Example.cs" t="Include" />
+              <e p="SerializableDictionary.cs" t="Include" />
+              <e p="SerializableDictionaryDrawer.cs" t="Include" />
+              <e p="SerializableDictionaryDrawerImplementations.cs" t="Include" />
+              <e p="SerializableDictionaryImplementations.cs" t="Include" />
+              <e p="SerializedPropertyExtension.cs" t="Include" />
+            </e>
           </e>
           <e p="Features" t="Include">
             <e p="ChangeBallColor.cs" t="Include" />
@@ -106,20 +113,10 @@
             <e p="TestingScript.cs" t="Include" />
           </e>
           <e p="FSM" t="Include">
-            <e p="Action.cs" t="Include" />
-            <e p="CheckDecision.cs" t="Include" />
-            <e p="CheckState.cs" t="Include" />
-            <e p="Decision.cs" t="Include" />
-            <e p="MoveToTargetAction.cs" t="Include" />
-            <e p="PatrolState.cs" t="Include" />
-            <e p="SelectTargetAction.cs" t="Include" />
-            <e p="ShootAction.cs" t="Include" />
-            <e p="ShootDecision.cs" t="Include" />
-            <e p="ShootState.cs" t="Include" />
-            <e p="ShouldShootDecision.cs" t="Include" />
-            <e p="State.cs" t="Include" />
-            <e p="StateController.cs" t="Include" />
-            <e p="Transition.cs" t="Include" />
+            <e p="Unity FSM" t="Include">
+              <e p="FleeingState.cs" t="Include" />
+              <e p="WanderingState.cs" t="Include" />
+            </e>
           </e>
           <e p="GameMaster" t="Include">
             <e p="AmunitionPool.cs" t="Include" />
@@ -164,16 +161,70 @@
             <e p="GunColorDisplay.cs" t="Include" />
           </e>
           <e p="Ultils" t="Include">
-            <e p="SerializableDictionary" t="Include">
-              <e p="Example.cs" t="Include" />
-              <e p="SerializableDictionary.cs" t="Include" />
-              <e p="SerializableDictionaryDrawer.cs" t="Include" />
-              <e p="SerializableDictionaryDrawerImplementations.cs" t="Include" />
-              <e p="SerializableDictionaryImplementations.cs" t="Include" />
-              <e p="SerializedPropertyExtension.cs" t="Include" />
-            </e>
             <e p="StateMachine.cs" t="Include" />
             <e p="UltilityEvents.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Standard Assets" t="Include">
+          <e p="Characters" t="Include">
+            <e p="FirstPersonCharacter" t="Include">
+              <e p="FirstPersonCharacterGuidelines.txt" t="Include" />
+              <e p="Scripts" t="Include">
+                <e p="FirstPersonController.cs" t="Include" />
+                <e p="HeadBob.cs" t="Include" />
+                <e p="MouseLook.cs" t="Include" />
+                <e p="RigidbodyFirstPersonController.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="CrossPlatformInput" t="Include">
+            <e p="CrossPlatformInputGuidelines.txt" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="AxisTouchButton.cs" t="Include" />
+              <e p="ButtonHandler.cs" t="Include" />
+              <e p="CrossPlatformInputManager.cs" t="Include" />
+              <e p="InputAxisScrollbar.cs" t="Include" />
+              <e p="Joystick.cs" t="Include" />
+              <e p="MobileControlRig.cs" t="Include" />
+              <e p="PlatformSpecific" t="Include">
+                <e p="MobileInput.cs" t="Include" />
+                <e p="StandaloneInput.cs" t="Include" />
+              </e>
+              <e p="TiltInput.cs" t="Include" />
+              <e p="TouchPad.cs" t="Include" />
+              <e p="VirtualInput.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Editor" t="Include">
+            <e p="CrossPlatformInput" t="Include">
+              <e p="CrossPlatformInputInitialize.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Utility" t="Include">
+            <e p="ActivateTrigger.cs" t="Include" />
+            <e p="AlphaButtonClickMask.cs" t="Include" />
+            <e p="AutoMobileShaderSwitch.cs" t="Include" />
+            <e p="AutoMoveAndRotate.cs" t="Include" />
+            <e p="CameraRefocus.cs" t="Include" />
+            <e p="CurveControlledBob.cs" t="Include" />
+            <e p="DragRigidbody.cs" t="Include" />
+            <e p="DynamicShadowSettings.cs" t="Include" />
+            <e p="EventSystemChecker.cs" t="Include" />
+            <e p="FollowTarget.cs" t="Include" />
+            <e p="ForcedReset.cs" t="Include" />
+            <e p="FOVKick.cs" t="Include" />
+            <e p="FPSCounter.cs" t="Include" />
+            <e p="LerpControlledBob.cs" t="Include" />
+            <e p="ObjectResetter.cs" t="Include" />
+            <e p="ParticleSystemDestroyer.cs" t="Include" />
+            <e p="PlatformSpecificContent.cs" t="Include" />
+            <e p="SimpleActivatorMenu.cs" t="Include" />
+            <e p="SimpleMouseRotator.cs" t="Include" />
+            <e p="SmoothFollow.cs" t="Include" />
+            <e p="TimedObjectActivator.cs" t="Include" />
+            <e p="TimedObjectDestructor.cs" t="Include" />
+            <e p="WaypointCircuit.cs" t="Include" />
+            <e p="WaypointProgressTracker.cs" t="Include" />
           </e>
         </e>
         <e p="VolumetricLines" t="Include">

@@ -1,6 +1,4 @@
-using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 
 namespace Assets.script
 {
