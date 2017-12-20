@@ -84,7 +84,7 @@ namespace script.BoidBehavior
 				}
 				
 				Gizmos.color = _futureTarget;
-				Gizmos.DrawSphere(_predictedTargetPosition, 0.2f);
+				Gizmos.DrawSphere(_predictedTargetPosition, 1);
 			}
 		}
 	}

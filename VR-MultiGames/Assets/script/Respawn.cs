@@ -10,9 +10,11 @@ public class Respawn : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Player"))
 		{
-			other.gameObject.transform.position = _startingPoint.position;
-			other.transform.forward = _startingPoint.forward;
-			other.transform.right = _startingPoint.right;
+			var player = other.gameObject.transform.parent;
+			player.position = _startingPoint.position;
+			player.forward = _startingPoint.forward;
+			player.right = _startingPoint.right;
+			other.gameObject.transform.localPosition = Vector3.zero;
 		}
 	}
 }

@@ -103,6 +103,7 @@
             <e p="PaintBall.cs" t="Include" />
             <e p="PaintFillEvent.cs" t="Include" />
             <e p="PaintShooter" t="Include">
+              <e p="IBullet.cs" t="Include" />
               <e p="Laser.cs" t="Include" />
               <e p="PaintBallShooter.cs" t="Include" />
               <e p="PaintLaserShooter.cs" t="Include" />
@@ -113,10 +114,11 @@
             <e p="TestingScript.cs" t="Include" />
           </e>
           <e p="FSM" t="Include">
-            <e p="Unity FSM" t="Include">
-              <e p="FleeingState.cs" t="Include" />
-              <e p="WanderingState.cs" t="Include" />
-            </e>
+            <e p="DronePatrolState.cs" t="Include" />
+            <e p="DroneUrgeState.cs" t="Include" />
+            <e p="DroneWanderingState.cs" t="Include" />
+            <e p="FleeingState.cs" t="Include" />
+            <e p="WanderingState.cs" t="Include" />
           </e>
           <e p="GameMaster" t="Include">
             <e p="AmunitionPool.cs" t="Include" />
