@@ -16,8 +16,10 @@
 		  }
 		LOD 100
 
-		ZWrite Off
 		Blend One One
+		ZWrite Off
+		Cull Off
+
 
 		Pass
 		{

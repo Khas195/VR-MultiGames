@@ -1,16 +1,21 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\Features\PaintShooter\PaintLaserShooter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\script\Character\BasicMovement.cs">
     <Files>
-      <File FileName="Assets\script\Features\PaintShooter\PaintBallShooter.cs" Line="20" Column="1" />
-      <File FileName="Assets\script\GameMaster\AmunitionPool.cs" Line="7" Column="1" />
-      <File FileName="Assets\script\GameMaster\LaserPool.cs" Line="30" Column="27" />
-      <File FileName="Assets\script\Features\PaintShooter\PaintLaserShooter.cs" Line="18" Column="2" />
-      <File FileName="Assets\script\Features\PaintShooter\Laser.cs" Line="24" Column="3" />
-      <File FileName="Assets\script\Features\PaintBall.cs" Line="76" Column="25" />
-      <File FileName="Assets\script\GameMaster\Ultility.cs" Line="29" Column="27" />
-      <File FileName="Assets\script\ShaderEffect\Paintable.cs" Line="24" Column="18" />
-      <File FileName="Assets\script\Features\PaintShooter\PaintShooter.cs" Line="30" Column="35" />
+      <File FileName="Assets\script\Features\PaintShooter\PaintBallShooter.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\GameMaster\AmunitionPool.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\GameMaster\LaserPool.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\Features\PaintShooter\PaintLaserShooter.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\Features\PaintShooter\Laser.cs" Line="35" Column="20" />
+      <File FileName="Assets\script\Features\PaintBall.cs" Line="1" Column="1" />
+      <File FileName="Assets\script\GameMaster\Ultility.cs" Line="12" Column="55" />
+      <File FileName="Assets\resource\shader\RollingTransparent.shader" Line="21" Column="11" />
+      <File FileName="Assets\resource\shader\Barrier.shader" Line="17" Column="27" />
+      <File FileName="Assets\script\Character\FPSInputController.js" Line="1" Column="1" />
+      <File FileName="Assets\script\Character\BasicMovement.cs" Line="40" Column="21" />
+      <File FileName="Assets\script\ShaderEffect\Paintable.cs" Line="135" Column="32" />
+      <File FileName="Assets\script\ShaderEffect\ISmoothPaint.cs" Line="10" Column="51" />
+      <File FileName="Assets\script\ShaderEffect\MeanFilter.cs" Line="31" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
