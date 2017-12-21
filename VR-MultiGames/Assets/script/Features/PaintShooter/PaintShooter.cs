@@ -9,13 +9,13 @@ public class PaintShooter : MonoBehaviour {
 	[Tooltip("Number of ball per second")]
 	protected float fireRate;
 	protected float nextShot;
-
-	protected Color curColor;
+	[SerializeField]
+	protected Color gunColor;
 
 	// Use this for initialization
 	public void Start () {
 		Cursor.visible = false;
-		curColor = GameSettings.GetInstance ().GetColorAt (0);
+		gunColor = GameSettings.GetInstance ().GetColorAt (0);
 	}
 
 	// Update is called once per frame
@@ -30,7 +30,7 @@ public class PaintShooter : MonoBehaviour {
 		if (Ultil.GetObjectCameraIsLookingAt (lookAtCamera, out hit)) {
 			var paintable = hit.collider.gameObject.GetComponent<Paintable> ();
 			if (paintable != null) {
-				paintable.PaintMapping (hit.textureCoord2, GameSettings.GetInstance ().GetRandomInk (), curColor);
+				paintable.PaintMapping (hit.textureCoord2, GameSettings.GetInstance ().GetRandomInk (), gunColor);
 			}
 		}
 		nextShot = Time.time + fireRate;
@@ -41,9 +41,9 @@ public class PaintShooter : MonoBehaviour {
 
 	public virtual Color GetGunColor ()
 	{
-		return curColor;
+		return gunColor;
 	}
 	public virtual void SetGunColor(Color newColor){
-		curColor = newColor;
+		gunColor = newColor;
 	}
 }

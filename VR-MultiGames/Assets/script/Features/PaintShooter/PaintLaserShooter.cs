@@ -6,8 +6,6 @@ public class PaintLaserShooter : PaintShooter {
 	[SerializeField]
 	float laserSpeed;
 	[SerializeField]
-	Color laserColor;
-	[SerializeField]
 	Transform shootPos;
 	// normalized
 	Vector3 direction;
@@ -27,8 +25,9 @@ public class PaintLaserShooter : PaintShooter {
 		var laser = LaserPool.GetPool ().RequestAmmo ().GetComponent<Laser> ();
 		laser.transform.position = shootPos.position;
 		laser.SetSpeed (laserSpeed);
-		laser.SetLaserColor (laserColor);
+		laser.SetLaserColor (this.gunColor);
 		laser.SetDirection (lookAtCamera.transform.forward.normalized);
+
 		nextShot = Time.time + fireRate;
 	}
 }

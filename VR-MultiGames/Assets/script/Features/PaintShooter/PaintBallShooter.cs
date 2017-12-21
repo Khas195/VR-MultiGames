@@ -20,7 +20,7 @@ public class PaintBallShooter : PaintShooter {
 	public override void Fire()
 	{		
 		var ball = AmunitionPool.GetPool ().RequestAmmo ();
-		ball.SetColor (curColor);
+		ball.SetColor (gunColor);
 		ball.transform.position = shootPos.position;
 		ball.ApplyForce (lookAtCamera.transform.forward * shootForce * 10);
 		nextShot = Time.time + fireRate;

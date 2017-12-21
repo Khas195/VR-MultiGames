@@ -19,7 +19,7 @@ public static class Ultil  {
 
 	public static float CalColorDifference (Color targetColor, Color color)
 	{
-		return Vector4.Distance (targetColor, color);
+		return Mathf.Sqrt ( Mathf.Pow(targetColor.r - color.r, 2) + Mathf.Pow(targetColor.b - color.b, 2) + Mathf.Pow(targetColor.g - color.g, 2));
 	}
 
 	/// <summary>

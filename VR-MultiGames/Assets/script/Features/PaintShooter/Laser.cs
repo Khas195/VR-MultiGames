@@ -11,7 +11,21 @@ public class Laser : MonoBehaviour, IBullet
 
 	[SerializeField] 
 	private LayerMask _paintableLayermMask;
-	
+
+	List<Material> materials = new List<Material>();
+	public Renderer[] Renderers
+	{
+		get;
+		private set;
+	}
+
+	public void Start(){
+		Renderers = GetComponents<Renderer>();
+		foreach (var renderer in Renderers)
+		{	
+			materials.AddRange(renderer.materials);
+		}	
+	}
 	public void SetSpeed (float laserSpeed)
 	{
 		this.flySpeed = laserSpeed;
@@ -19,6 +33,9 @@ public class Laser : MonoBehaviour, IBullet
 	public void SetLaserColor (Color laserColor)
 	{
 		this.laserLight.color = laserColor;
+		foreach (var mat in materials) {
+			mat.SetColor ("_Color", laserColor);
+		}
 	}
 
 	public void Update()
@@ -40,15 +57,7 @@ public class Laser : MonoBehaviour, IBullet
 		}
 		transform.position += velocity;
 	}
-
-/*	public void OnCollisionEnter(Collision other){
-		var paintable = other.collider.gameObject.GetComponent<Paintable> ();
-		if (paintable == null)
-			return;
-		Ultil.TryShootPaint (this.transform.position, flyDirection, laserLight.color, 10f);
-
-		LaserPool.GetPool ().ReturnAmmo (this.gameObject);
-	}*/
+		
 	public void SetDirection(Vector3 direction){
 		// direction should be normalized
 		this.flyDirection = direction;

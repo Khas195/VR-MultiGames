@@ -2,7 +2,7 @@
 {
 	Properties
 	{
-		_Transparency ("Transparent", color) = (1,1,1,1)
+		_Color ("Transparent", color) = (1,1,1,1)
 		_MainTex ("Texture", 2D) = "white" {}
 		_ScrollXSpeed("Scroll X Speed", Range(-10,10)) = 2
 		_ScrollYSpeed("Scroll Y Speed", Range(-10,10)) = 2
@@ -48,7 +48,7 @@
 			float4 _MainTex_ST;
 			fixed _ScrollXSpeed;
 			fixed _ScrollYSpeed;
-			fixed4 _Transparency;
+			fixed4 _Color;
 			v2f vert (appdata v)
 			{
 				v2f o;
@@ -69,7 +69,7 @@
 
 				half4 col = tex2D(_MainTex,scrolledUV);
 
-				col *= _Transparency;
+				col *= _Color;
 
 				return col;
 			}
