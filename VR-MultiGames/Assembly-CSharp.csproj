@@ -81,6 +81,8 @@
      <Compile Include="Assets\script\Features\Interaction\Bounce.cs" />
      <Compile Include="Assets\script\Features\Interaction\Interaction.cs" />
      <Compile Include="Assets\script\Features\Interaction\PaintInteraction.cs" />
+     <Compile Include="Assets\script\Features\Interaction\Slide.cs" />
+     <Compile Include="Assets\script\Features\Interaction\StatsEffect.cs" />
      <Compile Include="Assets\script\Features\LaunchPad.cs" />
      <Compile Include="Assets\script\Features\Movement\MoveAlong.cs" />
      <Compile Include="Assets\script\Features\Movement\TweenTo.cs" />

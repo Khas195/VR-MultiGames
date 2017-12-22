@@ -7,10 +7,24 @@ public class Bounce : Interaction {
 	public override void Interact(GameObject targetObject){
 		var movement = targetObject.GetComponent<BasicMovement> ();
 		if (movement != null) {
-			var originForce = movement.jumpForce;
-			movement.jumpForce = bounceForce;
-			movement.Jump ();
-			movement.jumpForce = originForce;
+			var originForce = movement.data.jumpForce;
+			movement.data.jumpForce = bounceForce;
+			if (movement.IsGrounded ()) {
+				movement.Jump ();
+			}
+			movement.data.jumpForce = originForce;
 		}
+	}
+	public override bool IsDone ()
+	{
+		return true;
+	}
+
+	public override void RevertInteraction (GameObject gameObject)
+	{
+	}
+
+	public override void Init (GameObject gameObject)
+	{
 	}
 }

@@ -8,18 +8,26 @@ public class PlayerInput : MonoBehaviour{
 	Vector3 moveSide;
 	bool jump;
 	Vector3 moveForward;
-	Interaction currentInteraction;
+	List<Interaction> curInteractions = new List<Interaction> ();
+
+
+	public void Start () {
+	}
 	public void HandlePaintInteraction(){
 		RaycastHit hit;
-		if (Physics.Raycast (transform.position,  -transform.up, out hit,  GetComponent<Collider>().bounds.extents.y + 0.1f, LayerMask.GetMask("Obstacle"))) {
+		Interaction interaction = null;
+		if (Physics.Raycast (transform.position, -transform.up, out hit, GetComponent<Collider> ().bounds.extents.y + 0.1f, LayerMask.GetMask ("Obstacle"))) {
 			var hitPaintable = hit.collider.gameObject.GetComponent<Paintable> ();
 			if (hitPaintable != null) {
-				Color color =  hitPaintable.GetColorAtTextureCoord (hit.textureCoord2);
-				var interaction = PaintInteraction.GetInstance ().GetInteractionBasedOnColor (color);
-				currentInteraction = interaction;
+				Color color = hitPaintable.GetColorAtTextureCoord (hit.textureCoord2);
+				interaction = PaintInteraction.GetInstance ().GetInteractionBasedOnColor (color);
 			}
-		}
+		} 
 
+		if (interaction != null && !curInteractions.Contains (interaction)) {
+			interaction.Init (gameObject);
+			curInteractions.Add (interaction);
+		}
 	}
 	public void Update (){
 		HandleMovementInput ();
@@ -28,11 +36,24 @@ public class PlayerInput : MonoBehaviour{
 	}
 	public void FixedUpdate(){
 		ProcessMovement ();
-		if (currentInteraction != null) {
-			currentInteraction.Interact (this.gameObject);
-			currentInteraction = null;
+		ProcessInteraction ();
+	}
+
+	void ProcessInteraction ()
+	{
+		var finishedInteraction = new List<Interaction> ();
+		foreach (var i in curInteractions) {
+			i.Interact (gameObject);
+			if (i.IsDone ()) {
+				finishedInteraction.Add (i);
+			}
+		}
+		foreach (var i in finishedInteraction) {
+			i.RevertInteraction (gameObject);
+			curInteractions.Remove (i);
 		}
 	}
+
 	public void HandleMovementInput ()
 	{
 		var side = Input.GetAxis ("Horizontal");
