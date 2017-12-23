@@ -73,6 +73,11 @@
           <e p="CameraScript" t="Include">
             <e p="FirstPerson.cs" t="Include" />
           </e>
+          <e p="Character" t="Include">
+            <e p="BasicMovement.cs" t="Include" />
+            <e p="InteractionHandler.cs" t="Include" />
+            <e p="PlayerInput.cs" t="Include" />
+          </e>
           <e p="ControllerScript" t="Include">
             <e p="Controller.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
@@ -95,6 +100,12 @@
             <e p="ChangeBallColor.cs" t="Include" />
             <e p="EffectControl.cs" t="Include" />
             <e p="HighlightLookAt.cs" t="Include" />
+            <e p="Interaction" t="Include">
+              <e p="Bounce.cs" t="Include" />
+              <e p="Interaction.cs" t="Include" />
+              <e p="PaintInteraction.cs" t="Include" />
+              <e p="Slide.cs" t="Include" />
+            </e>
             <e p="LaunchPad.cs" t="Include" />
             <e p="Movement" t="Include">
               <e p="MoveAlong.cs" t="Include" />
@@ -103,6 +114,7 @@
             <e p="PaintBall.cs" t="Include" />
             <e p="PaintFillEvent.cs" t="Include" />
             <e p="PaintShooter" t="Include">
+              <e p="ColorSphere.cs" t="Include" />
               <e p="IBullet.cs" t="Include" />
               <e p="Laser.cs" t="Include" />
               <e p="PaintBallShooter.cs" t="Include" />

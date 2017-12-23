@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using script.PathFinding;
 using UnityEditor;
 using UnityEngine;
@@ -22,15 +24,24 @@ namespace script.Editor.PathFinding
         private bool _showPoints = true;
         private bool _makePointGameObject = false;
         private EditMode _curMode = EditMode.Position;
+        private Transform _parent = null;
+        private Vector3 _parentPosition = Vector3.zero;
+        private Quaternion _parentRotation = Quaternion.identity;
+        private Vector3 _parentScale = Vector3.zero;
 
         private void Awake()
         {
             _self = (PathInspector) target;
             _path = _self.path;
+            _parent = _self.transform;
+            _parentPosition = _parent.position;
+            _parentScale = _parent.localScale;
+            _parentRotation = _parent.rotation;
         }
 
         public override void OnInspectorGUI()
         {
+            CheckParent();
 
             var newPathType = (Path.PathType) EditorGUILayout.EnumPopup("Path Type",
                 _path.pathType);
@@ -99,6 +110,8 @@ namespace script.Editor.PathFinding
 	
         void OnSceneGUI()
         {
+            CheckParent();
+
             Event e = Event.current;
             switch (e.type)
             {
@@ -326,6 +339,46 @@ namespace script.Editor.PathFinding
             {
                 point.hasChanged = false;
                 _path.CalculatePath();
+            }
+        }
+        
+        private void CheckParent()
+        {
+            if (!_parent.hasChanged) return;
+
+            if (_parentPosition != _parent.position)
+            {
+                var offset = _parent.position - _parentPosition;
+                
+                _parentPosition = _parent.position;
+                
+                UpdateChildrenPosition(offset, _parentScale);
+            }
+
+//            if ( _parentRotation != _parent.rotation)
+//            {
+//                _parentRotation = _parent.rotation;
+//                
+//                UpdateChildrenRotation(_parentRotation);
+//            }
+        }
+
+        private void UpdateChildrenPosition(Vector3 offset, Vector3 scale)
+        {
+            foreach (var point in _path.pointList)
+            {
+                var tempPosition = point.position;
+                tempPosition = tempPosition + Vector3.Scale(offset, scale);
+                point.position = tempPosition;
+            }
+        }
+
+        private void UpdateChildrenRotation(Quaternion rotation)
+        {
+            foreach (var point in _path.pointList)
+            {
+                var rotated = Quaternion.RotateTowards(point.rotation, rotation, 1);
+                point.rotation = rotated;
             }
         }
     }
