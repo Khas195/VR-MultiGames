@@ -9,6 +9,8 @@ public class Paintable : MonoBehaviour
 {
 	[SerializeField]
 	bool InitOnStart;
+    [SerializeField]
+    bool paintOnce;
     private Material mat;
 	private Texture2D drawTexture;
 
@@ -16,20 +18,8 @@ public class Paintable : MonoBehaviour
 	int drawTextureSize;
 
 	bool init = false;
-
-	[SerializeField]
-	bool shouldCalFill;
-	float curFill;
-
-	float totalFill;
-
-	Color targetColor;
-
-	public float GetFillPercentage ()
-	{
-		return curFill / totalFill;
-	}
-
+   
+    
     void Start()
 	{       
 		
@@ -42,7 +32,6 @@ public class Paintable : MonoBehaviour
 
 		ResetTextureToColor(drawTexture, new Color(0, 0, 0, 0));
 		mat.SetTexture(PaintableDefinition.DrawOnTextureName, drawTexture);
-		totalFill = drawTexture.width * drawTexture.height;
 		this.init = true;
 
     }
@@ -62,18 +51,14 @@ public class Paintable : MonoBehaviour
         texture.SetPixels(colors);
         texture.Apply();
     }
-    private bool IsPositionValid(int x, int y, int colorIndex, int length, int width, int height)
-    {
-        return (x >= 0 && x < width) && (y >= 0 && y < height)
-               && colorIndex < length;
-    }
 		
 
-	public void FullFill(){
+	public void FullFill(Color color){
 
 		Color[] colors = drawTexture.GetPixels ();
-		for (int i = 0; i < colors.GetLength (0); ++i) {
-			colors [i] = targetColor;
+		for (int i = 0; i < colors.GetLength (0); ++i)
+		{
+		    colors[i] = color;
 		}
 		drawTexture.SetPixels (colors);
 		drawTexture.Apply ();
@@ -89,10 +74,6 @@ public class Paintable : MonoBehaviour
 	public bool PaintMapping(Vector2 textureCoord2, Texture2D ink, Color color)
     {
 		if (!init || !this.enabled) return false;
-		if (this.GetComponent<Glowable> ()) {
-			targetColor = this.GetComponent<Glowable> ().GlowColor;
-			targetColor.a = 1.0f;
-		}
 		int xOrigin;
 		int yOrigin;
 		int inkLeft;
@@ -101,9 +82,9 @@ public class Paintable : MonoBehaviour
 		int blockHeight;
 
 		CalculatePaintBlock (textureCoord2, ink,out xOrigin, out yOrigin, out inkLeft, out inkBottom, out blockWidth, out blockHeight);
+        Color[] dstColors = drawTexture.GetPixels(xOrigin, yOrigin, blockWidth, blockHeight);
 
-		Color[] dstColors = drawTexture.GetPixels (xOrigin, yOrigin, blockWidth, blockHeight);
-		Color[] srcColors = ink.GetPixels (inkLeft, inkBottom, blockWidth, blockHeight);
+        Color[] srcColors = ink.GetPixels (inkLeft, inkBottom, blockWidth, blockHeight);
 
 		StartCoroutine ( TweenPaint( xOrigin, yOrigin, blockWidth,  blockHeight,  dstColors, srcColors, color));
 		return true;
@@ -131,24 +112,10 @@ public class Paintable : MonoBehaviour
 			blockToColor += blockWidth/6;
 		    yield return 0;
         }
-	    if (shouldCalFill)
-	    {
-	        UpdateFillPercent(drawTexture.GetPixels());
-	    }
 
 	    yield return 0;
 
     }
-	void UpdateFillPercent (Color[] colors)
-	{		
-		int filledPixels = 0;
-		for (int i = 0; i < colors.GetLength (0); ++i) {
-			if ( Ultil.CalColorDifference(targetColor, colors[i]) < 1.0f ){
-				filledPixels++;
-			}
-		}
-		curFill = filledPixels;
-	}
 
 
 	void CalculatePaintBlock (Vector2 textureCoord, Texture2D ink,out int xOrigin, out int yOrigin, out int inkLeft, out int inkBottom, out int blockWidth, out int blockHeight)

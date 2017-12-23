@@ -14,7 +14,6 @@ public class Respawn : MonoBehaviour
 			player.position = _startingPoint.position;
 			player.forward = _startingPoint.forward;
 			player.right = _startingPoint.right;
-			other.gameObject.transform.localPosition = Vector3.zero;
 		}
 	}
 }

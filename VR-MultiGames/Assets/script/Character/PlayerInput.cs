@@ -54,7 +54,7 @@ public class PlayerInput : MonoBehaviour{
 	{
 		Movement.Move (moveSide + moveForward);
 		if (jump) {
-			Movement.Jump (Movement.transform.up, Movement.data.jumpForce);
+			Movement.Jump ( Movement.transform.up, Movement.data.jumpForce);
 		}
 	}
 

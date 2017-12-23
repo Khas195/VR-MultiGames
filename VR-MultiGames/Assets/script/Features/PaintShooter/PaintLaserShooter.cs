@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,16 +11,30 @@ public class PaintLaserShooter : PaintShooter {
 	// normalized
 	Vector3 direction;
 	// Use this for initialization
+    [SerializeField]
+    private GameObject gunObject;
+
+    public Renderer[] Renderers
+    {
+        get;
+        private set;
+    }
+    private List<Material> gunMaterials = new List<Material>();
 	void Start () {
 		base.Start ();
-	}
+	    Renderers = gunObject.GetComponents<Renderer>();
+
+	    foreach (var renderer in Renderers)
+	    {
+	        gunMaterials.AddRange(renderer.materials);
+	    }
+    }
 
 	// Update is called once per frame
 	void Update () {
 		base.Update ();
 
 	}
-
 	public override void Fire()
 	{		
 		var laser = LaserPool.GetPool ().RequestAmmo ().GetComponent<Laser> ();
@@ -30,4 +45,13 @@ public class PaintLaserShooter : PaintShooter {
 
 		nextShot = Time.time + fireRate;
 	}
+
+    public override void SetGunColor(Color newColor)
+    {
+        base.SetGunColor(newColor);
+        foreach (var mat in gunMaterials)
+        {
+            mat.SetColor("_Color", gunColor);
+        }
+    }
 }
