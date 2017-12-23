@@ -113,6 +113,7 @@
     <Compile Include="Assets\script\Camera\CameraFollow.cs" />
     <Compile Include="Assets\script\CameraScript\FirstPerson.cs" />
     <Compile Include="Assets\script\Character\BasicMovement.cs" />
+    <Compile Include="Assets\script\Character\GameCube.cs" />
     <Compile Include="Assets\script\Character\InteractionHandler.cs" />
     <Compile Include="Assets\script\Character\PlayerInput.cs" />
     <Compile Include="Assets\script\ControllerScript\Controller.cs" />
@@ -125,11 +126,11 @@
     <Compile Include="Assets\script\Features\Interaction\PaintInteraction.cs" />
     <Compile Include="Assets\script\Features\Interaction\Slide.cs" />
     <Compile Include="Assets\script\Features\Interaction\StatsEffect.cs" />
+    <Compile Include="Assets\script\Features\Interaction\Stick.cs" />
     <Compile Include="Assets\script\Features\LaunchPad.cs" />
     <Compile Include="Assets\script\Features\Movement\MoveAlong.cs" />
     <Compile Include="Assets\script\Features\Movement\TweenTo.cs" />
     <Compile Include="Assets\script\Features\PaintBall.cs" />
-    <Compile Include="Assets\script\Features\PaintFillEvent.cs" />
     <Compile Include="Assets\script\Features\PaintShooter\ColorSphere.cs" />
     <Compile Include="Assets\script\Features\PaintShooter\IBullet.cs" />
     <Compile Include="Assets\script\Features\PaintShooter\Laser.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="Assets\script\RaycastClick.cs" />
     <Compile Include="Assets\script\Respawn.cs" />
     <Compile Include="Assets\script\ShaderEffect\DissolveEffect.cs" />
+    <Compile Include="Assets\script\ShaderEffect\FullColorObject.cs" />
     <Compile Include="Assets\script\ShaderEffect\HighlightObject\Glowable.cs" />
     <Compile Include="Assets\script\ShaderEffect\HighlightObject\GlowComposite.cs" />
     <Compile Include="Assets\script\ShaderEffect\HighlightObject\Prepass.cs" />
@@ -172,7 +174,6 @@
     <Compile Include="Assets\script\ShaderEffect\MeanFilter.cs" />
     <Compile Include="Assets\script\ShaderEffect\Paintable.cs" />
     <Compile Include="Assets\script\ShaderEffect\PaintableDefinition.cs" />
-    <Compile Include="Assets\script\UI\ColorUpdate.cs" />
     <Compile Include="Assets\script\UI\GunColorDisplay.cs" />
     <Compile Include="Assets\script\Ultils\StateMachine.cs" />
     <Compile Include="Assets\script\Ultils\UltilityEvents.cs" />

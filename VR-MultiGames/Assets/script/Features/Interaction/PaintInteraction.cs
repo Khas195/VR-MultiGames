@@ -21,7 +21,7 @@ public class PaintInteraction : MonoBehaviour {
 	public Interaction GetInteractionBasedOnColor (Color color)
 	{
 		foreach (var i in interactionList) {
-			if (Ultil.CalColorDifference (color, i.color) < 1.0f) {
+			if (Ultil.CalColorDifference (color, i.color) < 0.5f) {
 				return i.interaction;
 			}
 		}

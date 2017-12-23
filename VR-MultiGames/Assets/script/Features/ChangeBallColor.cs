@@ -9,7 +9,7 @@ public class ChangeBallColor : MonoBehaviour {
 	public void OnTriggerEnter(Collider other){ 
 		IBullet ball = other.gameObject.GetComponent<IBullet> ();
 		if (ball != null) {
-			ball.SetColor (targetColor);
+			ball.SetColor(targetColor);
 		}
 	}
 }
