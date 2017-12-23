@@ -5,16 +5,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F487C15F-7E8D-850E-F72F-F9302BDBA7FA}</ProjectGuid>
+    <ProjectGuid>{1F69FB7A-F2EA-19EA-FF39-E061E7B5F016}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-Editor-firstpass</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <TargetFrameworkProfile>Unity Full v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>EditorPlugins:7</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.1.0f3</UnityVersion>
     <RootNamespace></RootNamespace>
@@ -55,11 +55,23 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Advertisements.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\UnityAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TestRunner">
+      <HintPath>Library\UnityAssemblies\UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
       <HintPath>Library\UnityAssemblies\UnityEngine.TestRunner.dll</HintPath>
@@ -70,11 +82,47 @@
     <Reference Include="UnityEngine.Timeline">
       <HintPath>Library\UnityAssemblies\UnityEngine.Timeline.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Timeline">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.TreeEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.TreeEditor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.Analytics">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.HoloLens">
+      <HintPath>Library\UnityAssemblies\UnityEditor.HoloLens.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Purchasing">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.VR">
+      <HintPath>Library\UnityAssemblies\UnityEditor.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Graphs">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Graphs.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.Android.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.Android.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.iOS.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WebGL.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.WebGL.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>Library\UnityAssemblies\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
+      <HintPath>Library\UnityAssemblies\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -82,107 +130,23 @@
     <Reference Include="UnityEditor.iOS.Extensions.Common">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
+    <Reference Include="Assembly-UnityScript">
+      <HintPath>Library\ScriptAssemblies\Assembly-UnityScript.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="VR-MultiGames.csproj">
+      <Project>{F487C15F-7E8D-850E-F72F-F9302BDBA7FA}</Project>
+      <Name>VR-MultiGames</Name>
+    </ProjectReference>
     <ProjectReference Include="VR-MultiGames.Plugins.csproj">
       <Project>{5C2A218D-9EFB-95D1-AC20-355849F59653}</Project>
       <Name>VR-MultiGames.Plugins</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\script\Automove.cs" />
-    <Compile Include="Assets\script\BoidBehavior\ArrivalBehavior.cs" />
-    <Compile Include="Assets\script\BoidBehavior\BoidBehavior.cs" />
-    <Compile Include="Assets\script\BoidBehavior\BoidController.cs" />
-    <Compile Include="Assets\script\BoidBehavior\BoidMovement.cs" />
-    <Compile Include="Assets\script\BoidBehavior\BoidUnit.cs" />
-    <Compile Include="Assets\script\BoidBehavior\CrowdAlignmentBehavior.cs" />
-    <Compile Include="Assets\script\BoidBehavior\CrowdCohensionBehavior.cs" />
-    <Compile Include="Assets\script\BoidBehavior\CrowdSeparationBehavior.cs" />
-    <Compile Include="Assets\script\BoidBehavior\EvadeBehavior.cs" />
-    <Compile Include="Assets\script\BoidBehavior\FleeBehavior.cs" />
-    <Compile Include="Assets\script\BoidBehavior\ObstacleAvoidanceBehavior.cs" />
-    <Compile Include="Assets\script\BoidBehavior\ObstacleSeparationBehavior.cs" />
-    <Compile Include="Assets\script\BoidBehavior\PathFollowBehavior.cs" />
-    <Compile Include="Assets\script\BoidBehavior\PursuitBehavior.cs" />
-    <Compile Include="Assets\script\BoidBehavior\SeekBehavior.cs" />
-    <Compile Include="Assets\script\BoidBehavior\WanderBehavior.cs" />
-    <Compile Include="Assets\script\BulletHitEvent.cs" />
-    <Compile Include="Assets\script\Camera\CameraFollow.cs" />
-    <Compile Include="Assets\script\CameraScript\FirstPerson.cs" />
-    <Compile Include="Assets\script\Character\BasicMovement.cs" />
-    <Compile Include="Assets\script\Character\InteractionHandler.cs" />
-    <Compile Include="Assets\script\Character\PlayerInput.cs" />
-    <Compile Include="Assets\script\ControllerScript\Controller.cs" />
-    <Compile Include="Assets\script\ControllerScript\PlayerController.cs" />
-    <Compile Include="Assets\script\Features\ChangeBallColor.cs" />
-    <Compile Include="Assets\script\Features\EffectControl.cs" />
-    <Compile Include="Assets\script\Features\HighlightLookAt.cs" />
-    <Compile Include="Assets\script\Features\Interaction\Bounce.cs" />
-    <Compile Include="Assets\script\Features\Interaction\Interaction.cs" />
-    <Compile Include="Assets\script\Features\Interaction\PaintInteraction.cs" />
-    <Compile Include="Assets\script\Features\Interaction\Slide.cs" />
-    <Compile Include="Assets\script\Features\Interaction\StatsEffect.cs" />
-    <Compile Include="Assets\script\Features\LaunchPad.cs" />
-    <Compile Include="Assets\script\Features\Movement\MoveAlong.cs" />
-    <Compile Include="Assets\script\Features\Movement\TweenTo.cs" />
-    <Compile Include="Assets\script\Features\PaintBall.cs" />
-    <Compile Include="Assets\script\Features\PaintFillEvent.cs" />
-    <Compile Include="Assets\script\Features\PaintShooter\ColorSphere.cs" />
-    <Compile Include="Assets\script\Features\PaintShooter\IBullet.cs" />
-    <Compile Include="Assets\script\Features\PaintShooter\Laser.cs" />
-    <Compile Include="Assets\script\Features\PaintShooter\PaintBallShooter.cs" />
-    <Compile Include="Assets\script\Features\PaintShooter\PaintLaserShooter.cs" />
-    <Compile Include="Assets\script\Features\PaintShooter\PaintLaserShooterDrone.cs" />
-    <Compile Include="Assets\script\Features\PaintShooter\PaintShooter.cs" />
-    <Compile Include="Assets\script\Features\PickupItem.cs" />
-    <Compile Include="Assets\script\Features\TestingScript.cs" />
-    <Compile Include="Assets\script\FSM\DronePatrolState.cs" />
-    <Compile Include="Assets\script\FSM\DroneUrgeState.cs" />
-    <Compile Include="Assets\script\FSM\DroneWanderingState.cs" />
-    <Compile Include="Assets\script\FSM\FleeingState.cs" />
-    <Compile Include="Assets\script\FSM\WanderingState.cs" />
-    <Compile Include="Assets\script\GameMaster\AmunitionPool.cs" />
-    <Compile Include="Assets\script\GameMaster\CustomHotkey.cs" />
-    <Compile Include="Assets\script\GameMaster\EffectPool.cs" />
-    <Compile Include="Assets\script\GameMaster\GameDefinition.cs" />
-    <Compile Include="Assets\script\GameMaster\GameSettings.cs" />
-    <Compile Include="Assets\script\GameMaster\InputReceiver.cs" />
-    <Compile Include="Assets\script\GameMaster\LaserPool.cs" />
-    <Compile Include="Assets\script\GameMaster\Ultility.cs" />
-    <Compile Include="Assets\script\MouseLook.cs" />
-    <Compile Include="Assets\script\MovementScript\MockMovement.cs" />
-    <Compile Include="Assets\script\MovementScript\Movement.cs" />
-    <Compile Include="Assets\script\MovementScript\SimpleMovement.cs" />
-    <Compile Include="Assets\script\PathFinding\BezierCurve.cs" />
-    <Compile Include="Assets\script\PathFinding\Path.cs" />
-    <Compile Include="Assets\script\PathFinding\PathFinder.cs" />
-    <Compile Include="Assets\script\PathFinding\PathInspector.cs" />
-    <Compile Include="Assets\script\PathFinding\PathPoint.cs" />
-    <Compile Include="Assets\script\PathFinding\PathPointInspector.cs" />
-    <Compile Include="Assets\script\RaycastClick.cs" />
-    <Compile Include="Assets\script\Respawn.cs" />
-    <Compile Include="Assets\script\ShaderEffect\DissolveEffect.cs" />
-    <Compile Include="Assets\script\ShaderEffect\HighlightObject\Glowable.cs" />
-    <Compile Include="Assets\script\ShaderEffect\HighlightObject\GlowComposite.cs" />
-    <Compile Include="Assets\script\ShaderEffect\HighlightObject\Prepass.cs" />
-    <Compile Include="Assets\script\ShaderEffect\ISmoothPaint.cs" />
-    <Compile Include="Assets\script\ShaderEffect\MeanFilter.cs" />
-    <Compile Include="Assets\script\ShaderEffect\Paintable.cs" />
-    <Compile Include="Assets\script\ShaderEffect\PaintableDefinition.cs" />
-    <Compile Include="Assets\script\UI\ColorUpdate.cs" />
-    <Compile Include="Assets\script\UI\GunColorDisplay.cs" />
-    <Compile Include="Assets\script\Ultils\StateMachine.cs" />
-    <Compile Include="Assets\script\Ultils\UltilityEvents.cs" />
-    <Compile Include="Assets\VolumetricLines\ExampleScenes\ExampleScripts\CannonBehavior.cs" />
-    <Compile Include="Assets\VolumetricLines\ExampleScenes\ExampleScripts\CreateSinShapedLineStrip.cs" />
-    <Compile Include="Assets\VolumetricLines\ExampleScenes\ExampleScripts\ShotBehavior.cs" />
-    <Compile Include="Assets\VolumetricLines\Scripts\Utils\TransformExtensionMethods.cs" />
-    <Compile Include="Assets\VolumetricLines\Scripts\VolumetricLineBehavior.cs" />
-    <Compile Include="Assets\VolumetricLines\Scripts\VolumetricLineSettings.cs" />
-    <Compile Include="Assets\VolumetricLines\Scripts\VolumetricLineStripBehavior.cs" />
-    <Compile Include="Assets\VolumetricLines\Scripts\VolumetricLineVertexData.cs" />
-    <Compile Include="Assets\VolumetricLines\Scripts\VolumetricMultiLineBehavior.cs" />
+    <Compile Include="Assets\Plugins\Editor\JetBrains\Unity3DRider.cs" />
+    <Compile Include="Assets\Standard Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Normal-Parallax.shader" />

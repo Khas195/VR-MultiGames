@@ -15,7 +15,7 @@ public class PaintShooter : MonoBehaviour {
 	// Use this for initialization
 	public void Start () {
 		Cursor.visible = false;
-		gunColor = GameSettings.GetInstance ().GetColorAt (0);
+		this.SetGunColor(GameSettings.GetInstance ().GetColorAt (0));
 	}
 
 	// Update is called once per frame

@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameSettings : MonoBehaviour {
+public class GameSettings : MonoBehaviour
+{
+    public int standardScale;
+    public int standardPaintSize;
 	[SerializeField]
 	private int numberOfSplash;
 	[SerializeField]

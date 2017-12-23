@@ -35,7 +35,10 @@ public class Paintable : MonoBehaviour
 		
 		mat = Ultil.GetMaterialWithShader(GetComponent<Renderer>().materials, PaintableDefinition.PaintableShaderName, name);
 
-		drawTexture = new Texture2D (drawTextureSize, drawTextureSize);
+	    var initScale = GameSettings.GetInstance().standardScale / this.transform.localScale.x;
+	    int initSize = (int) (GameSettings.GetInstance().standardPaintSize / initScale);
+
+        drawTexture = new Texture2D(initSize, initSize);
 
 		ResetTextureToColor(drawTexture, new Color(0, 0, 0, 0));
 		mat.SetTexture(PaintableDefinition.DrawOnTextureName, drawTexture);
@@ -75,11 +78,7 @@ public class Paintable : MonoBehaviour
 		drawTexture.SetPixels (colors);
 		drawTexture.Apply ();
 	}
-
-	float ColorDifference (Color colorToCheck, Color targetColor)
-	{
-		return Mathf.Sqrt (Mathf.Pow (colorToCheck.r - targetColor.r, 2) + Mathf.Pow (colorToCheck.b - targetColor.b, 2) + Mathf.Pow (colorToCheck.g - targetColor.g, 2));
-	}
+    
 	// the input texutrecoord must be from hit.textureCoord2
 	public Color GetColorAtTextureCoord(Vector2 textureCoord2){
 		if (!init || !this.enabled) return Color.black;
@@ -129,14 +128,17 @@ public class Paintable : MonoBehaviour
 			}
 			drawTexture.SetPixels (xOrigin, yOrigin, blockWidth, blockHeight, dstColors);
 			drawTexture.Apply ();
-			if (shouldCalFill) {
-				UpdateFillPercent (drawTexture.GetPixels ());
-			}
 			blockToColor += blockWidth/6;
-			yield return 0;
-		}
+		    yield return 0;
+        }
+	    if (shouldCalFill)
+	    {
+	        UpdateFillPercent(drawTexture.GetPixels());
+	    }
 
-	}
+	    yield return 0;
+
+    }
 	void UpdateFillPercent (Color[] colors)
 	{		
 		int filledPixels = 0;

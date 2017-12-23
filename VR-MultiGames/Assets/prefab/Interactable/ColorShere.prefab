@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23841686980772928}
   - component: {fileID: 114151202175012688}
   m_Layer: 13
-  m_Name: ColorShere 1
+  m_Name: ColorShere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

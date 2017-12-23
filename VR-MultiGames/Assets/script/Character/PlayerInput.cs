@@ -1,82 +1,60 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class PlayerInput : MonoBehaviour{
-	public BasicMovement movement;
-	public Camera characterCamera;
+	public BasicMovement Movement;
+	public Camera CharacterCamera;
 
 	Vector3 moveSide;
 	bool jump;
 	Vector3 moveForward;
-	List<Interaction> curInteractions = new List<Interaction> ();
+    private bool controlEnable = true;
 
-
-	public void Start () {
-	}
-	public void HandlePaintInteraction(){
-		RaycastHit hit;
-		Interaction interaction = null;
-		if (Physics.Raycast (transform.position, -transform.up, out hit, GetComponent<Collider> ().bounds.extents.y + 0.1f, LayerMask.GetMask ("Obstacle"))) {
-			var hitPaintable = hit.collider.gameObject.GetComponent<Paintable> ();
-			if (hitPaintable != null) {
-				Color color = hitPaintable.GetColorAtTextureCoord (hit.textureCoord2);
-				interaction = PaintInteraction.GetInstance ().GetInteractionBasedOnColor (color);
-			}
-		} 
-
-		if (interaction != null && !curInteractions.Contains (interaction)) {
-			interaction.Init (gameObject);
-			curInteractions.Add (interaction);
-		}
-	}
-	public void Update (){
-		HandleMovementInput ();
-		HandleJumpInput ();
-		HandlePaintInteraction ();
+    public void DisableControl()
+    {
+        this.controlEnable = false;
+        moveSide = Vector3.zero;
+        moveForward = Vector3.zero;
+    }
+    public void EnableControl()
+    {
+        this.controlEnable = true;
+    }
+    public void Update (){
+        if (controlEnable) { 
+		    HandleMovementInput ();
+		    HandleJumpInput ();
+        }
 	}
 	public void FixedUpdate(){
-		ProcessMovement ();
-		ProcessInteraction ();
-	}
+	    if (controlEnable)
+	    {
+	        ProcessMovement();
+	    }
 
-	void ProcessInteraction ()
-	{
-		var finishedInteraction = new List<Interaction> ();
-		foreach (var i in curInteractions) {
-			i.Interact (gameObject);
-			if (i.IsDone ()) {
-				finishedInteraction.Add (i);
-			}
-		}
-		foreach (var i in finishedInteraction) {
-			i.RevertInteraction (gameObject);
-			curInteractions.Remove (i);
-		}
 	}
-
 	public void HandleMovementInput ()
 	{
 		var side = Input.GetAxis ("Horizontal");
 		var forward = Input.GetAxis ("Vertical");
-		moveSide = characterCamera.transform.right * side;
-		moveForward = characterCamera.transform.forward * forward;
+		moveSide = CharacterCamera.transform.right * side;
+		moveForward = CharacterCamera.transform.forward * forward;
 	}
-
 	public void HandleJumpInput ()
 	{
-		if (Input.GetKeyDown(KeyCode.Space) && movement.IsGrounded ()) {
+		if (Input.GetKeyDown(KeyCode.Space) && Movement.IsGrounded ()) {
 			jump = true;
 		}
 		else {
 			jump = false;
 		}
 	}
-
 	void ProcessMovement ()
 	{
-		movement.Move (moveSide + moveForward);
+		Movement.Move (moveSide + moveForward);
 		if (jump) {
-			movement.Jump ();
+			Movement.Jump (Movement.transform.up, Movement.data.jumpForce);
 		}
 	}
 

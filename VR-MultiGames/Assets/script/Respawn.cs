@@ -10,7 +10,7 @@ public class Respawn : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Player"))
 		{
-			var player = other.gameObject.transform.parent;
+			var player = other.gameObject.transform;
 			player.position = _startingPoint.position;
 			player.forward = _startingPoint.forward;
 			player.right = _startingPoint.right;

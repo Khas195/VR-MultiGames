@@ -8,9 +8,9 @@ public class Slide : Interaction {
 	float beginTime;
 	float originalSpeed = 0;
 	BasicMovement cacheMovement;
-	public override void Init (GameObject gameObject)
+	public override void Init (GameObject targetObject)
 	{
-		cacheMovement = gameObject.GetComponent<BasicMovement> ();
+		cacheMovement = targetObject.GetComponent<BasicMovement> ();
 		originalSpeed = cacheMovement.data.moveSpeed;
 	}
 	public override void Interact(GameObject targetObject){
@@ -21,8 +21,7 @@ public class Slide : Interaction {
 			beginTime = time;
 		}
 	}
-
-	public override void RevertInteraction (GameObject gameObject)
+    public override void RevertInteraction (GameObject targetObject)
 	{		
 		if (cacheMovement != null ) {
 			cacheMovement.data.moveSpeed = originalSpeed;
