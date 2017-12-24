@@ -115,6 +115,7 @@
     <Compile Include="Assets\script\Character\GameCube.cs" />
     <Compile Include="Assets\script\Character\InteractionHandler.cs" />
     <Compile Include="Assets\script\Character\PlayerInput.cs" />
+    <Compile Include="Assets\script\CheckPoint.cs" />
     <Compile Include="Assets\script\ControllerScript\Controller.cs" />
     <Compile Include="Assets\script\ControllerScript\PlayerController.cs" />
     <Compile Include="Assets\script\Features\ChangeBallColor.cs" />
