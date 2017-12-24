@@ -15,9 +15,17 @@ public class BasicMovement : MonoBehaviour {
 	public MovementData data;
 	public Camera characterCamera;
 	Rigidbody rg;
-   
-	// Use this for initialization
-	void Start () {
+
+    public void OnCollisionEnter(Collision other)
+    {
+        this.transform.parent = other.gameObject.transform;
+    }
+    public void OnCollisionExit(Collision other)
+    {
+        this.transform.parent = null;
+    }
+    // Use this for initialization
+    void Start () {
 		rg = this.GetComponent<Rigidbody> ();
 	}
 

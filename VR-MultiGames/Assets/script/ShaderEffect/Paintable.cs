@@ -3,8 +3,13 @@ using Assets.script;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.Events;
 
+[System.Serializable]
+public class MyColorEvent : UnityEvent<Color>
+{
 
+}
 public class Paintable : MonoBehaviour
 {
 	[SerializeField]
@@ -18,7 +23,7 @@ public class Paintable : MonoBehaviour
 	int drawTextureSize;
 
 	bool init = false;
-   
+    public MyColorEvent newPaintEvent = new MyColorEvent();
     
     void Start()
 	{       
@@ -74,6 +79,7 @@ public class Paintable : MonoBehaviour
 	public bool PaintMapping(Vector2 textureCoord2, Texture2D ink, Color color)
     {
 		if (!init || !this.enabled) return false;
+
 		int xOrigin;
 		int yOrigin;
 		int inkLeft;
@@ -81,11 +87,11 @@ public class Paintable : MonoBehaviour
 		int blockWidth;
 		int blockHeight;
 
-		CalculatePaintBlock (textureCoord2, ink,out xOrigin, out yOrigin, out inkLeft, out inkBottom, out blockWidth, out blockHeight);
+        newPaintEvent.Invoke(color);
+        CalculatePaintBlock (textureCoord2, ink,out xOrigin, out yOrigin, out inkLeft, out inkBottom, out blockWidth, out blockHeight);
         Color[] dstColors = drawTexture.GetPixels(xOrigin, yOrigin, blockWidth, blockHeight);
 
         Color[] srcColors = ink.GetPixels (inkLeft, inkBottom, blockWidth, blockHeight);
-
 		StartCoroutine ( TweenPaint( xOrigin, yOrigin, blockWidth,  blockHeight,  dstColors, srcColors, color));
 		return true;
     }

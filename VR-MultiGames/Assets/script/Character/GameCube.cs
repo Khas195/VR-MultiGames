@@ -63,11 +63,11 @@ public class GameCube : MonoBehaviour
 	    else
 	    {
 	        GetComponent<Glowable>().StopGlow();
-
+            
         }
 	}
 
-    private void MoveAccordingToColor(Color targetColor)
+    public void MoveAccordingToColor(Color targetColor)
     {
         foreach (var cop in colorPosList)
         {
@@ -83,5 +83,10 @@ public class GameCube : MonoBehaviour
             curTarget = cop;
             return;
         }
+    }
+
+    public bool IsMoving()
+    {
+       return movePoint.Count > 0;
     }
 }
