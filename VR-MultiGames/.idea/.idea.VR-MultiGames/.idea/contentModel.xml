@@ -75,9 +75,11 @@
           </e>
           <e p="Character" t="Include">
             <e p="BasicMovement.cs" t="Include" />
+            <e p="GameCube.cs" t="Include" />
             <e p="InteractionHandler.cs" t="Include" />
             <e p="PlayerInput.cs" t="Include" />
           </e>
+          <e p="CheckPoint.cs" t="Include" />
           <e p="ControllerScript" t="Include">
             <e p="Controller.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
@@ -105,6 +107,7 @@
               <e p="Interaction.cs" t="Include" />
               <e p="PaintInteraction.cs" t="Include" />
               <e p="Slide.cs" t="Include" />
+              <e p="Stick.cs" t="Include" />
             </e>
             <e p="LaunchPad.cs" t="Include" />
             <e p="Movement" t="Include">
@@ -112,7 +115,6 @@
               <e p="TweenTo.cs" t="Include" />
             </e>
             <e p="PaintBall.cs" t="Include" />
-            <e p="PaintFillEvent.cs" t="Include" />
             <e p="PaintShooter" t="Include">
               <e p="ColorSphere.cs" t="Include" />
               <e p="IBullet.cs" t="Include" />
@@ -160,6 +162,7 @@
           <e p="Respawn.cs" t="Include" />
           <e p="ShaderEffect" t="Include">
             <e p="DissolveEffect.cs" t="Include" />
+            <e p="FullColorObject.cs" t="Include" />
             <e p="HighlightObject" t="Include">
               <e p="Glowable.cs" t="Include" />
               <e p="GlowComposite.cs" t="Include" />
@@ -171,7 +174,6 @@
             <e p="PaintableDefinition.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
-            <e p="ColorUpdate.cs" t="Include" />
             <e p="GunColorDisplay.cs" t="Include" />
           </e>
           <e p="Ultils" t="Include">
