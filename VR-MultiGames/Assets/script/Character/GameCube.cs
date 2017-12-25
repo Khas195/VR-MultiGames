@@ -26,7 +26,8 @@ public class GameCube : MonoBehaviour
 
     private Queue<Vector3> movePoint = new Queue<Vector3>();
     private Vector3 originPos;
-
+    private AudioSource audio;
+    private Glowable glow;
     void OnDrawGizmos()
     {
         foreach (var cop in colorPosList)
@@ -40,40 +41,49 @@ public class GameCube : MonoBehaviour
     // Use this for initialization
 	void Start ()
 	{
+	    audio = GetComponent<AudioSource>();
+	    glow = GetComponent<Glowable>();
 	    originPos = transform.position;
-	}
+
+	    audio.loop = true;
+    }
 	
 	// Update is called once per frame
 	void Update () {
-	    if (Input.GetKeyDown(KeyCode.N))
-	    {
-	        MoveAccordingToColor(Color.red);
-	    } else if (Input.GetKeyDown(KeyCode.M))
-	    {
-	        MoveAccordingToColor(Color.blue);
-        }
 	    if (movePoint.Count > 0)
-	    {
-	        transform.position = Vector3.MoveTowards(transform.position, movePoint.Peek(), moveSpeed * Time.deltaTime);
-	        if (Vector3.Distance(transform.position, movePoint.Peek()) <= 0.1f)
-	        {
-	            movePoint.Dequeue();
-	        }
-	    }
-	    else
-	    {
-	        GetComponent<Glowable>().StopGlow();
-            
+        {
+            MoveToNextPoint();
         }
-	}
+        else
+        {
+            TurnOffMiscellaneous();
+        }
+    }
+
+    private void TurnOffMiscellaneous()
+    {
+        glow.StopGlow();
+        if (audio.isPlaying)
+        {
+            audio.Stop();
+        }
+    }
+
+    private void MoveToNextPoint()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, movePoint.Peek(), moveSpeed * Time.deltaTime);
+        if (Vector3.Distance(transform.position, movePoint.Peek()) <= 0.1f)
+        {
+            movePoint.Dequeue();
+        }
+    }
 
     public void MoveAccordingToColor(Color targetColor)
     {
         foreach (var cop in colorPosList)
         {
             if (!(Ultil.CalColorDifference(cop.color, targetColor) < 0.5f)) continue;
-            GetComponent<Glowable>().GlowColor = cop.color;
-            GetComponent<Glowable>().Glow();
+            TurnOnMiscellaneous            (cop);
             movePoint.Clear();
             movePoint.Enqueue(originPos);
 
@@ -83,6 +93,13 @@ public class GameCube : MonoBehaviour
             curTarget = cop;
             return;
         }
+    }
+
+    private void TurnOnMiscellaneous(ColorToPosition cop)
+    {
+        glow.GlowColor = cop.color;
+        glow.Glow();
+        SoundsManager.GetInstance().PlayClip(audio, ActionInGame.CubeMoving);
     }
 
     public bool IsMoving()

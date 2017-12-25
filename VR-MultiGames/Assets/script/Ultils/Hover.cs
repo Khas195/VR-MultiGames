@@ -15,7 +15,7 @@ public class Hover : MonoBehaviour
 	void Update ()
 	{
 	    var pos = this.transform.position;
-	    pos.y = (Mathf.Sin(Time.time * speed) * amplitude);
+	    pos.y = pos.y + (Mathf.Sin(Time.time * speed) * amplitude);
 	    transform.position = pos;
 	}
 }

@@ -41,6 +41,7 @@ public class Glowable : MonoBehaviour {
 
 	public void StopGlow()
 	{
+	    if (_currentColor == Color.black) return;
 		_targetColor = Color.black;
 		enabled = true;
 	}   
@@ -54,9 +55,9 @@ public class Glowable : MonoBehaviour {
 	{
 		_currentColor = Color.Lerp(_currentColor, _targetColor, Time.deltaTime * LerpFactor);
 
-		for (int i = 0; i < _materials.Count; i++)
+		foreach (var mat in _materials)
 		{
-			_materials[i].SetColor("_GlowColor", _currentColor);
+		    mat.SetColor("_GlowColor", _currentColor);
 		}
 
 		if (_currentColor.Equals(_targetColor))
@@ -64,4 +65,9 @@ public class Glowable : MonoBehaviour {
 			enabled = false;
 		}
 	}
+
+    public bool IsGlowing()
+    {
+        return _currentColor == Color.black;
+    }
 }

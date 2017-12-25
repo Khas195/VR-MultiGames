@@ -10,7 +10,9 @@ public enum ActionInGame
     LaserHitSolidObject,
     PlayJump,
     PlayerLandOnTheGround, 
-    PlayBounce
+    PlayBounce,
+    ControlBoxTrigger,
+    CubeMoving
 }
 [Serializable]
 public class ActionToClip

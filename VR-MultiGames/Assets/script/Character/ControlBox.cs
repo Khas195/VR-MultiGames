@@ -5,12 +5,13 @@ using UnityEngine;
 public class ControlBox : MonoBehaviour
 {
     private Paintable cachePaint;
-
+    private AudioSource audio;
     [SerializeField]
     private List<GameCube> slaveCubes = new List<GameCube>();
 	// Use this for initialization
 	void Start ()
 	{
+	    audio  = this.GetComponent<AudioSource>();
 	    cachePaint = GetComponent<Paintable>();
 	    cachePaint.newPaintEvent.AddListener(TriggerBox);
 	}
@@ -34,6 +35,8 @@ public class ControlBox : MonoBehaviour
 
     public void TriggerBox(Color color)
     {
+
+        SoundsManager.GetInstance().PlayClip(audio, ActionInGame.ControlBoxTrigger);
         GetComponent<Glowable>().GlowColor = color;
         GetComponent<Glowable>().Glow();
         foreach (var c in slaveCubes)
