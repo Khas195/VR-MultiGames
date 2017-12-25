@@ -9,7 +9,8 @@ public enum ActionInGame
     DroneShootLaser,
     LaserHitSolidObject,
     PlayJump,
-    PlayerLandOnTheGround
+    PlayerLandOnTheGround, 
+    PlayBounce
 }
 [Serializable]
 public class ActionToClip
@@ -18,10 +19,16 @@ public class ActionToClip
     public ActionInGame actionName;
 }
 
+
 public class SoundsManager : MonoBehaviour
 {
     [SerializeField]
+    [Range(0, 1)]
+    private float soundVolumne = 1;
+    [SerializeField]
     private List<ActionToClip> sounds;
+    
+    [SerializeField] private AudioSource ambientSource;
 
     private static SoundsManager instance;
 
@@ -31,14 +38,28 @@ public class SoundsManager : MonoBehaviour
     }
 	// Use this for initialization
 	void Start () {
+
 		instance = this;
-	}
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
 
+    public void PlayClip(AudioSource src, ActionInGame action)
+    {
+        src.volume = soundVolumne;
+        src.clip = GetClip(action);
+        src.Play();
+    }
+    public void PlayClip( ActionInGame action, Vector3 positon)
+    {
+        var clip = GetClip(action);
+        AudioSource.PlayClipAtPoint(clip, positon, soundVolumne);
+    }
     public AudioClip GetClip(ActionInGame action)
     {
         foreach (var atc in sounds)

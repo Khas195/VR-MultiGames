@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Paintable
   - ClickCamera
+  - Platform
   layers:
   - Default
   - TransparentFX

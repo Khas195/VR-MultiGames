@@ -11,12 +11,9 @@ public class PaintLaserShooterDrone : PaintShooter
 	Transform shootPos;
 	// normalized
 	Vector3 direction;
-    [SerializeField]
-    private AudioSource audio;
 	// Use this for initialization
 	void Start ()
 	{
-	    audio = this.GetComponent<AudioSource>();
 	}
 
 	// Update is called once per frame
@@ -33,8 +30,7 @@ public class PaintLaserShooterDrone : PaintShooter
 		laser.SetSpeed (laserSpeed);
 		laser.SetLaserColor (gunColor);
 		laser.SetDirection (transform.forward);
-	    audio.clip = SoundsManager.GetInstance().GetClip(ActionInGame.DroneShootLaser);
-        audio.Play();
+        SoundsManager.GetInstance().PlayClip(ActionInGame.DroneShootLaser, transform.position);
 
 		nextShot = Time.time + fireRate;
 	}

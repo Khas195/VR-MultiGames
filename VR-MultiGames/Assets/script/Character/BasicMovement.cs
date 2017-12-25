@@ -18,7 +18,10 @@ public class BasicMovement : MonoBehaviour {
 
     public void OnCollisionEnter(Collision other)
     {
-        this.transform.parent = other.gameObject.transform;
+        if (other.gameObject.tag.Equals("Platform"))
+        {
+            this.transform.parent = other.gameObject.transform;
+        }
     }
     public void OnCollisionExit(Collision other)
     {

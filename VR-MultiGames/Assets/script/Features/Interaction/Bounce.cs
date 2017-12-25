@@ -12,8 +12,9 @@ public class Bounce : Interaction {
     {
         movement.Jump(interactHandler.GetLastImpactNormal(), bounceForce);
         pi.DisableControl();
+        SoundsManager.GetInstance().PlayClip(ActionInGame.PlayBounce, targetObject.transform.position);
         Invoke("EnableControl", 1.0f);
-	}
+    }
     public override void RevertInteraction(GameObject targetObject)
     {
     }

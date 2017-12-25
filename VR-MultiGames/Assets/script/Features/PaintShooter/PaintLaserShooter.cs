@@ -45,8 +45,7 @@ public class PaintLaserShooter : PaintShooter {
 		laser.SetSpeed (laserSpeed);
 		laser.SetLaserColor (this.gunColor);
 		laser.SetDirection (lookAtCamera.transform.forward.normalized);
-	    audio.clip = SoundsManager.GetInstance().GetClip(ActionInGame.PlayerShootLaser);
-        audio.Play();
+	    SoundsManager.GetInstance().PlayClip(audio, ActionInGame.PlayerShootLaser);
 		nextShot = Time.time + fireRate;
 	}
 
