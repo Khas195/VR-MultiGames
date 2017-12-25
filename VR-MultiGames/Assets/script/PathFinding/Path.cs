@@ -20,8 +20,7 @@ namespace script.PathFinding
 		public enum PathStyle
 		{
 			None,
-			Loop,
-			BackFront			
+			Loop	
 		}
 		
 		#region Inspector
@@ -220,99 +219,6 @@ namespace script.PathFinding
 		{
 			_pointList.Add(point);
 			CalculatePath();
-		}
-
-		public Vector3 GetPointAtIndex(int index)
-		{
-			if (index < 0 || index >= _precalculatedPath.Count) return Vector3.zero;
-
-			return _precalculatedPath[index];
-		}
-
-		public Vector3 NextPoint()
-		{
-			if (_curIndex < 0)
-			{
-				_curIndex = _precalculatedPath.Count - Math.Abs(_curIndex) % _precalculatedPath.Count;
-			}
-			return _increaseStep ? GetNextPoint() : GetPrevPoint();
-		}
-
-		public Vector3 PrevPoint()
-		{
-			if (_curIndex < 0)
-			{
-				_curIndex = _precalculatedPath.Count - Math.Abs(_curIndex) % _precalculatedPath.Count;
-			}
-			return _increaseStep ? GetPrevPoint() : GetNextPoint();
-		}
-		
-		private Vector3 GetNextPoint()
-		{
-			++_curIndex;
-
-			if (_curIndex != _precalculatedPath.Count) return _precalculatedPath[_curIndex];
-			
-			switch (pathStyle)
-			{
-				case PathStyle.Loop:
-				{
-					_curIndex = 0;
-					break;
-				}
-
-				case PathStyle.BackFront:
-				{
-					_increaseStep = !_increaseStep;
-					--_curIndex;
-
-					return _precalculatedPath.Count == 1 ? _precalculatedPath[_curIndex] : GetPrevPoint();
-				}
-
-				case PathStyle.None:
-				{
-					return Vector3.zero;
-				}
-					
-				default:
-					throw new ArgumentOutOfRangeException();
-			}
-
-			return _precalculatedPath[_curIndex];
-		}
-
-		private Vector3 GetPrevPoint()
-		{
-			--_curIndex;
-
-			if (_curIndex != -1) return _precalculatedPath[_curIndex];
-			
-			switch (pathStyle)
-			{
-				case PathStyle.Loop:
-				{
-					_curIndex = _precalculatedPath.Count - 1;
-					break;
-				}
-
-				case PathStyle.BackFront:
-				{
-					_increaseStep = !_increaseStep;
-					++_curIndex;
-					
-					return _precalculatedPath.Count == 1 ? _precalculatedPath[_curIndex] : GetNextPoint();
-				}
-
-				case PathStyle.None:
-				{
-					return Vector3.zero;
-				}
-					
-				default:
-					throw new ArgumentOutOfRangeException();
-			}
-
-			return _precalculatedPath[_curIndex];
 		}
 
 		public void CalculatePath()

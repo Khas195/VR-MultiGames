@@ -29,6 +29,7 @@ namespace script.PathFinding
 		private Vector3 _handle1 = Vector3.zero;
 		[SerializeField]
 		private Vector3 _handle2 = Vector3.zero;
+		[SerializeField]
 		private Matrix4x4 _localToWorldMatrix = Matrix4x4.identity;
 		
 

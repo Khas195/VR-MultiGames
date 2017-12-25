@@ -6,6 +6,7 @@ namespace script.BoidBehavior
 {
 	public class PathFollowBehavior : BoidBehavior
 	{
+		[Header("Settings")]
 		[SerializeField] 
 		private PathFinder _pathFinder = null;
 		
@@ -24,6 +25,9 @@ namespace script.BoidBehavior
 
 		[SerializeField]
 		private Path _path;
+
+		[SerializeField] 
+		private bool _isInOrder;
 		
 		[Header("Gizmos")]
 		

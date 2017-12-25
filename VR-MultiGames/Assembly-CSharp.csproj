@@ -73,6 +73,7 @@
     <Compile Include="Assets\script\Camera\CameraFollow.cs" />
     <Compile Include="Assets\script\CameraScript\FirstPerson.cs" />
     <Compile Include="Assets\script\Character\BasicMovement.cs" />
+    <Compile Include="Assets\script\Character\ControlBox.cs" />
     <Compile Include="Assets\script\Character\GameCube.cs" />
     <Compile Include="Assets\script\Character\InteractionHandler.cs" />
     <Compile Include="Assets\script\Character\PlayerInput.cs" />
@@ -113,6 +114,7 @@
     <Compile Include="Assets\script\GameMaster\InputReceiver.cs" />
     <Compile Include="Assets\script\GameMaster\LaserPool.cs" />
     <Compile Include="Assets\script\GameMaster\Ultility.cs" />
+    <Compile Include="Assets\script\KDTree\KDTree.cs" />
     <Compile Include="Assets\script\MouseLook.cs" />
     <Compile Include="Assets\script\MovementScript\MockMovement.cs" />
     <Compile Include="Assets\script\MovementScript\Movement.cs" />
@@ -135,6 +137,8 @@
     <Compile Include="Assets\script\ShaderEffect\Paintable.cs" />
     <Compile Include="Assets\script\ShaderEffect\PaintableDefinition.cs" />
     <Compile Include="Assets\script\UI\GunColorDisplay.cs" />
+    <Compile Include="Assets\script\Ultils\Hover.cs" />
+    <Compile Include="Assets\script\Ultils\Spin.cs" />
     <Compile Include="Assets\script\Ultils\StateMachine.cs" />
     <Compile Include="Assets\script\Ultils\UltilityEvents.cs" />
     <Compile Include="Assets\VolumetricLines\ExampleScenes\ExampleScripts\CannonBehavior.cs" />

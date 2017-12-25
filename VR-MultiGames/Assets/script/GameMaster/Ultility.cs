@@ -5,7 +5,6 @@ using UnityEngine;
 public static class Ultil  {
 	public static Paintable TryShootPaint (Vector3 position, Vector3 direction, Color color,float distance)
 	{		
-		Debug.DrawLine(position, position + direction * distance, Color.red, 10);
 		RaycastHit hit;
 		if (Physics.Raycast (position, direction, out hit,  distance, LayerMask.GetMask("Obstacle"))) {
 			var hitPaintable = hit.collider.gameObject.GetComponent<Paintable> ();

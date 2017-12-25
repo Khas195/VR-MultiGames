@@ -75,6 +75,7 @@
           </e>
           <e p="Character" t="Include">
             <e p="BasicMovement.cs" t="Include" />
+            <e p="ControlBox.cs" t="Include" />
             <e p="GameCube.cs" t="Include" />
             <e p="InteractionHandler.cs" t="Include" />
             <e p="PlayerInput.cs" t="Include" />
@@ -144,6 +145,9 @@
             <e p="LaserPool.cs" t="Include" />
             <e p="Ultility.cs" t="Include" />
           </e>
+          <e p="KDTree" t="Include">
+            <e p="KDTree.cs" t="Include" />
+          </e>
           <e p="MouseLook.cs" t="Include" />
           <e p="MovementScript" t="Include">
             <e p="MockMovement.cs" t="Include" />
@@ -177,6 +181,8 @@
             <e p="GunColorDisplay.cs" t="Include" />
           </e>
           <e p="Ultils" t="Include">
+            <e p="Hover.cs" t="Include" />
+            <e p="Spin.cs" t="Include" />
             <e p="StateMachine.cs" t="Include" />
             <e p="UltilityEvents.cs" t="Include" />
           </e>
