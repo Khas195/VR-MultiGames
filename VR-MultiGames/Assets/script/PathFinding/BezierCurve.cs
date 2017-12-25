@@ -83,7 +83,7 @@ namespace script.PathFinding
 			return length;
 		}
 
-		public static float CalculateBezierPath(List<PathPoint> pointList, BezierCurveType type, int stepNum,
+		public static float CalculateBezierPath(List<PathPoint> pointList, int stepNum, BezierCurveType type, bool isLoop,
 			out List<Vector3> calculatedPath)
 		{
 			calculatedPath = new List<Vector3>();
@@ -92,55 +92,78 @@ namespace script.PathFinding
 			switch (type)
 			{
 				case BezierCurveType.Custom:
-					return CalculateCustomBezierPath(pointList, stepNum, out calculatedPath);
+					return CalculateCustomBezierPath(pointList, stepNum, isLoop, out calculatedPath);
 				case BezierCurveType.RelaxedBSpline:
-					return CalculateRelaxedBSpline(pointList, stepNum, out calculatedPath);
+					return CalculateRelaxedBSpline(pointList, stepNum, isLoop, out calculatedPath);
 				default:
 					throw new ArgumentOutOfRangeException("type", type, null);
 			}
 		}
 
-		public static float CalculateCustomBezierPath(List<PathPoint> pointList, int stepNum,
+		private static float CalculateBezierCurveBetween(PathPoint A, PathPoint B, int stepNum, out Vector3[] calculatedPath)
+		{
+			float length = 0;
+			
+			if (A.handle2 != Vector3.zero)
+			{
+				if (B.handle1 != Vector3.zero)
+				{
+					length += CalculateCubicBezierPoints(stepNum, A.position, A.globalHandle2,
+						B.globalHandle1, B.position, out calculatedPath);
+				}
+				else
+				{
+					length += CalculateQuadraticBezierPoints(stepNum, A.position, A.globalHandle2,
+						B.position, out calculatedPath);
+				}
+			}
+			else
+			{
+				if (B.handle1 != Vector3.zero)
+				{
+					length += CalculateQuadraticBezierPoints(stepNum, A.position, B.globalHandle1, 
+						B.position, out calculatedPath);
+				}
+				else
+				{
+					calculatedPath = new[] {A.position, B.position};
+					length += (A.position - B.position).magnitude;
+				}
+			}
+
+			return length;
+		}
+
+		public static float CalculateCustomBezierPath(List<PathPoint> pointList, int stepNum, bool isLoop,
 			out List<Vector3> calculatedPath)
 		{
 			calculatedPath = new List<Vector3>();
 			if (pointList == null || stepNum < 1 || pointList.Count < 2) return -1;
 
 			float length = 0;
+			var lastPosition = pointList.Count - 1;
 			
 			calculatedPath.Add(pointList[0].position);
 			
-			for (int i = 0; i < pointList.Count - 1; ++i)
+			for (var i = 0; i < lastPosition; ++i)
 			{
 				Vector3[] tempPath;
-				if (pointList[i].handle2 != Vector3.zero)
-				{
-					if (pointList[i + 1].handle1 != Vector3.zero)
-					{
-						length += CalculateCubicBezierPoints(stepNum, pointList[i].position, pointList[i].globalHandle2,
-							pointList[i + 1].globalHandle1, pointList[i + 1].position, out tempPath);
-					}
-					else
-					{
-						length += CalculateQuadraticBezierPoints(stepNum, pointList[i].position, pointList[i].globalHandle2,
-							pointList[i + 1].position, out tempPath);
-					}
-				}
-				else
-				{
-					if (pointList[i + 1].handle1 != Vector3.zero)
-					{
-						length += CalculateQuadraticBezierPoints(stepNum, pointList[i].position, pointList[i + 1].globalHandle1, 
-							pointList[i + 1].position, out tempPath);
-					}
-					else
-					{
-						tempPath = new[] {pointList[i].position, pointList[i + 1].position};
-						length += (pointList[i].position - pointList[i + 1].position).magnitude;
-					}
-				}
+				
+				length += CalculateBezierCurveBetween(pointList[i], pointList[i + 1], stepNum, out tempPath);
 
 				for (var j = 1; j < tempPath.Length; ++j)
+				{
+					calculatedPath.Add(tempPath[j]);
+				}
+			}
+
+			if (isLoop)
+			{
+				Vector3[] tempPath;
+				
+				length += CalculateBezierCurveBetween(pointList[lastPosition], pointList[0], stepNum, out tempPath);
+
+				for (var j = 1; j < tempPath.Length - 1; ++j)
 				{
 					calculatedPath.Add(tempPath[j]);
 				}
@@ -149,15 +172,15 @@ namespace script.PathFinding
 			return length;
 		}
 
-		public static float CalculateRelaxedBSpline(List<PathPoint> pointList, int stepNum,
+		public static float CalculateRelaxedBSpline(List<PathPoint> pointList, int stepNum, bool isLoop,
 			out List<Vector3> calculatedPath)
 		{
 			calculatedPath = new List<Vector3>();
 			if (pointList == null || stepNum < 1 || pointList.Count < 2) return -1;
 
-			var recalutedPointList = RecalculatePathPointRelaxedBSpline(pointList);
+			var recalutedPointList = RecalculatePathPointRelaxedBSpline(pointList, isLoop);
 
-			return CalculateCustomBezierPath(recalutedPointList, stepNum, out calculatedPath);
+			return CalculateCustomBezierPath(recalutedPointList, stepNum, isLoop, out calculatedPath);
 		}
 
 		private static void GetMidPoints(Vector3 p1, Vector3 p2, out Vector3 mp1, out Vector3 mp2)
@@ -166,7 +189,7 @@ namespace script.PathFinding
 			mp2 = p1 / 3 + p2 * 2 / 3;
 		}
 
-		private static List<PathPoint> RecalculatePathPointRelaxedBSpline(List<PathPoint> pointList)
+		private static List<PathPoint> RecalculatePathPointRelaxedBSpline(List<PathPoint> pointList, bool isLoop)
 		{
 			if (pointList == null || pointList.Count <= 1) return pointList;
 
@@ -175,21 +198,34 @@ namespace script.PathFinding
 				return pointList;
 			}
 
-			List<PathPoint> resultList = new List<PathPoint>(pointList.Count);
+			var resultList = new List<PathPoint>(pointList.Count);
+			var lastPosition = pointList.Count - 1;
 
-			Vector3 mp1, mp2;
+			Vector3 mp1, mp2, prevMp2;
 
-			GetMidPoints(pointList[0].position, pointList[1].position, out mp1, out mp2);
 
 			var tempPoint = new PathPoint();
-			tempPoint.position = pointList[0].position;
-			tempPoint.globalHandle2 = mp1;
+			if (isLoop)
+			{
+				GetMidPoints(pointList[lastPosition].position, pointList[0].position, out mp1, out mp2);
+				prevMp2 = mp2;
+				GetMidPoints(pointList[0].position, pointList[1].position, out mp1, out mp2);
+				tempPoint.position = (prevMp2 + mp1) / 2;
+				tempPoint.globalHandle1 = prevMp2;
+				tempPoint.globalHandle2 = mp1;
+			}
+			else
+			{
+				GetMidPoints(pointList[0].position, pointList[1].position, out mp1, out mp2);
+				tempPoint.position = pointList[0].position;
+				tempPoint.globalHandle2 = mp1;
+			}
 			
 			resultList.Add(tempPoint);
 
-			for (int i = 1; i < pointList.Count - 1; ++i)
+			for (var i = 1; i < lastPosition; ++i)
 			{
-				var prevMp2 = mp2;
+				prevMp2 = mp2;
 				
 				GetMidPoints(pointList[i].position, pointList[i + 1].position, out mp1, out mp2);
 				
@@ -202,8 +238,19 @@ namespace script.PathFinding
 			}
 				
 			tempPoint = new PathPoint();
-			tempPoint.position = pointList[pointList.Count - 1].position;;
-			tempPoint.globalHandle1 = mp2;
+			prevMp2 = mp2;
+			if (isLoop)
+			{
+				GetMidPoints(pointList[lastPosition].position, pointList[0].position, out mp1, out mp2);
+				tempPoint.position = (prevMp2 + mp1) / 2;
+				tempPoint.globalHandle1 = prevMp2;
+				tempPoint.globalHandle2 = mp1;
+			}
+			else
+			{
+				tempPoint.position = pointList[lastPosition].position;;
+				tempPoint.globalHandle1 = prevMp2;
+			}
 				
 			resultList.Add(tempPoint);
 

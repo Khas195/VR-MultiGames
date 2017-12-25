@@ -55,6 +55,7 @@
     <Compile Include="Assets\Plugins\Editor\JetBrains\Unity3DRider.cs" />
     <Compile Include="Assets\Standard Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
     <None Include="Assets\VolumetricLines\Shaders\_StripShader.cginc" />
+    <None Include="Assets\MeleeWeaponTrail\README.txt" />
     <None Include="Assets\resource\shader\PaintOn.shader" />
     <None Include="Assets\resource\shader\GlowReplace.shader" />
     <None Include="Assets\resource\shader\RollingTransparent.shader" />

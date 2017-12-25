@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Xml.Schema;
 using UnityEngine;
 using UnityEngine.Timeline;
 
@@ -20,7 +21,7 @@ namespace script.PathFinding
 		public enum PathStyle
 		{
 			None,
-			Loop	
+			Loop
 		}
 		
 		#region Inspector
@@ -146,42 +147,65 @@ namespace script.PathFinding
 		
 		#endregion
 
-		public Vector3 GetNearestPoint(Vector3 origin, out Vector3 prevPoint, out Vector3 nextPoint)
+		private int GetValidIndex(int index)
 		{
-			prevPoint = nextPoint = Vector3.zero;
+			if (index < _precalculatedPath.Count) return index;
+
+			var resultIndex = index;
 			
-			if (_precalculatedPath.Count < 2) return Vector3.zero;
+			var offset = resultIndex - _precalculatedPath.Count;
 
-			var nearestPoint = _precalculatedPath[0];
-			nextPoint = _precalculatedPath[1];
-
-			var nearestSqrDist = (nearestPoint - origin).sqrMagnitude;
-
-			for (var i = 1; i < _precalculatedPath.Count; ++i)
+			if (pathStyle == PathStyle.Loop)
 			{
-				var sqrDist = (_precalculatedPath[i] - origin).sqrMagnitude;
-
-				if (nearestSqrDist <= sqrDist) continue;
-				
-				nearestPoint = _precalculatedPath[i];
-				nearestSqrDist = (nearestPoint - origin).sqrMagnitude;
-
-				if (i < _precalculatedPath.Count - 1)
-				{
-					nextPoint = _precalculatedPath[i + 1];
-				}
-				else
-				{
-					nextPoint = Vector3.zero;
-				}
-
-				if (i > 0)
-				{
-					prevPoint = _precalculatedPath[i - 1];
-				}
+				resultIndex = offset;
+			}
+			else
+			{
+				resultIndex = _precalculatedPath.Count - 1;
 			}
 
-			return nearestPoint;
+			return resultIndex;
+		}
+
+		public Vector3 GetNearestPoint(Vector3 origin, int from, int to , out int index, out Vector3 prevPoint, 
+			out Vector3 nextPoint)
+		{
+			index = 0;
+			prevPoint = nextPoint = _precalculatedPath.Count > 0 ? _precalculatedPath[0] : Vector3.zero;
+			
+			if (_precalculatedPath.Count < 2) return prevPoint;
+
+			var lastIndex = _precalculatedPath.Count - 1;
+			var start = from > 0 ? from % _precalculatedPath.Count : 0;
+			var end = to > -1 ? to % _precalculatedPath.Count : lastIndex;
+
+			index = start;
+
+			var nearestDistance = (origin - _precalculatedPath[index]).sqrMagnitude;
+			var curIndex = index + 1;
+			
+			while (curIndex != end + 1)
+			{
+				if (curIndex > lastIndex)
+				{
+					curIndex = 0;
+				}
+
+				var tempDistance = (origin - _precalculatedPath[curIndex]).sqrMagnitude;
+
+				if (nearestDistance > tempDistance)
+				{
+					index = curIndex;
+					nearestDistance = tempDistance;
+
+					prevPoint = _precalculatedPath[curIndex - 1 < 0 ? lastIndex : curIndex - 1];
+					nextPoint = _precalculatedPath[curIndex + 1 > lastIndex ? 0 : curIndex + 1];
+				}
+				
+				++curIndex;
+			}
+
+			return _precalculatedPath[index];
 		}
 
 		public static Vector3 GetNormalPoint(Vector3 origin, Vector3 start, Vector3 end)
@@ -238,23 +262,23 @@ namespace script.PathFinding
 					{
 						_precalculatedPath.Add(point.position);
 					}
+
+					if (_pathStyle == PathStyle.Loop && _pointList.Count > 1)
+					{
+						_precalculatedPath.Add(_pointList[0].position);
+					}
 				}
 					break;
 				case PathType.BezierCurve:
 				{
 					if (_pathStyle == PathStyle.Loop)
 					{
-						var tempList = new List<PathPoint>(_pointList);
-						tempList.Add(_pointList[0]);
-						
-						_length = BezierCurve.CalculateBezierPath(tempList, _bezierCurveType, _bezierCurveStepNum,
+						_length = BezierCurve.CalculateBezierPath(_pointList, _bezierCurveStepNum, _bezierCurveType, true,
 							out _precalculatedPath);
-						
-						_precalculatedPath.RemoveAt(_precalculatedPath.Count - 1);
 					}
 					else
 					{
-						_length = BezierCurve.CalculateBezierPath(_pointList, _bezierCurveType, _bezierCurveStepNum,
+						_length = BezierCurve.CalculateBezierPath(_pointList, _bezierCurveStepNum, _bezierCurveType, false,
 							out _precalculatedPath);
 					}
 				}

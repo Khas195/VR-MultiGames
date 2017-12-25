@@ -8,6 +8,20 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="MeleeWeaponTrail" t="Include">
+          <e p="Example" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="LookAtTarget.cs" t="Include" />
+              <e p="MouseMove.cs" t="Include" />
+              <e p="SwooshTest.cs" t="Include" />
+            </e>
+          </e>
+          <e p="readme.txt" t="Include" />
+          <e p="Scripts" t="Include">
+            <e p="Interpolate.cs" t="Include" />
+            <e p="MeleeWeaponTrail.cs" t="Include" />
+          </e>
+        </e>
         <e p="Normal-Parallax.shader" t="Include" />
         <e p="Plugins" t="Include">
           <e p="Editor" t="Include">
@@ -48,6 +62,7 @@
         </e>
         <e p="script" t="Include">
           <e p="Automove.cs" t="Include" />
+          <e p="BirdSetting.cs" t="Include" />
           <e p="BoidBehavior" t="Include">
             <e p="ArrivalBehavior.cs" t="Include" />
             <e p="BoidBehavior.cs" t="Include" />
@@ -80,7 +95,7 @@
             <e p="InteractionHandler.cs" t="Include" />
             <e p="PlayerInput.cs" t="Include" />
           </e>
-          <e p="CheckPoint.cs" t="Include" />
+          <e p="CheckPointArea.cs" t="Include" />
           <e p="ControllerScript" t="Include">
             <e p="Controller.cs" t="Include" />
             <e p="PlayerController.cs" t="Include" />
@@ -143,6 +158,7 @@
             <e p="GameSettings.cs" t="Include" />
             <e p="InputReceiver.cs" t="Include" />
             <e p="LaserPool.cs" t="Include" />
+            <e p="SoundsManager.cs" t="Include" />
             <e p="Ultility.cs" t="Include" />
           </e>
           <e p="KDTree" t="Include">
@@ -163,7 +179,8 @@
             <e p="PathPointInspector.cs" t="Include" />
           </e>
           <e p="RaycastClick.cs" t="Include" />
-          <e p="Respawn.cs" t="Include" />
+          <e p="RespawnArea.cs" t="Include" />
+          <e p="RespawnSetting.cs" t="Include" />
           <e p="ShaderEffect" t="Include">
             <e p="DissolveEffect.cs" t="Include" />
             <e p="FullColorObject.cs" t="Include" />

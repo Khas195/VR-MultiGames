@@ -28,6 +28,12 @@ namespace script.BoidBehavior
 
 		[SerializeField] 
 		private bool _isInOrder;
+
+		[SerializeField] 
+		private int _maxOrderOffset = 2;
+		
+		[SerializeField]
+		private float _minDistanceFromPoint = 1;
 		
 		[Header("Gizmos")]
 		
@@ -37,15 +43,48 @@ namespace script.BoidBehavior
 		[SerializeField]
 		private Color _desiredVelocityColor = Color.cyan;
 		
+		private int _curIndex = 0;
 		private Vector3 _normalPoint = Vector3.zero;
 		private Vector3 _desiredVelocity = Vector3.zero;
 
 		public Path path
 		{
 			get { return _path; }
-			set { _path = value; }
+			set
+			{
+				_path = value;
+				if (_path.pointList.Count > 0)
+				{
+					_normalPoint = _path.precalculatedPath[0];
+					_curIndex = 0;
+				}
+			}
 		}
-		
+
+		private void Start()
+		{
+			if (_path.pointList.Count == 0)
+			{
+				if (_pathInspector)
+				{
+					_path = _pathInspector.path;
+				}
+				else if (_pathFinder && BoidController.Target != null)
+				{
+					List<PathPoint> pointList;
+
+					_pathFinder.CalculatePath(transform.position, BoidController.Target.transform.position, out pointList);
+
+					_path = new Path {pointList = pointList};
+				}
+
+				if (_path.pointList.Count > 0)
+				{
+					_normalPoint = _path.precalculatedPath[0];
+				}
+			}
+		}
+
 		public override void PerformBehavior()
 		{
 			if (!IsEnable || BoidController == null) return;
@@ -66,51 +105,49 @@ namespace script.BoidBehavior
 		
 		private bool CalculatePathFollowVelocity(out Vector3 normalPoint, out float factor)
 		{
+			var saveNormal = _normalPoint;
 			normalPoint = Vector3.zero;
 			factor = 1;
 
-			if (_path.pointList.Count == 0)
-			{
-				if (_pathInspector)
-				{
-					_path = _pathInspector.path;
-				}
-				else if (_pathFinder && BoidController.Target != null)
-				{
-					List<PathPoint> pointList;
-
-					_pathFinder.CalculatePath(transform.position, BoidController.Target.transform.position, out pointList);
-
-					_path = new Path {pointList = pointList};
-
-				}
-				else
-				{
-					return false;
-				}
-			}
-			
-			if (_pathFinder && BoidController.Target != null)
-			{
-				List<PathPoint> pointList;
-
-				_pathFinder.CalculatePath(transform.position, BoidController.Target.transform.position, out pointList);
-
-				_path = new Path {pointList = pointList};
-
-			}
+			if (_path.pointList.Count < 2) return false;
 
 			var predictedPosition = transform.position + BoidController.Velocity;
 
 			Vector3 prevPoint;
 			Vector3 nextPoint;
+			Vector3 nearestPoint;
 
-			var nearestPoint = _path.GetNearestPoint(predictedPosition, out prevPoint, out nextPoint);
+			if ((saveNormal - transform.position).sqrMagnitude < _minDistanceFromPoint * _minDistanceFromPoint)
+			{
+				if (_isInOrder)
+				{
+					int start = _curIndex + 1, end;
 
-			var normalPointA = Path.GetNormalPoint(predictedPosition, prevPoint, nearestPoint);
-			var normalPointB = Path.GetNormalPoint(predictedPosition, nearestPoint, nextPoint);
+					if (_path.pathType == Path.PathType.BezierCurve)
+					{
+						end = start + _maxOrderOffset * _path.bezierCurveStepNum;
+					}
+					else
+					{
+						end = start + _maxOrderOffset;
+					}
 
-			normalPoint = GetNearestPoint(predictedPosition, normalPointA, normalPointB);
+					nearestPoint = _path.GetNearestPoint(predictedPosition, start, end, out _curIndex, out prevPoint, out nextPoint);
+				}
+				else
+				{
+					nearestPoint = _path.GetNearestPoint(predictedPosition, -1, -1, out _curIndex, out prevPoint, out nextPoint);
+				}
+			
+				var normalPointA = Path.GetNormalPoint(predictedPosition, prevPoint, nearestPoint);
+				var normalPointB = Path.GetNormalPoint(predictedPosition, nearestPoint, nextPoint);
+
+				normalPoint = GetNearestPoint(predictedPosition, normalPointA, normalPointB);
+			}
+			else
+			{
+				normalPoint = saveNormal;
+			}
 
 			var normal = normalPoint - predictedPosition;
 			var sqrRadius = _path.pathRadius * _path.pathRadius;
@@ -146,6 +183,9 @@ namespace script.BoidBehavior
 
 			Gizmos.color = _desiredVelocityColor;
 			Gizmos.DrawLine(transform.position, transform.position + _desiredVelocity);
+			
+			Gizmos.color = Color.white;
+			Gizmos.DrawWireSphere(_normalPoint, _minDistanceFromPoint);
 
 			if (!_pathInspector)
 			{

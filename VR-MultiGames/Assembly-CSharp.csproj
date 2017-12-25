@@ -52,7 +52,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\MeleeWeaponTrail\Example\Scripts\LookAtTarget.cs" />
+    <Compile Include="Assets\MeleeWeaponTrail\Example\Scripts\MouseMove.cs" />
+    <Compile Include="Assets\MeleeWeaponTrail\Example\Scripts\SwooshTest.cs" />
+    <Compile Include="Assets\MeleeWeaponTrail\Scripts\Interpolate.cs" />
+    <Compile Include="Assets\MeleeWeaponTrail\Scripts\MeleeWeaponTrail.cs" />
     <Compile Include="Assets\script\Automove.cs" />
+    <Compile Include="Assets\script\BirdSetting.cs" />
     <Compile Include="Assets\script\BoidBehavior\ArrivalBehavior.cs" />
     <Compile Include="Assets\script\BoidBehavior\BoidBehavior.cs" />
     <Compile Include="Assets\script\BoidBehavior\BoidController.cs" />
@@ -77,7 +83,7 @@
     <Compile Include="Assets\script\Character\GameCube.cs" />
     <Compile Include="Assets\script\Character\InteractionHandler.cs" />
     <Compile Include="Assets\script\Character\PlayerInput.cs" />
-    <Compile Include="Assets\script\CheckPoint.cs" />
+    <Compile Include="Assets\script\CheckPointArea.cs" />
     <Compile Include="Assets\script\ControllerScript\Controller.cs" />
     <Compile Include="Assets\script\ControllerScript\PlayerController.cs" />
     <Compile Include="Assets\script\Features\ChangeBallColor.cs" />
@@ -127,7 +133,8 @@
     <Compile Include="Assets\script\PathFinding\PathPoint.cs" />
     <Compile Include="Assets\script\PathFinding\PathPointInspector.cs" />
     <Compile Include="Assets\script\RaycastClick.cs" />
-    <Compile Include="Assets\script\Respawn.cs" />
+    <Compile Include="Assets\script\RespawnArea.cs" />
+    <Compile Include="Assets\script\RespawnSetting.cs" />
     <Compile Include="Assets\script\ShaderEffect\DissolveEffect.cs" />
     <Compile Include="Assets\script\ShaderEffect\FullColorObject.cs" />
     <Compile Include="Assets\script\ShaderEffect\HighlightObject\Glowable.cs" />
@@ -152,6 +159,7 @@
     <Compile Include="Assets\VolumetricLines\Scripts\VolumetricLineVertexData.cs" />
     <Compile Include="Assets\VolumetricLines\Scripts\VolumetricMultiLineBehavior.cs" />
     <None Include="Assets\VolumetricLines\Shaders\_StripShader.cginc" />
+    <None Include="Assets\MeleeWeaponTrail\README.txt" />
     <None Include="Assets\resource\shader\PaintOn.shader" />
     <None Include="Assets\resource\shader\GlowReplace.shader" />
     <None Include="Assets\resource\shader\RollingTransparent.shader" />

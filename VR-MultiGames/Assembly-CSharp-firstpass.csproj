@@ -92,6 +92,7 @@
     <Compile Include="Assets\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\Standard Assets\Utility\WaypointProgressTracker.cs" />
     <None Include="Assets\VolumetricLines\Shaders\_StripShader.cginc" />
+    <None Include="Assets\MeleeWeaponTrail\README.txt" />
     <None Include="Assets\resource\shader\PaintOn.shader" />
     <None Include="Assets\resource\shader\GlowReplace.shader" />
     <None Include="Assets\resource\shader\RollingTransparent.shader" />
