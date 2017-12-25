@@ -13,26 +13,37 @@ public class Laser : MonoBehaviour, IBullet
 	private LayerMask _paintableLayermMask;
 
 	List<Material> materials = new List<Material>();
-	public Renderer[] Renderers
+    private bool init = false;
+
+    public Renderer[] Renderers
 	{
 		get;
 		private set;
 	}
 
-	public void Start(){
-		Renderers = GetComponents<Renderer>();
-		foreach (var renderer in Renderers)
-		{	
-			materials.AddRange(renderer.materials);
-		}	
-	}
-	public void SetSpeed (float laserSpeed)
+	public void Start()
+    {
+        Init();
+    }
+
+    private void Init()
+    {
+        init = true;
+        Renderers = GetComponents<Renderer>();
+        foreach (var renderer in Renderers)
+        {
+            materials.AddRange(renderer.materials);
+        }
+    }
+
+    public void SetSpeed (float laserSpeed)
 	{
 		this.flySpeed = laserSpeed;
 	}
 	public void SetLaserColor (Color laserColor)
 	{
 		this.laserLight.color = laserColor;
+        if (!init) Init();
 		foreach (var mat in materials) {
 			mat.SetColor ("_Color", laserColor);
 		}
@@ -50,8 +61,7 @@ public class Laser : MonoBehaviour, IBullet
 			if (paintable != null)
 			{
 				Ultil.TryShootPaint(transform.position, flyDirection, laserLight.color, 10f);
-
-				LaserPool.GetPool().ReturnAmmo(gameObject);
+                LaserPool.GetPool().ReturnAmmo(gameObject);
 				return;
 			}
 		}

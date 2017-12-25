@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 114788066039793724}
   - component: {fileID: 108552479937175778}
   - component: {fileID: 114867371344999002}
-  - component: {fileID: 136736948999356706}
   - component: {fileID: 54594425681913660}
-  m_Layer: 9
+  - component: {fileID: 136475542745543286}
+  m_Layer: 0
   m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1340984056012898}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.003, y: 1.47, z: -6.69}
+  m_LocalPosition: {x: 95.58504, y: 50.08, z: 326.82904}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children: []
   m_Father: {fileID: 0}
@@ -96,10 +96,10 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
+  m_IsKinematic: 0
+  m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!108 &108552479937175778
 Light:
   m_ObjectHideFlags: 1
@@ -183,16 +183,16 @@ MonoBehaviour:
   _paintableLayermMask:
     serializedVersion: 2
     m_Bits: 256
---- !u!136 &136736948999356706
+--- !u!136 &136475542745543286
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1340984056012898}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 4.2
+  m_Height: 57.8
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 25}

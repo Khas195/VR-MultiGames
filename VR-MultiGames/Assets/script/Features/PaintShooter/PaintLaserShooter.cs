@@ -14,6 +14,8 @@ public class PaintLaserShooter : PaintShooter {
     [SerializeField]
     private GameObject gunObject;
 
+    [SerializeField]
+    private AudioSource audio;
     public Renderer[] Renderers
     {
         get;
@@ -22,6 +24,7 @@ public class PaintLaserShooter : PaintShooter {
     private List<Material> gunMaterials = new List<Material>();
 	void Start () {
 		base.Start ();
+	    audio = this.GetComponent<AudioSource>();
 	    Renderers = gunObject.GetComponents<Renderer>();
 
 	    foreach (var renderer in Renderers)
@@ -42,7 +45,8 @@ public class PaintLaserShooter : PaintShooter {
 		laser.SetSpeed (laserSpeed);
 		laser.SetLaserColor (this.gunColor);
 		laser.SetDirection (lookAtCamera.transform.forward.normalized);
-
+	    audio.clip = SoundsManager.GetInstance().GetClip(ActionInGame.PlayerShootLaser);
+        audio.Play();
 		nextShot = Time.time + fireRate;
 	}
 

@@ -151,6 +151,7 @@
     <Compile Include="Assets\script\GameMaster\GameSettings.cs" />
     <Compile Include="Assets\script\GameMaster\InputReceiver.cs" />
     <Compile Include="Assets\script\GameMaster\LaserPool.cs" />
+    <Compile Include="Assets\script\GameMaster\SoundsManager.cs" />
     <Compile Include="Assets\script\GameMaster\Ultility.cs" />
     <Compile Include="Assets\script\MouseLook.cs" />
     <Compile Include="Assets\script\MovementScript\MockMovement.cs" />
