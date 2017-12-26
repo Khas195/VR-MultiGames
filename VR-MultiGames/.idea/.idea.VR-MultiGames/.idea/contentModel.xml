@@ -177,6 +177,7 @@
             <e p="Portable.cs" t="Include" />
             <e p="PortalCamera.cs" t="Include" />
             <e p="PortalController.cs" t="Include" />
+            <e p="PortalSetting.cs" t="Include" />
             <e p="Sender.cs" t="Include" />
             <e p="SlowlyRotate.cs" t="Include" />
           </e>

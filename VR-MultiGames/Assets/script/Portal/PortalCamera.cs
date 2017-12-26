@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 
 public class PortalCamera : MonoBehaviour
@@ -35,6 +36,18 @@ public class PortalCamera : MonoBehaviour
         }
 
         // setup cameras and textures
+        camera = GetComponent<Camera>();
+        if (camera.targetTexture != null)
+            camera.targetTexture.Release();
+
+        camera.targetTexture = new RenderTexture(portalRenderTexture);
+
+        renderPlane.material = new Material(portalShader);
+        renderPlane.material.mainTexture = camera.targetTexture;
+    }
+
+    public void Init()
+    {
         camera = GetComponent<Camera>();
         if (camera.targetTexture != null)
             camera.targetTexture.Release();

@@ -85,6 +85,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -100,6 +101,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -117,6 +119,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -132,6 +135,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -165,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80cb5a935050694b896900d5891809d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fieldColor: {r: 1, g: 0, b: 0, a: 0}
+  _fieldColor: {r: 0, g: 0, b: 1, a: 0}
 --- !u!114 &114420607269382114
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,6 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   amplitude: 0
+  pivotPos: {x: 0, y: 0, z: 0}
 --- !u!135 &135489769268765544
 SphereCollider:
   m_ObjectHideFlags: 1

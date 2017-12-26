@@ -133,6 +133,7 @@
     <Compile Include="Assets\script\Portal\Portable.cs" />
     <Compile Include="Assets\script\Portal\PortalCamera.cs" />
     <Compile Include="Assets\script\Portal\PortalController.cs" />
+    <Compile Include="Assets\script\Portal\PortalSetting.cs" />
     <Compile Include="Assets\script\Portal\Sender.cs" />
     <Compile Include="Assets\script\Portal\SlowlyRotate.cs" />
     <Compile Include="Assets\script\RaycastClick.cs" />
