@@ -49,7 +49,9 @@ public class ColorSphere : MonoBehaviour {
 		}
 	}
 	public void OnTriggerEnter(Collider other){
-		if (other.gameObject.tag.Equals ("Player")) {
+		if (other.gameObject.tag.Equals ("Player"))
+		{
+		    SoundsManager.GetInstance().PlayClip(ActionInGame.PlayerPassThroughColorSphere, this.transform.position);
 			var gunList = other.GetComponentsInChildren<PaintShooter> ();
 			foreach (var gun in gunList) {
 				gun.SetGunColor (_fieldColor);

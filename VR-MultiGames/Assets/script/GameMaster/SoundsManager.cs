@@ -12,7 +12,9 @@ public enum ActionInGame
     PlayerLandOnTheGround, 
     PlayBounce,
     ControlBoxTrigger,
-    CubeMoving
+    CubeMoving,
+    PlayerPassThroughColorSphere,
+    PlayerPassThroughColorWall
 }
 [Serializable]
 public class ActionToClip

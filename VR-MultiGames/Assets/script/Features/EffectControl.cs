@@ -44,3 +44,4 @@ public class EffectControl : MonoBehaviour, IEffect {
 
 	#endregion
 }
+

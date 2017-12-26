@@ -8,6 +8,8 @@ public class ControlBox : MonoBehaviour
     private AudioSource audio;
     [SerializeField]
     private List<GameCube> slaveCubes = new List<GameCube>();
+
+    private Color curColor = Color.black;
 	// Use this for initialization
 	void Start ()
 	{
@@ -30,6 +32,7 @@ public class ControlBox : MonoBehaviour
 	    if (finished)
 	    {
 	        GetComponent<Glowable>().StopGlow();
+	        curColor = Color.black;
 	    }
 	}
 
@@ -37,6 +40,8 @@ public class ControlBox : MonoBehaviour
     {
 
         SoundsManager.GetInstance().PlayClip(audio, ActionInGame.ControlBoxTrigger);
+        if (color == curColor) return;
+        curColor = color;
         GetComponent<Glowable>().GlowColor = color;
         GetComponent<Glowable>().Glow();
         foreach (var c in slaveCubes)
