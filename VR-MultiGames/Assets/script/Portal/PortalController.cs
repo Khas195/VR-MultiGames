@@ -11,7 +11,17 @@ namespace script.Portal
 
 		[SerializeField] 
 		private List<GameObject> _portalFrame;
-		
+
+		[SerializeField] 
+		private GameObject _portalControl;
+
+		private bool _isEnable = false;
+
+		private void Awake()
+		{
+			_isEnable = _portalControl.activeSelf;
+		}
+
 		private void Start()
 		{
 			foreach (var frame in _portalFrame)
@@ -43,8 +53,20 @@ namespace script.Portal
 
 		public void TriggerBox(Color color)
 		{
-			var glowable = _paintReceiver.GetComponent<Glowable>();
-			glowable.Glow();
+			foreach (var frame in _portalFrame)
+			{
+				var glowable = frame.GetComponent<Glowable>();
+				
+				if(!glowable) continue;
+
+				glowable.GlowColor = color;
+				glowable.Glow();
+			}
+		}
+
+		public void SetEnable(bool enable)
+		{
+			
 		}
 	}
 }

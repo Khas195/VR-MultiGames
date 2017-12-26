@@ -14,11 +14,8 @@ public class BirdSetting : MonoBehaviour
 
 	private int _curPathIndex = 0;
 
-	public void UpdateCurrentPath(int pathIndex)
+	private void Start()
 	{
-		if (_pathList.Count == 0) return;
-		if(pathIndex < 0 || pathIndex >= _pathList.Count) return;
-		if(_curPathIndex == pathIndex) return;
 		
 		foreach (var bird in _birdFlock)
 		{
@@ -26,7 +23,25 @@ public class BirdSetting : MonoBehaviour
 			
 			if(!pathFollow) continue;
 
-			pathFollow.path = _pathList[pathIndex].path;
+			pathFollow.path = _pathList[_curPathIndex].path;
+		}
+	}
+
+	public void UpdateCurrentPath(int pathIndex)
+	{
+		Debug.Log("Update path " + pathIndex);
+		if (_pathList.Count == 0) return;
+		if(pathIndex < 0 || pathIndex >= _pathList.Count) return;
+		if(_curPathIndex == pathIndex) return;
+
+		_curPathIndex = pathIndex;
+		foreach (var bird in _birdFlock)
+		{
+			var pathFollow = bird.GetComponent<PathFollowBehavior>();
+			
+			if(!pathFollow) continue;
+
+			pathFollow.path = _pathList[_curPathIndex].path;
 		}
 	}
 }

@@ -28,8 +28,8 @@ namespace script
 				{
 					RespawnSetting.respawnPoint = _point;
 				}
-				
 				_onCheckPointEnter.Invoke();
+				
 			}
 		}
 
