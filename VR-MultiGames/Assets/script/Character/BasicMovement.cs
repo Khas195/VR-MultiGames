@@ -20,6 +20,11 @@ public class BasicMovement : MonoBehaviour {
     {
         if (other.gameObject.tag.Equals("Platform"))
         {
+	        if (transform.parent != null)
+	        {
+		        transform.parent = null;
+	        }
+	        
             this.transform.parent = other.gameObject.transform;
         }
     }

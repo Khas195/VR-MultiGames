@@ -61,6 +61,7 @@
     <Compile Include="Assets\script\Editor\SerializableDictionary\SerializableDictionaryImplementations.cs" />
     <Compile Include="Assets\script\Editor\SerializableDictionary\SerializedPropertyExtension.cs" />
     <None Include="Assets\VolumetricLines\Shaders\_StripShader.cginc" />
+    <None Include="Assets\resource\PortalPlane.shader" />
     <None Include="Assets\MeleeWeaponTrail\README.txt" />
     <None Include="Assets\resource\shader\PaintOn.shader" />
     <None Include="Assets\resource\shader\GlowReplace.shader" />
@@ -68,6 +69,7 @@
     <None Include="Assets\VolumetricLines\Shaders\Additive.shader" />
     <None Include="Assets\VolumetricLines\Shaders\AlphaBlended.shader" />
     <None Include="Assets\resource\fbx\readme.txt" />
+    <None Include="Assets\resource\PortalShader.shader" />
     <None Include="Assets\resource\shader\GlowShader.shader" />
     <None Include="Assets\resource\material\readme.txt" />
     <None Include="Assets\resource\shader\Silhouette.shader" />
@@ -80,7 +82,7 @@
     <None Include="Assets\VolumetricLines\Shaders\Strip-AlphaBlended.shader" />
     <None Include="Assets\resource\shader\Barrier.shader" />
     <None Include="Assets\VolumetricLines\Shaders\Fast-Additive.shader" />
-    <None Include="Assets\Normal-Parallax.shader" />
+    <None Include="Assets\resource\Normal-Parallax.shader" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\VolumetricLines\Shaders\_SimpleShader.cginc" />
     <None Include="Assets\resource\shader\Blur.shader" />

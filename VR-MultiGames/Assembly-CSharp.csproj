@@ -52,9 +52,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\MeleeWeaponTrail\Example\Scripts\LookAtTarget.cs" />
-    <Compile Include="Assets\MeleeWeaponTrail\Example\Scripts\MouseMove.cs" />
-    <Compile Include="Assets\MeleeWeaponTrail\Example\Scripts\SwooshTest.cs" />
     <Compile Include="Assets\MeleeWeaponTrail\Scripts\Interpolate.cs" />
     <Compile Include="Assets\MeleeWeaponTrail\Scripts\MeleeWeaponTrail.cs" />
     <Compile Include="Assets\script\Automove.cs" />
@@ -132,6 +129,11 @@
     <Compile Include="Assets\script\PathFinding\PathInspector.cs" />
     <Compile Include="Assets\script\PathFinding\PathPoint.cs" />
     <Compile Include="Assets\script\PathFinding\PathPointInspector.cs" />
+    <Compile Include="Assets\script\Portal\Portable.cs" />
+    <Compile Include="Assets\script\Portal\PortalCamera.cs" />
+    <Compile Include="Assets\script\Portal\PortalController.cs" />
+    <Compile Include="Assets\script\Portal\Sender.cs" />
+    <Compile Include="Assets\script\Portal\SlowlyRotate.cs" />
     <Compile Include="Assets\script\RaycastClick.cs" />
     <Compile Include="Assets\script\RespawnArea.cs" />
     <Compile Include="Assets\script\RespawnSetting.cs" />
@@ -159,6 +161,7 @@
     <Compile Include="Assets\VolumetricLines\Scripts\VolumetricLineVertexData.cs" />
     <Compile Include="Assets\VolumetricLines\Scripts\VolumetricMultiLineBehavior.cs" />
     <None Include="Assets\VolumetricLines\Shaders\_StripShader.cginc" />
+    <None Include="Assets\resource\PortalPlane.shader" />
     <None Include="Assets\MeleeWeaponTrail\README.txt" />
     <None Include="Assets\resource\shader\PaintOn.shader" />
     <None Include="Assets\resource\shader\GlowReplace.shader" />
@@ -166,6 +169,7 @@
     <None Include="Assets\VolumetricLines\Shaders\Additive.shader" />
     <None Include="Assets\VolumetricLines\Shaders\AlphaBlended.shader" />
     <None Include="Assets\resource\fbx\readme.txt" />
+    <None Include="Assets\resource\PortalShader.shader" />
     <None Include="Assets\resource\shader\GlowShader.shader" />
     <None Include="Assets\resource\material\readme.txt" />
     <None Include="Assets\resource\shader\Silhouette.shader" />
@@ -178,7 +182,7 @@
     <None Include="Assets\VolumetricLines\Shaders\Strip-AlphaBlended.shader" />
     <None Include="Assets\resource\shader\Barrier.shader" />
     <None Include="Assets\VolumetricLines\Shaders\Fast-Additive.shader" />
-    <None Include="Assets\Normal-Parallax.shader" />
+    <None Include="Assets\resource\Normal-Parallax.shader" />
     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
     <None Include="Assets\VolumetricLines\Shaders\_SimpleShader.cginc" />
     <None Include="Assets\resource\shader\Blur.shader" />
